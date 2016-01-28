@@ -1,0 +1,29 @@
+{
+  "name": "staticblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.babel.js",
+  "devDependencies": {
+    "babel-core": "^5.0.0",
+    "del": "^2.2.0",
+    "fg-loadcss": "^0.2.4",
+    "glob": "^6.0.1",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-foreach": "^0.1.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-mustache": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1",
+    "highlight.js": "^9.0.0",
+    "marked": "^0.3.5",
+    "merge-stream": "^1.0.0",
+    "yamljs": "^0.2.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Roes <mail@timroes.de>",
+  "license": "Apache-2.0"
+}
