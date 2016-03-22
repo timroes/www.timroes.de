@@ -1,0 +1,9 @@
+<h1>{{post.meta.title}}</h1>
+
+{{{post.content}}}
+
+<div class="authors">
+	{{#each post.meta.authors}}
+		{{>author (lookup ../authors @this)}}
+	{{/each}}
+</div>

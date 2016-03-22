@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{#if type_post}}{{post.meta.title}} &raquo; {{/if}} Tim Roes</title>
+	<meta name="viewport" content="width=device-width">
+	{{#if canonical}}<link rel="canonical" href="{{canonical}}">{{/if}}
+
+	<script>/*inject:inline*/</script>
+</head>
+<body>
+
+	<header role="banner">
+		<h1>Tims Blog</h1>
+	</header>
+
+	{{#if type_index}}
+		{{> home}}
+	{{/if}}
+
+	{{#if type_post}}
+		{{> post}}
+	{{/if}}
+
+	<link rel="stylesheet" href="/main.min.css">
+</body>
+</html>

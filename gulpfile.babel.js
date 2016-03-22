@@ -1,68 +1,55 @@
+import fs from 'fs';
 import gulp from 'gulp';
 import yaml from 'yamljs';
-import del from 'del';
-import merge from 'merge-stream';
-import glob from 'glob';
-import path from 'path';
-import * as posts from './gulp/posts';
 
-const _ = require('gulp-load-plugins')();
+import paths from './gulp/paths';
+import pipelines from './gulp/pipelines';
 
-const build = 'build/';
+const gulpPlugins = require('gulp-load-plugins')();
 
-const content = {
-	posts: 'content/posts/*.md'
+const watchers = [];
+const watch = (...args) => {
+	watchers.push(args);
 };
 
-const src = {
-	index: 'src/templates/index.mustache',
-	templates: 'src/templates/**/*.mustache',
-	scripts: {
-		inline: 'src/scripts/inline/**/*.js'
+const depsBuild = [];
+const depsDev = ['watch', 'build'];
+
+/*
+ Load all tasks from the ./gulp/tasks folder.
+ They all need to export a function that takes the following parameters:
+
+ * gulp -> the gulp instance to use
+ * paths -> the object of paths to use
+ * gulpPlugins -> an object of auto loaded gulp plugins
+ * watch -> a watch function that you must use to add watches (same syntax as gulp.watch)
+
+ Each function can return an object that can contain a build and/or dev key, which has
+ a task name as a value. This task will be added as a dependency to the build or dev
+ task respectively.
+ */
+const taskFolder = './gulp/tasks';
+fs.readdirSync(taskFolder).forEach(function(file) {
+	const deps = require(`${taskFolder}/${file}`)(gulp, paths, gulpPlugins, watch, pipelines) || {};
+	if (deps.build) {
+		depsBuild.push(deps.build);
 	}
-};
-
-gulp.task('posts', () => {
-
-	const postStreams = posts.getAll().map(function(post) {
-		return gulp.src(src.index)
-			.pipe(_.mustache({
-				is_post: true,
-				content: posts.render(post.content),
-				...post.meta
-			}))
-			.pipe(_.minifyHtml())
-			.pipe(_.rename(post.url));
-	});
-
-	return merge(...postStreams)
-		.pipe(gulp.dest(build))
-		.pipe(_.connect.reload());
-
+	if (deps.dev) {
+		depsDev.push(deps.dev);
+	}
 });
 
-gulp.task('styles', () => {
-
-});
-
-gulp.task('clean', () => {
-	return del(build);
-});
-
+/**
+ * Task to watch all fils, that different tasks added to the watcher list.
+ */
 gulp.task('watch', () => {
-	gulp.watch(content.posts, ['posts']);
-	gulp.watch(src.templates, ['posts']);
-});
-
-gulp.task('serve', () => {
-	_.connect.server({
-		root: build,
-		livereload: true
+	watchers.forEach((watcher) => {
+		gulp.watch(...watcher);
 	});
 });
 
-gulp.task('build', ['posts', 'styles']);
+gulp.task('build', depsBuild);
 
-gulp.task('dev', ['build', 'watch', 'serve']);
+gulp.task('dev', depsDev);
 
 gulp.task('default', ['build']);
