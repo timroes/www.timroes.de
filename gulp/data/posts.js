@@ -4,6 +4,7 @@ import yaml from 'yamljs';
 import path from 'path';
 import moment from 'moment';
 import paths from '../paths';
+import gutil from 'gulp-util';
 
 export default function () {
 
@@ -35,6 +36,9 @@ export default function () {
 			markup: parts[2].trim()
 		};
 
+	}).filter(post => {
+		// Filter out draft articles if --production was specified when running gulp
+		return post.meta.status !== 'draft' || gutil.env.production === undefined;
 	}).sort(function(a, b) {
 		return b.created - a.created;
 	});
