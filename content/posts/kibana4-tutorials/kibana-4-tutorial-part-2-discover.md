@@ -44,6 +44,8 @@ function TagcloudProvider(Private) {
 require('ui/registry/vis_types').register(TagcloudProvider);
 ```
 
+A last chapter
+--------------
 
 ```
 function test() {
