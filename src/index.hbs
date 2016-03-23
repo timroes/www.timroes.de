@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width">
 	{{#if canonical}}<link rel="canonical" href="{{canonical}}">{{/if}}
 
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+
 	<script>/*inject:inline*/</script>
 </head>
 <body>
@@ -14,13 +16,17 @@
 		<h1>Tims Blog</h1>
 	</header>
 
-	{{#if type_index}}
-		{{> home}}
-	{{/if}}
+	<main>
 
-	{{#if type_post}}
-		{{> post}}
-	{{/if}}
+		{{#if type_index}}
+			{{~> home}}
+		{{/if}}
+
+		{{#if type_post}}
+			{{~> post}}
+		{{/if}}
+
+	</main>
 
 	<link rel="stylesheet" href="/main.min.css">
 	<link rel="stylesheet" href="/icons/css/fontello.css">

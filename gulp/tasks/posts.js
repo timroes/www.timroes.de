@@ -17,9 +17,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 			data.post.content = render(post.markup);
 
 			return gulp.src(paths.sources.index)
-				.pipe(_.compileHandlebars(data, {
-					batch: paths.sources.templatePath
-				}))
+				.pipe(pipelines.handlebars(data))
 				.pipe(_.rename(post.url + '/index.html'))
 				.pipe(pipelines.html());
 		});

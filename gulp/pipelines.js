@@ -5,6 +5,8 @@
  */
 import gulp from 'gulp';
 import lazypipe from 'lazypipe';
+import paths from './paths';
+import helpers from './handlebarHelpers';
 
 const _ = require('gulp-load-plugins')();
 
@@ -15,6 +17,15 @@ const html = lazypipe()
 			removeComments: true
 		});
 
+const handlebars = function(data) {
+	return lazypipe()
+		.pipe(_.compileHandlebars, data, {
+			batch: paths.sources.templatePath,
+			helpers: helpers
+		})();
+};
+
 export default {
+	handlebars,
 	html
 };

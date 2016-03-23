@@ -9,7 +9,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 		};
 
 		return gulp.src(paths.sources.index)
-			.pipe(_.compileHandlebars(data))
+			.pipe(pipelines.handlebars(data))
 			.pipe(pipelines.html())
 			.pipe(_.rename({
 				extname: '.html'

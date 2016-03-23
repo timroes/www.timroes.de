@@ -1,9 +1,14 @@
-<h1>{{post.meta.title}}</h1>
+<article>
+	<h1>{{post.meta.title}}</h1>
+	<div class="postmeta">
+		<time datetime="{{post.meta.created}}"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
+	</div>
 
-{{{post.content}}}
+	{{{post.content}}}
 
-<div class="authors">
-	{{#each post.meta.authors}}
-		{{>author (lookup ../authors @this)}}
-	{{/each}}
-</div>
+	<div class="authors">
+		{{#each post.meta.authors as |author|}}
+			{{>author (lookup ../authors @this) id=author}}
+		{{/each}}
+	</div>
+</article>

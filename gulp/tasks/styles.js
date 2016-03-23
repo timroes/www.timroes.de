@@ -1,8 +1,12 @@
+import npmImportPlugin from 'less-plugin-npm-import';
+
 export default function(gulp, paths, _, watch) {
 
 	gulp.task('styles', () => {
 		return gulp.src(paths.sources.styles)
-			.pipe(_.sass().on('error', _.sass.logError))
+			.pipe(_.less({
+				plugins: [ new npmImportPlugin({ prefix: '~' }) ]
+			}))
 			.pipe(_.cleanCss())
 			.pipe(_.rename({
 				extname: '.min.css'
@@ -11,7 +15,7 @@ export default function(gulp, paths, _, watch) {
 			.pipe(_.connect.reload());
 	});
 
-	watch(`${paths.sources.styles}`, ['styles']);
+	watch(paths.sources.stylesAll, ['styles']);
 
 	return {
 		build: 'styles'
