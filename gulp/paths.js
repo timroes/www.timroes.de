@@ -8,7 +8,8 @@ export default {
 		templatePath: `${src}/templates/`,
 		templates: `${src}/templates/*.hbs`,
 		index: `${src}/index.hbs`,
-		styles: `${src}/styles/*.scss`
+		styles: `${src}/styles/[^_]*.less`,
+		stylesAll: `${src}/styles/**/*.less`
 	},
 	build,
 	content: {

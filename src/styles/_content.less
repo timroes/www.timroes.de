@@ -1,0 +1,27 @@
+h1, h2, h3, h4, h5, h6 {
+	color: #666;
+	font-weight: 300;
+	position: relative;
+}
+
+h1:hover .anchorlink,
+h2:hover .anchorlink,
+h3:hover .anchorlink,
+h4:hover .anchorlink,
+h5:hover .anchorlink,
+h6:hover .anchorlink {
+	opacity: 1;
+}
+
+.anchorlink {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	color: #999;
+	position: absolute;
+	left: 0;
+	margin-left: -1.5rem;
+	text-decoration: none;
+}
+.anchorlink::before {
+	content: '#';
+}
