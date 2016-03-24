@@ -1,6 +1,6 @@
 <!--
 title: Kibana 4 Tutorial - Part 2: Discover
-created: 2015-12-23T11:30:00
+created: 2015-02-07T11:30:00
 authors:
   - timroes
   - annaroes
