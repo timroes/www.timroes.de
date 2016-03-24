@@ -13,6 +13,12 @@ const _ = require('gulp-load-plugins')();
 
 // The pipeline used to optimize HTML.
 const html = lazypipe()
+		.pipe(_.hashSrc, {
+			src_path: paths.src,
+			build_dir: paths.build,
+			query_name: '',
+			hash_len: 6
+		})
 		.pipe(_.htmlmin, {
 			collapseWhitespace: true,
 			removeComments: true
