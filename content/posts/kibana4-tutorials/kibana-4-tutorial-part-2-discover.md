@@ -13,6 +13,8 @@ need access to data from Elasticsearch. In this part we will write another plugi
 that uses aggregations (like most of the visualizations) to access data from
 Elasticsearch.
 
+![Kibana 4 Discover Tab](/images/kibana4-tutorials/discover-unfiltered.png)
+
 Another chapter
 ---------------
 
