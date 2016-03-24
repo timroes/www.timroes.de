@@ -2,13 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>{{#if type_post}}{{post.meta.title}} &raquo; {{/if}} Tim Roes</title>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width">
+	<meta name="theme-color" content="{{config.blog.theme_color}}">
+
+	<title>{{#if type_post}}{{post.meta.title}} &raquo; {{/if}} Tim Roes</title>
 	{{#if canonical}}<link rel="canonical" href="{{canonical}}">{{/if}}
 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 
-	<script>/*inject:inline*/</script>
+	<!-- TODO: favicons/touch icons -->
+	<!-- TODO: RSS Feed -->
+
+	{{> socialMedia}}
 </head>
 <body>
 
@@ -30,5 +36,7 @@
 
 	<link rel="stylesheet" href="/main.min.css">
 	<link rel="stylesheet" href="/icons/css/fontello.css">
+
+	<!-- TODO: Cookieconsent -->
 </body>
 </html>
