@@ -7,6 +7,7 @@ import gulp from 'gulp';
 import lazypipe from 'lazypipe';
 import paths from './paths';
 import helpers from './handlebarHelpers';
+import config from './data/config';
 
 const _ = require('gulp-load-plugins')();
 
@@ -15,9 +16,11 @@ const html = lazypipe()
 		.pipe(_.htmlmin, {
 			collapseWhitespace: true,
 			removeComments: true
-		});
+		})
+		.pipe(_.minifyInline);
 
 const handlebars = function(data) {
+	data.config = config();
 	return lazypipe()
 		.pipe(_.compileHandlebars, data, {
 			batch: paths.sources.templatePath,

@@ -13,6 +13,7 @@ export default {
 	},
 	build,
 	content: {
+		config: `${content}/config/*.yml`,
 		authors: `${content}/authors/*.yml`,
 		posts: `${content}/posts/**/*.md`
 	}

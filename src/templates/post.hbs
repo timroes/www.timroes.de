@@ -12,3 +12,19 @@
 		{{/each}}
 	</div>
 </article>
+
+<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = '{{config.blog.url}}/{{post.url}}/';
+	};
+
+	(function() {
+		var d = document, s = d.createElement('script');
+		s.src = '//timroes.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+</script>
+
+<script id="dsq-count-scr" src="//timroes.disqus.com/count.js" async></script>
