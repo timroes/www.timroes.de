@@ -1,32 +1,50 @@
-h1, h2, h3, h4, h5, h6 {
-	color: #666;
-	font-weight: 300;
-	position: relative;
-}
+article {
+	h1, h2, h3, h4, h5, h6 {
+		color: #666;
+		font-weight: 300;
+		position: relative;
+	}
 
-h1:hover .anchorlink,
-h2:hover .anchorlink,
-h3:hover .anchorlink,
-h4:hover .anchorlink,
-h5:hover .anchorlink,
-h6:hover .anchorlink {
-	opacity: 1;
-}
+	h1:hover .anchorlink,
+	h2:hover .anchorlink,
+	h3:hover .anchorlink,
+	h4:hover .anchorlink,
+	h5:hover .anchorlink,
+	h6:hover .anchorlink {
+		opacity: 1;
+	}
 
-.anchorlink {
-	opacity: 0;
-	transition: opacity 0.3s ease;
-	color: #999;
-	position: absolute;
-	left: 0;
-	margin-left: -1.5rem;
-	text-decoration: none;
-}
-.anchorlink::before {
-	content: '#';
-}
+	.anchorlink {
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		color: #999;
+		position: absolute;
+		left: 0;
+		margin-left: -1.5rem;
+		text-decoration: none;
+		border: none;
+	}
+	.anchorlink::before {
+		content: '#';
+	}
 
-img {
-	max-width: 100%;
-	background-color: #DDD;
+	img {
+		max-width: 100%;
+		background-color: #DDD;
+	}
+
+	ul {
+		list-style: circle;
+	}
+
+	a {
+		color: inherit;
+		border-bottom: 1px dotted;
+		text-decoration: none;
+		transition: color @fade-time ease;
+
+		&:hover, &:focus {
+			color: @accent-color;
+		}
+	}
 }
