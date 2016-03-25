@@ -1,26 +1,26 @@
-import posts from '../data/posts';
+import pages from '../data/pages';
 import render from '../render';
 import merge from 'merge-stream';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
-	gulp.task('posts', () => {
-		const postStreams = posts().map(post => {
+	gulp.task('pages', () => {
+		const pageStreams = pages().map(page => {
 			const data = {
-				post: post,
-				type_post: true
+				page: page,
+				type_page: true
 			};
 
 			// Render markup to HTML and add to data
-			data.post.content = render(post.markup);
+			data.page.content = render(page.markup);
 
 			return gulp.src(paths.sources.index)
 				.pipe(pipelines.handlebars(data))
-				.pipe(_.rename(post.url + '/index.html'))
+				.pipe(_.rename(page.url + '/index.html'))
 				.pipe(pipelines.html());
 		});
 
-		return merge(...postStreams)
+		return merge(...pageStreams)
 			.pipe(gulp.dest(paths.build))
 			.pipe(_.connect.reload());
 	});
@@ -28,12 +28,11 @@ export default function(gulp, paths, _, watch, pipelines) {
 	watch([
 		paths.sources.index,
 		paths.sources.templates,
-		paths.content.posts,
-		paths.content.authors
-	], ['posts']);
+		paths.content.pages
+	], ['pages']);
 
 	return {
-		build: 'posts'
+		build: 'pages'
 	};
 
 }

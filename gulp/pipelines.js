@@ -9,6 +9,7 @@ import paths from './paths';
 import helpers from './handlebarHelpers';
 import config from './data/config';
 import authors from './data/authors';
+import pages from './data/pages';
 
 const _ = require('gulp-load-plugins')();
 
@@ -28,7 +29,10 @@ const html = lazypipe()
 
 const handlebars = function(data) {
 	data.config = config();
-	data.blogAuthor = authors()[data.config.blog.author];
+	data.authors = authors();
+	data.pages = pages();
+	data.blogAuthor = data.authors[data.config.blog.author];
+	data.blogAuthor.id = data.config.blog.author;
 	return lazypipe()
 		.pipe(_.compileHandlebars, data, {
 			batch: paths.sources.templatePath,

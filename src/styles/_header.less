@@ -1,0 +1,42 @@
+header {
+	display: flex;
+	align-items: center;
+	max-width: @page-max-width;
+	margin: 0.5em auto;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	img {
+		flex: 0 0 20px;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		margin-right: 0.8em;
+	}
+
+	.header-navigation {
+	}
+
+	.header-home-link {
+		text-transform: uppercase;
+		font-weight: bold;
+		color: @accent-color;
+		font-size: 1.4em;
+	}
+
+	.header-page-navigation {
+		color: @gray-text;
+
+		a {
+			text-transform: capitalize;
+			transition: color @fade-time ease;
+
+			&:hover, &:focus {
+				color: @dark-gray-text;
+			}
+		}
+	}
+}

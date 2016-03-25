@@ -19,10 +19,23 @@
 <body>
 
 	<header role="banner">
-		<h1>Tims Blog</h1>
+		<img src="/avatars/{{blogAuthor.id}}-large.jpg" alt="Tim Roes">
+		<div class="header-navigation">
+			<a href="/" class="header-home-link" rel="home">{{blogAuthor.name}}</a>
+			<div class="header-page-navigation">
+				{{#each pages}}
+					<a href="/{{this.url}}">{{this.title}}</a>
+					{{#unless @last}}&#8226;{{/unless}}
+				{{/each}}
+			</div>
+		</div>
 	</header>
 
 	<main>
+
+		{{#if type_page}}
+			{{~> page}}
+		{{/if}}
 
 		{{#if type_index}}
 			{{~> home}}
