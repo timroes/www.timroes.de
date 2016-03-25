@@ -5,6 +5,7 @@ import path from 'path';
 import moment from 'moment';
 import paths from '../paths';
 import gutil from 'gulp-util';
+import config from './config';
 
 export default function () {
 
@@ -25,12 +26,14 @@ export default function () {
 		}
 
 		const date = moment(meta.created);
-		const slug = path.basename(file, '.md');
-		const url = path.join(date.format("YYYY/MM/DD"), slug);
+		const id = path.basename(file, '.md');
+		const url = path.join(date.format("YYYY/MM/DD"), id);
+		const canonical = `${config().blog.url}/${url}/`;
 
 		return {
+			canonical: canonical,
 			url: url,
-			slug: slug,
+			id: id,
 			created: date,
 			meta: meta,
 			markup: parts[2].trim()

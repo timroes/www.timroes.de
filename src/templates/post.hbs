@@ -8,6 +8,17 @@
 
 </article>
 
+<div class="postbottom">
+	<a href="#disqus_thread"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{config.blog.url}}/{{post.url}}/"></span></a>
+
+	<div class="postsocials">
+		<span class="postsocials-label">Share on</span>
+		<a href="https://plus.google.com/share?url={{encode post.canonical}}" target="_blank" title="Share on Google+"><i class="icon-gplus"></i></a>
+		<a href="https://twitter.com/share?via={{blogAuthor.twitter}}&url={{encode post.canonical}}&text={{encode post.meta.title}}" target="_blank" title="Share on Twitter"><i class="icon-twitter"></i></a>
+		<a href="https://www.facebook.com/sharer/sharer.php?u={{encode post.canonical}}" target="_blank" title="Share on Facebook"><i class="icon-facebook"></i></a>
+	</div>
+</div>
+
 <div class="authors">
 	{{#each post.meta.authors as |author|}}
 		{{>author (lookup ../authors @this) id=author}}
@@ -17,7 +28,7 @@
 <div id="disqus_thread" class="comments"></div>
 <script>
 	var disqus_config = function () {
-		this.page.url = '{{config.blog.url}}/{{post.url}}/';
+		this.page.url = '{{post.canonical}}';
 	};
 
 	(function() {
