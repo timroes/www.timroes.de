@@ -8,6 +8,7 @@ export default function(gulp, paths, _, watch) {
 				plugins: [ new npmImportPlugin({ prefix: '~' }) ]
 			}))
 			.pipe(_.cleanCss())
+			.pipe(_.combineMq())
 			.pipe(_.rename({
 				extname: '.min.css'
 			}))

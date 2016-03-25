@@ -6,12 +6,13 @@
 
 	{{{post.content}}}
 
-	<div class="authors">
-		{{#each post.meta.authors as |author|}}
-			{{>author (lookup ../authors @this) id=author}}
-		{{/each}}
-	</div>
 </article>
+
+<div class="authors">
+	{{#each post.meta.authors as |author|}}
+		{{>author (lookup ../authors @this) id=author}}
+	{{/each}}
+</div>
 
 <div id="disqus_thread" class="comments"></div>
 <script>
