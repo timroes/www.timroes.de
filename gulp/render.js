@@ -28,8 +28,9 @@ renderer.code = function(code, lang, escaped) {
 renderer.heading = function(text, level, raw) {
 	const id = this.options.headerPrefix + raw.toLowerCase().replace(/[^\w]+/g, '-');
 	return `<h${level} id="${id}">
-			<a class="anchorlink" href="#${id}"></a>
+			<a class="anchorlink" href="#${id}">
 			${text}
+			</a>
 		</h${level}>`;
 };
 

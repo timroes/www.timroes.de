@@ -3,7 +3,7 @@ import gravatar from 'gravatar';
 
 const sizes = [
 	{ size: 80, suffix: ''},
-	{ size: 400, suffix: '-large'}
+	{ size: 150, suffix: '-large'}
 ];
 
 export default function(gulp, paths, _) {

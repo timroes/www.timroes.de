@@ -1,0 +1,36 @@
+.home {
+	header {
+		justify-content: center;
+		flex-wrap: wrap;
+
+		img {
+			flex: 0 0 150px;
+			height: auto;
+			margin: 0;
+		}
+
+		.header-navigation {
+			text-align: center;
+			flex: 1 1 100%;
+			margin: 1em;
+		}
+
+		.header-page-navigation {
+			margin-top: 1em;
+		}
+
+		.header-socials {
+
+			a {
+				color: @gray-text;
+				font-size: 1.8em;
+				transition: color @fade-time ease;
+
+				&:focus, &:hover {
+					color: @dark-gray-text;
+				}
+			}
+
+		}
+	}
+}

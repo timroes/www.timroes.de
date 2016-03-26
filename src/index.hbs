@@ -14,9 +14,9 @@
 	<!-- TODO: favicons/touch icons -->
 	<!-- TODO: RSS Feed -->
 
-	{{> socialMedia}}
+	{{> socialMediaHeaders}}
 </head>
-<body>
+<body {{#if type_index}}class="home"{{/if}}>
 
 	<header role="banner">
 		<img src="/avatars/{{blogAuthor.id}}-large.jpg" alt="Tim Roes">
@@ -28,6 +28,12 @@
 					{{#unless @last}}&#8226;{{/unless}}
 				{{/each}}
 			</div>
+		</div>
+
+		<div class="header-socials">
+			{{#if type_index}}
+				{{> socialLinks blogAuthor}}
+			{{/if}}
 		</div>
 	</header>
 

@@ -1,5 +1,6 @@
 <!--
 title: Kibana 4 Tutorial - Part 2: Discover
+image: /kibana4-tutorials/kibana-plugin-banner.png
 created: 2015-02-07T11:30:00
 authors:
   - timroes

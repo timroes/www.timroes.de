@@ -1,5 +1,8 @@
 <ul>
 	{{#each posts}}
-		<li><a href="{{this.url}}">{{this.meta.title}}</a></li>
+		<li>
+			<a href="{{this.url}}">{{this.meta.title}}</a>
+			<img src="/images{{this.meta.image}}">
+		</li>
 	{{/each}}
 </ul>

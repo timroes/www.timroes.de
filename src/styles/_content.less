@@ -5,27 +5,30 @@ article {
 		position: relative;
 	}
 
-	h1:hover .anchorlink,
-	h2:hover .anchorlink,
-	h3:hover .anchorlink,
-	h4:hover .anchorlink,
-	h5:hover .anchorlink,
-	h6:hover .anchorlink {
+	.anchorlink:hover::before {
 		opacity: 1;
 	}
 
 	.anchorlink {
-		opacity: 0;
 		transition: opacity 0.3s ease;
 		color: #999;
-		position: absolute;
-		left: 0;
-		margin-left: -1.5rem;
 		text-decoration: none;
 		border: none;
+		transition: color @fade-time ease;
 	}
+
 	.anchorlink::before {
+		position: absolute;
+		margin-left: -0.8em;
 		content: '#';
+		opacity: 0;
+		transition: opacity @fade-time ease;
+	}
+
+	@media @fullwidth {
+		.anchorlink::before {
+			display: none;
+		}
 	}
 
 	img {
