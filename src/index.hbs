@@ -27,8 +27,10 @@
 			{{/if}}
 			<div class="header-page-navigation">
 				{{#each pages}}
-					<a href="/{{this.url}}">{{this.title}}</a>
-					{{#unless @last}}&#8226;{{/unless}}
+					{{#unless this.hidden}}
+						<a href="/{{this.url}}">{{this.title}}</a>
+						{{#unless @last}}&#8226;{{/unless}}
+					{{/unless}}
 				{{/each}}
 			</div>
 		</div>

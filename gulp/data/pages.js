@@ -10,7 +10,11 @@ export default function () {
 	return glob.sync(paths.content.pages).map(function(file) {
 		const page = fs.readFileSync(file.toString(), 'utf8');
 
-		const id = path.basename(file, '.md');
+		let id = path.basename(file, '.md');
+		const hidden = id.indexOf('.') === 0;
+		if (hidden) {
+			id = id.substring(1);
+		}
 		const url = id;
 		const canonical = `${config().blog.url}/${url}/`;
 
@@ -19,7 +23,8 @@ export default function () {
 			url: url,
 			id: id,
 			markup: page,
-			title: _.lowerCase(id)
+			title: _.lowerCase(id),
+			hidden: hidden
 		};
 
 	});
