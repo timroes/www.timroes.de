@@ -8,11 +8,15 @@ authors:
 status: draft
 -->
 
-In the previous part of this tutorial series (which is a required must-read
+A link to [another post](post:foobar2). In the previous part of this tutorial series (which is a required must-read
 for this part) you’ve [learned](https://www.google.de) to create a simple visualization, that doesn’t
 need access to data from `Elasticsearch`. In this part we will write another plugin,
 that uses aggregations (like most of the visualizations) to access data from
 Elasticsearch.
+
+[Angular ES6 Sample](github:timroes/angular-es6-sample)
+
+Another test foo bar asdjasdo asdasda sdjoa sda sdo asd asd asdja sdasda sdasd.
 
 ![Kibana 4 Discover Tab](/images/kibana4-tutorials/discover-unfiltered.png)
 

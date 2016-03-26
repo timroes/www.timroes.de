@@ -1,0 +1,17 @@
+.medialink-github {
+	background-color: #999;
+	border: none;
+	padding: 0.35em 1em;
+	transition: background-color @fade-time ease;
+	border-radius: 1.6em;
+	color: white;
+
+	&::before {
+		margin-right: .5em !important;
+	}
+
+	&:hover, &:focus {
+		color: white;
+		background-color: @accent-color;
+	}
+}
