@@ -19,6 +19,21 @@
 	</div>
 </div>
 
+{{!-- Show other posts of this post series --}}
+{{#if post.series}}
+	<div class="serieslinks">
+		<div class="serieslinks-label">Read more &hellip;</div>
+		{{#each post.series as |related|}}
+			{{#notequals related.id ../post.id}}
+				<a href="{{related.url}}" class="serieslink">
+					{{related.meta.title}}
+					<div class="serieslink-date"><i class="icon-calendar"></i> {{date related.meta.created}}</div>
+				</a>
+			{{/notequals}}
+		{{/each}}
+	</div>
+{{/if}}
+
 <div class="authors">
 	{{#each post.meta.authors as |author|}}
 		{{>author (lookup ../authors @this) id=author}}

@@ -1,0 +1,25 @@
+.serieslinks {
+	.topborder();
+}
+
+.serieslinks-label {
+	color: @gray-text;
+	font-weight: bold;
+}
+
+.serieslink {
+	display: block;
+	padding: 0.5em 0;
+	text-decoration: none;
+	color: @accent-color;
+	transition: color @fade-time ease;
+
+	&:hover, &:focus {
+		color: @dark-gray-text;
+	}
+}
+
+.serieslink-date {
+	color: @gray-text;
+	font-size: 0.8em;
+}

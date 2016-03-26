@@ -5,6 +5,7 @@ created: 2015-02-07T11:30:00
 authors:
   - timroes
   - annaroes
+series: kibana4-tutorials
 status: draft
 -->
 

@@ -9,7 +9,8 @@ import config from './config';
 
 export default function () {
 
-	return glob.sync(paths.content.posts).map(function(file) {
+	const posts = glob.sync(paths.content.posts).map(function(file) {
+
 		// Read post markdown file
 		const post = fs.readFileSync(file.toString(), 'utf8');
 		// Split away meta header
@@ -45,4 +46,16 @@ export default function () {
 	}).sort(function(a, b) {
 		return b.created - a.created;
 	});
+
+	const series = {};
+	// Find series posts matching together
+	posts.forEach(function(post) {
+		if (post.meta.series) {
+			series[post.meta.series] = series[post.meta.series] || [];
+			series[post.meta.series].push(post);
+			post.series = series[post.meta.series];
+		}
+	});
+
+	return posts;
 };
