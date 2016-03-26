@@ -27,8 +27,8 @@ export default function () {
 
 		const date = moment(meta.created);
 		const id = path.basename(file, '.md');
-		const url = path.join(date.format("YYYY/MM/DD"), id);
-		const canonical = `${config().blog.url}/${url}/`;
+		const url = `/${path.join(date.format("YYYY/MM/DD"), id)}`;
+		const canonical = `${config().blog.url}${url}/`;
 
 		return {
 			canonical: canonical,

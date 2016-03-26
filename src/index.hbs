@@ -22,6 +22,9 @@
 		<img src="/avatars/{{blogAuthor.id}}-large.jpg" alt="Tim Roes">
 		<div class="header-navigation">
 			<a href="/" class="header-home-link" rel="home">{{blogAuthor.name}}</a>
+			{{#if type_index}}
+				<div class="header-slogan">{{blogAuthor.headline}}</div>
+			{{/if}}
 			<div class="header-page-navigation">
 				{{#each pages}}
 					<a href="/{{this.url}}">{{this.title}}</a>
