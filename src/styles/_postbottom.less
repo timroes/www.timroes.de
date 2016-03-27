@@ -4,6 +4,8 @@
 	margin-top: 2em;
 	font-size: 1.2em;
 	color: @gray-text;
+	box-sizing: border-box;
+	padding: 0.5em 0;
 
 	a {
 		color: inherit;
@@ -15,6 +17,28 @@
 		}
 	}
 
+	&.fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		background-color: white;
+		border-top: 1px solid #DDD;
+		max-width: calc(~'@{page-max-width} + (2 * @{body-padding})');
+		padding-left: @body-padding;
+		padding-right: @body-padding;
+		transition: transform 0.5s ease;
+		transform: translate(0, 0);
+
+		&.detached {
+			display: none;
+		}
+
+		&.hidden {
+			transform: translate(0, 100%);
+		}
+	}
 }
 
 .postsocials {
@@ -31,7 +55,11 @@
 	}
 
 	a {
-		margin: 0 0.2em;
+		padding: 0.2em 0.4em;
+
+		&:last-child {
+			padding-right: 0;
+		}
 	}
 }
 
