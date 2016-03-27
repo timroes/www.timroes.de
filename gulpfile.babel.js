@@ -30,7 +30,7 @@ const depsDev = ['watch', 'build'];
  */
 const taskFolder = './gulp/tasks';
 fs.readdirSync(taskFolder).forEach(function(file) {
-	const deps = require(`${taskFolder}/${file}`)(gulp, paths, gulpPlugins, watch, pipelines) || {};
+	const deps = require(`${taskFolder}/${file}`).default(gulp, paths, gulpPlugins, watch, pipelines) || {};
 	if (deps.build) {
 		depsBuild.push(deps.build);
 	}

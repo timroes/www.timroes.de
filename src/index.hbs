@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="theme-color" content="{{config.blog.theme_color}}">
 
-	<title>{{#if type_post}}{{post.meta.title}} &raquo; {{/if}} Tim Roes</title>
+	<title>{{#if type_post}}{{post.meta.title}} &raquo; {{/if}} {{config.blog.title}}</title>
 	{{#if canonical}}<link rel="canonical" href="{{canonical}}">{{/if}}
 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
@@ -21,7 +21,7 @@
 	<header role="banner">
 		<img src="/avatars/{{blogAuthor.id}}-large.jpg" alt="Tim Roes">
 		<div class="header-navigation">
-			<a href="/" class="header-home-link" rel="home">{{blogAuthor.name}}</a>
+			<a href="/" class="header-home-link" rel="home">{{config.blog.title}}</a>
 			{{#if type_index}}
 				<div class="header-slogan">{{blogAuthor.headline}}</div>
 			{{/if}}
@@ -60,6 +60,8 @@
 
 	<link rel="stylesheet" href="/main.min.css">
 	<link rel="stylesheet" href="/icons/css/fontello.css">
+
+	<script src="/app.min.js"></script>
 
 	<!-- TODO: Cookieconsent -->
 </body>

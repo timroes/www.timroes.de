@@ -22,15 +22,28 @@
 {{!-- Show other posts of this post series --}}
 {{#if post.series}}
 	<div class="serieslinks">
-		<div class="serieslinks-label">Read more &hellip;</div>
-		{{#each post.series as |related|}}
+		<div class="serieslinks-label">
+			Read more &hellip;
+			<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="expand-icon plus">
+				<defs>
+					<path id="line" d="M 0,0 l 18,0 a 1,1 0 0 1 0,2 l -18,0 a 1,1 0 0 1 0,-2" />
+				</defs>
+
+				<use id="t" xlink:href="#line" x="3" y="11" />
+				<use id="m" xlink:href="#line" x="3" y="11" />
+				<use id="b" xlink:href="#line" x="3" y="11" />
+			</svg>
+		</div>
+		<div class="serieslinks-linklist">
+			{{#each post.series as |related|}}
 			{{#notequals related.id ../post.id}}
-				<a href="{{related.url}}" class="serieslink">
-					{{related.meta.title}}
-					<div class="serieslink-date"><i class="icon-calendar"></i> {{date related.meta.created}}</div>
-				</a>
+			<a href="{{related.url}}" class="serieslink">
+				{{related.meta.title}}
+				<div class="serieslink-date"><i class="icon-calendar"></i> {{date related.meta.created}}</div>
+			</a>
 			{{/notequals}}
-		{{/each}}
+			{{/each}}
+		</div>
 	</div>
 {{/if}}
 
