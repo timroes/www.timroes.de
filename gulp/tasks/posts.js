@@ -1,3 +1,4 @@
+import {postData} from '../handlebarData';
 import posts from '../data/posts';
 import render from '../render';
 import merge from 'merge-stream';
@@ -6,16 +7,8 @@ export default function(gulp, paths, _, watch, pipelines) {
 
 	gulp.task('posts', () => {
 		const postStreams = posts().map(post => {
-			const data = {
-				post: post,
-				type_post: true
-			};
-
-			// Render markup to HTML and add to data
-			data.post.content = render(post.markup);
-
 			return gulp.src(paths.sources.index)
-				.pipe(pipelines.handlebars(data))
+				.pipe(pipelines.handlebars(postData(post)))
 				.pipe(_.rename(post.url + '/index.html'))
 				.pipe(pipelines.html());
 		});

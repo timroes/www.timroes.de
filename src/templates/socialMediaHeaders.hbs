@@ -1,1 +1,38 @@
+<link rel="canonical" href="{{canonical}}">
+<meta itemprop="name" content="{{title}}">
+<meta name="description" content="{{~description~}}">
+
+{{!-- Basic OpenGraph metadata --}}
+<meta property="og:title" content="{{title}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:description" content="{{~description~}}">
+<meta property="og:locale" content="{{config.blog.locale}}">
+<meta property="og:site_name" content="{{config.blog.title}}">
+
+{{#if type_post}}
+	{{!-- Set meta tags that apply to posts only --}}
+
+	{{!-- Specific open graph tags for articles --}}
+	<meta property="og:type" content="article">
+	<meta property="article:section" content="{{use-first post.meta.category config.blog.category 'Misc'}}">
+	<meta property="article:published_time" content="{{date-iso post.meta.created}}">
+
+	{{#each post.meta.authors as |author|}}
+		<meta property="article:author" content="{{lookup (lookup ../authors @this) 'name'}}">
+	{{/each}}
+
+	{{!-- TODO: add article:modified_time and og:updated_time from git modification date --}}
+{{else}}
+	<meta property="og:type" content="website">
+{{/if}}
+
+{{!-- Twitter meta tags (that are not already covered by OpenGraph) --}}
 <meta name="twitter:card" content="summary_large_image">
+{{#if blogAuthor.twitter}}
+	<meta name="twitter:site" content="@{{blogAuthor.twitter}}">
+	<meta name="twitter:creator" content="@{{blogAuthor.twitter}}">
+{{/if}}
+
+{{!-- TODO image/og:image (is fallback also for twitter:image) --}}
+<meta property="og:image" content="https://www.timroes.de/wp-content/uploads/2015/08/kibana-plugins-color.png"/>
+<meta itemprop="image" content="https://www.timroes.de/wp-content/uploads/2015/08/kibana-plugins-color.png"/>

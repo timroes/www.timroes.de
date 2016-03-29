@@ -1,3 +1,7 @@
+title: Tim Roes
 url: https://www.timroes.de
 theme_color: '#222222'
 author: timroes
+locale: en_US
+# Generel blog category. Will be used as category if no post category is available.
+category: Technology

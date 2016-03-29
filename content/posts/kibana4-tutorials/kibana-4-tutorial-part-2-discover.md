@@ -1,13 +1,16 @@
-<!--
-title: Kibana 4 Tutorial - Part 2: Discover
+---
+title: 'Kibana 4 Tutorial - Part 2: Discover'
 image: /kibana4-tutorials/kibana-plugin-banner.png
 created: 2015-02-07T11:30:00
 authors:
   - timroes
   - annaroes
 series: kibana4-tutorials
+summary: |
+  This blog post explains the basic usage of Kibana 4 and the Discover tab.
+category: Tutorials
 status: draft
--->
+---
 
 A link to [another post](post:foobar2). In the previous part of this tutorial series (which is a required must-read
 for this part) you’ve [learned](https://www.google.de) to create a simple visualization, that doesn’t

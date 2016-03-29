@@ -1,5 +1,6 @@
-About Me
-========
+---
+title: About Me
+---
 
 My name is Tim Roes and I am a computer scientist and Android & web enthusiast from Karlsruhe, Germany.
 

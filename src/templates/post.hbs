@@ -1,15 +1,15 @@
 <article>
-	<h1>{{post.meta.title}}</h1>
+	<h1>{{title}}</h1>
 	<div class="postmeta">
 		<time datetime="{{post.meta.created}}"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
 	</div>
 
-	{{{post.content}}}
+	{{{content}}}
 
 </article>
 
 <div class="postbottom">
-	<a href="#disqus_thread"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{post.canonical}}">0</span></a>
+	<a href="#disqus_thread" title="Show comments"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{canonical}}">0</span></a>
 
 	<div class="postsocials">
 		<span class="postsocials-label">Share on</span>
@@ -56,7 +56,7 @@
 <div id="disqus_thread" class="comments"></div>
 <script>
 	var disqus_config = function () {
-		this.page.url = '{{post.canonical}}';
+		this.page.url = '{{canonical}}';
 	};
 
 	(function() {

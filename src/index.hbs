@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{config.blog.locale}}">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width">
 	<meta name="theme-color" content="{{config.blog.theme_color}}">
 
-	<title>{{#if type_post}}{{post.meta.title}} &raquo; {{/if}} {{config.blog.title}}</title>
-	{{#if canonical}}<link rel="canonical" href="{{canonical}}">{{/if}}
+	<title>{{#unless type_index}}{{title}} &raquo; {{/unless}}{{config.blog.title}}</title>
 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/main.min.css">
+	<link rel="stylesheet" href="/icons/css/fontello.css">
 
 	<!-- TODO: favicons/touch icons -->
 	<!-- TODO: RSS Feed -->
 
+	{{!-- Print out the header need for social media sharing --}}
 	{{> socialMediaHeaders}}
 </head>
 <body {{#if type_index}}class="home"{{/if}}>
@@ -28,7 +31,7 @@
 			<div class="header-page-navigation">
 				{{#each pages}}
 					{{#unless this.hidden}}
-						<a href="/{{this.url}}">{{this.title}}</a>
+						<a href="{{this.url}}">{{this.meta.title}}</a>
 						{{#unless @last}}&#8226;{{/unless}}
 					{{/unless}}
 				{{/each}}
@@ -57,9 +60,6 @@
 		{{/if}}
 
 	</main>
-
-	<link rel="stylesheet" href="/main.min.css">
-	<link rel="stylesheet" href="/icons/css/fontello.css">
 
 	<script src="/app.min.js"></script>
 

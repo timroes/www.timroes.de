@@ -1,15 +1,10 @@
-import posts from '../data/posts';
+import {indexData} from '../handlebarData';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
 	gulp.task('index', () => {
-		const data = {
-			posts: posts(),
-			type_index: true
-		};
-
 		return gulp.src(paths.sources.index)
-			.pipe(pipelines.handlebars(data))
+			.pipe(pipelines.handlebars(indexData()))
 			.pipe(pipelines.html())
 			.pipe(_.rename({
 				extname: '.html'
