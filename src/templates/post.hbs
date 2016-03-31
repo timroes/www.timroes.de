@@ -1,8 +1,15 @@
+
+
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
 		<time datetime="{{post.meta.created}}"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
 	</div>
+
+	<ins class="adsbygoogle"
+			style="display:block;width:100%;height:90px;margin:1.5em 0"
+			data-ad-client="{{config.adsense.adclient}}"
+			data-ad-slot="{{config.adsense.adslot}}"></ins>
 
 	{{{content}}}
 
@@ -69,3 +76,7 @@
 </script>
 
 <script id="dsq-count-scr" src="//timroes.disqus.com/count.js" async></script>
+<script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
