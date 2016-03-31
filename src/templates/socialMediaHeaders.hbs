@@ -21,6 +21,9 @@
 		<meta property="article:author" content="{{lookup (lookup ../authors @this) 'name'}}">
 	{{/each}}
 
+	<meta itemprop="image" content="{{config.blog.url}}/images{{post.meta.image}}">
+	<meta property="og:image" content="{{config.blog.url}}/images{{post.meta.image}}">
+
 	{{!-- TODO: add article:modified_time and og:updated_time from git modification date --}}
 {{else}}
 	<meta property="og:type" content="website">
@@ -32,7 +35,3 @@
 	<meta name="twitter:site" content="@{{blogAuthor.twitter}}">
 	<meta name="twitter:creator" content="@{{blogAuthor.twitter}}">
 {{/if}}
-
-{{!-- TODO image/og:image (is fallback also for twitter:image) --}}
-<meta property="og:image" content="https://www.timroes.de/wp-content/uploads/2015/08/kibana-plugins-color.png"/>
-<meta itemprop="image" content="https://www.timroes.de/wp-content/uploads/2015/08/kibana-plugins-color.png"/>
