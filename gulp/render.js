@@ -1,5 +1,6 @@
 import marked from 'marked';
 import defaultLink, * as links from './linkTypes';
+import * as contentModules from './contentModules';
 import highlightjs from 'highlight.js';
 import config from './data/config';
 
@@ -34,6 +35,16 @@ renderer.heading = function(text, level, raw) {
 			${text}
 			</a>
 		</h${level}>`;
+};
+
+renderer.paragraph = function(text) {
+	const module = /^\[\[([^\]]+)\]\]$/.exec(text);
+	if (module) {
+		if (module[1] in contentModules) {
+			return contentModules[module[1]]();
+		}
+	}
+	return `<p>${text}</p>`;
 };
 
 renderer.link = function(href, title, text) {
