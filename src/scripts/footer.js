@@ -2,6 +2,10 @@ const $ = require('jquery/dist/jquery.min');
 
 $(() => {
 	const footer = $('.postbottom');
+	if (!footer.length) {
+		return;
+	}
+
 	const fixedFooter = footer.clone(true);
 
 	fixedFooter.addClass('fixed').appendTo(document.body);
