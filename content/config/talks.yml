@@ -1,15 +1,50 @@
 upcoming:
-  - name: Überblick über die Plugin Entwicklung für Kibana
-    event: Search Meetup Karlsruhe
-    date: Februar 2016
-    image: /talks/search-meetup-karlsruhe.png
-    url: http://www.meetup.com/de/Search-Meetup-Karlsruhe/events/227548763/
 past:
   - name: Überblick über die Plugin Entwicklung für Kibana
     event: Search Meetup Karlsruhe
     date: Februar 2016
     image: /talks/search-meetup-karlsruhe.png
-  - name: Überblick über die Plugin Entwicklung für Kibana
-    event: Search Meetup Karlsruhe
-    date: Februar 2016
-    image: /talks/search-meetup-karlsruhe.png
+    url: http://www.meetup.com/de/Search-Meetup-Karlsruhe/events/227548763/
+  - name: Level up your mobile game
+    event: KarlsruheJS
+    date: Dezember 2015
+    image: /talks/karlsruhejs.png
+    url: http://www.meetup.com/de/KarlsruheJS/events/226809443/
+  - name: The Web - Today and Tomorrow
+    event: DevFest, Hamburg
+    date: November 2015
+    image: /talks/gdg-hamburg.png
+    url: http://devfest.de/#!/speakers/2
+  - name: AngularJS Workshop
+    event: GridKa School, Karlsruhe
+    date: September 2015
+    image: /talks/gridka-school.png
+    url: https://indico.scc.kit.edu/indico/event/89/session/44/contribution/33
+  - name: The Web - Today and Tomorrow
+    event: Entwicklertag, Karlsruhe
+    date: May 2015
+    image: /talks/karlsruher-entwicklertag.png
+  - name: AngularJS in 6 Minuten und 40 Sekunden
+    event: Entwicklertag, Karlsruhe
+    date: May 2015
+    image: /talks/karlsruher-entwicklertag.png
+  - name: Material Design
+    event: inovex Meetup, Karlsruhe & Munich
+    date: November 2014
+    image: /talks/inovexlogo.png
+  - name: Android Studio and Gradle
+    event: inovex Meetup, Cologne
+    date: September 2014
+    image: /talks/inovexlogo.png
+  - name: '[Workshop] Getting started with Android and App Engine'
+    event: GridKa School, Karlsruhe
+    date: September 2014
+    image: /talks/gridka-school.png
+  - name: Entwicklung mit Android Studio und Gradle
+    event: Entwicklertag, Karlsruhe
+    date: May 2014
+    image: /talks/karlsruher-entwicklertag.png
+  - name: Von iOS zu Android - der Weg eines App-Designs
+    event: MobileTechCon, Munich
+    date: March 2014
+    image: /talks/mtc-logo.png
