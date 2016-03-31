@@ -6,6 +6,11 @@ $(() => {
 
 	fixedFooter.addClass('fixed').appendTo(document.body);
 
+	// Recalculate count of comments so cloned footer will also get the count
+	if (window.DISQUSWIDGETS) {
+		window.DISQUSWIDGETS.getCount({ reset: true });
+	}
+
 	const $window = $(window);
 	let lastScrollTop = null;
 	let footerHidden = false;
