@@ -21,8 +21,10 @@
 		<meta property="article:author" content="{{lookup (lookup ../authors @this) 'name'}}">
 	{{/each}}
 
-	<meta itemprop="image" content="{{config.blog.url}}/images{{post.meta.image}}">
-	<meta property="og:image" content="{{config.blog.url}}/images{{post.meta.image}}">
+	{{#if post.meta.image}}
+		<meta itemprop="image" content="{{config.blog.url}}/images{{post.meta.image}}">
+		<meta property="og:image" content="{{config.blog.url}}/images{{post.meta.image}}">
+	{{/if}}
 
 	{{!-- TODO: add article:modified_time and og:updated_time from git modification date --}}
 {{else}}
