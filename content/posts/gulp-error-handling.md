@@ -13,7 +13,7 @@ that gulp-less has such a behavior in its current version (2.0.1 at the time of 
 
 If you have a simple pipeline with the less plugin in it and a watch, that triggers
 that task, the task might not end at all and even worse, no errors show in the log.
-You can just notice a missing “Finished ‘<task>’ after <some>ms”.
+You can just notice a missing "Finished '&lt;task&gt;’ after &lt;some&gt;ms".
 
 A plugin named [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) exists,
 that helps workaround this broken streams. You can plug in an error handler,
