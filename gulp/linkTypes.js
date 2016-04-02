@@ -26,6 +26,13 @@ export function github(href, title, text) {
 	};
 };
 
+export function playstore(href, title, text) {
+	return {
+		href: `https://play.google.com/store/apps/details?id=${href}`,
+		classes: ['medialink-playstore']
+	};
+};
+
 export function post(href, title, text) {
 	const post = allPosts.filter(post => post.id === href)[0];
 	if (!post) {
