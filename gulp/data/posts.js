@@ -18,7 +18,7 @@ export default function () {
 
 		const date = moment(meta.created);
 		const id = path.basename(file, '.md');
-		const url = `/${path.join(date.format("YYYY/MM/DD"), id)}`;
+		const url = `/${path.join(date.format("YYYY/MM/DD"), meta.slug || id)}`;
 
 		return {
 			url: url,
