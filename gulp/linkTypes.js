@@ -27,9 +27,12 @@ export function github(href, title, text) {
 };
 
 export function post(href, title, text) {
-	const postUrl = allPosts.filter(post => post.id === href)[0].url;
+	const post = allPosts.filter(post => post.id === href)[0];
+	if (!post) {
+		throw new Error(`Could not find post ${href} for link generation.`);
+	}
 	return {
-		href: postUrl,
+		href: post.url,
 		blank: false
 	}
 };
