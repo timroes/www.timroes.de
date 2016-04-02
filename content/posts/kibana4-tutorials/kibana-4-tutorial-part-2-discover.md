@@ -12,7 +12,7 @@ category: Tutorials
 status: draft
 ---
 
-A link to [another post](post:foobar2). In the previous part of this tutorial series (which is a required must-read
+A link to. In the previous part of this tutorial series (which is a required must-read
 for this part) you’ve [learned](https://www.google.de) to create a simple visualization, that doesn’t
 need access to data from `Elasticsearch`. In this part we will write another plugin,
 that uses aggregations (like most of the visualizations) to access data from
