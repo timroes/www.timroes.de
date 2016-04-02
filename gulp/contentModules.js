@@ -32,3 +32,7 @@ export function talks() {
 	html += `</p>`;
 	return html;
 }
+
+export function hintbox(text) {
+	return `<div class="hintbox">${text}</div>`;
+}

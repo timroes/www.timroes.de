@@ -38,10 +38,10 @@ renderer.heading = function(text, level, raw) {
 };
 
 renderer.paragraph = function(text) {
-	const module = /^\[\[([^\]]+)\]\]$/.exec(text);
+	const module = /^\[\[([^\s\]]+)(?:\s([^\]]+))?\]\]$/.exec(text);
 	if (module) {
 		if (module[1] in contentModules) {
-			return contentModules[module[1]]();
+			return contentModules[module[1]](module[2]);
 		}
 	}
 	return `<p>${text}</p>`;
