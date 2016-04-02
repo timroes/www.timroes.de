@@ -5,6 +5,7 @@
 	be named foobar).
 */
 import posts from './data/posts';
+import path from 'path';
 
 const allPosts = posts();
 
@@ -21,7 +22,7 @@ export default function(schema, href, title, text) {
 export function github(href, title, text) {
 	return {
 		href: `https://github.com/${href}`,
-		classes: ['medialink-github icon-github']
+		classes: ['medialink-github', 'icon-github']
 	};
 };
 
@@ -31,4 +32,12 @@ export function post(href, title, text) {
 		href: postUrl,
 		blank: false
 	}
+};
+
+export function file(href, title, text) {
+	const extension = path.extname(href).substr(1);
+	return {
+		href: `/files/${href}`,
+		classes: ['medialink-file', `icon-${extension}`]
+	};
 };

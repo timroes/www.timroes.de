@@ -15,8 +15,10 @@ export default {
 	},
 	build,
 	content: {
+		base: content,
 		config: `${content}/config/*.yml`,
 		authors: `${content}/authors/*.yml`,
+		files: `${content}/files/**`,
 		images: `${content}/images/**/*.+(jpg|png|gif)`,
 		pages: `${content}/pages/*.md`,
 		posts: `${content}/posts/**/*.md`
