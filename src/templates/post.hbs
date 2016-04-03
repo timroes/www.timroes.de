@@ -41,14 +41,14 @@
 			</svg>
 		</div>
 		<div class="serieslinks-linklist">
-			{{#each post.series as |related|}}
-			{{#notequals related.id ../post.id}}
-			<a href="{{related.url}}" class="serieslink">
-				{{related.meta.title}}
-				<div class="serieslink-date"><i class="icon-calendar"></i> {{date related.meta.created}}</div>
-			</a>
-			{{/notequals}}
-			{{/each}}
+			{{#each-reverse post.series}}
+				{{#notequals this.id ../post.id}}
+				<a href="{{related.url}}" class="serieslink">
+					{{this.meta.title}}
+					<div class="serieslink-date"><i class="icon-calendar"></i> {{date this.meta.created}}</div>
+				</a>
+				{{/notequals}}
+			{{/each-reverse}}
 		</div>
 	</div>
 {{/if}}
