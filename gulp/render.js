@@ -87,6 +87,21 @@ renderer.link = function(href, title, text) {
 	return out;
 };
 
+renderer.image = function(href, title, text) {
+	let out = `<img src="/images${href}"`;
+	// Allow right floating images
+	if (/:$/.test(text)) {
+		out += 'class="image-right"';
+		text = text.replace(/:$/, '');
+	}
+	if (title) {
+		out += ' title="' + title + '"';
+	}
+	out += `alt="${text}"`;
+	out += this.options.xhtml ? '/>' : '>';
+return out;
+};
+
 export default function (content) {
 	return marked(content, {
 		renderer: renderer,
