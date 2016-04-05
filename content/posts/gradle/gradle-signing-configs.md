@@ -28,7 +28,7 @@ Extract the whole signing config
 First option is, to extract the whole signing config to a separate user file.
 Create a new property in your `gradle.properties`:
 
-```fix
+```-
 MyProject.signing=/home/username/.signing/myproject
 ```
 
@@ -144,7 +144,7 @@ password instead of storing it).
 
 Again add a path to your gradle.properties (let’s do it a full path this time):
 
-```fix
+```-
 MyProject.properties=/home/username/.signing/myproject.properties
 ```
 
@@ -171,7 +171,7 @@ if(project.hasProperty("MyProject.properties")
 
 Just generate a plain properties file at **/home/username/.signing/myproject.properties**:
 
-```fix
+```-
 keystore=/path/to/my/keystore
 keystore.password=mypassword
 ```

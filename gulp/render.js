@@ -108,6 +108,8 @@ export default function (content) {
 		highlight: function(code, lang) {
 			if (!lang) {
 				return highlightjs.highlightAuto(code).value;
+			} else if (lang === '-') {
+				return code;
 			} else {
 				return highlightjs.highlight(lang, code).value;
 			}
