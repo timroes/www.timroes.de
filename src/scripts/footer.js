@@ -8,7 +8,7 @@ $(() => {
 
 	const fixedFooter = footer.clone(true);
 
-	fixedFooter.addClass('fixed').appendTo(document.body);
+	fixedFooter.appendTo(document.body);
 
 	// Recalculate count of comments so cloned footer will also get the count
 	if (window.DISQUSWIDGETS) {
@@ -20,10 +20,11 @@ $(() => {
 	let footerHidden = false;
 
 	$window.on('load', () => {
+		fixedFooter.addClass('fixed');
 		lastScrollTop = $window.scrollTop();
 	});
 
-	$window.on('scroll', function(ev) {
+	$window.on('load scroll', function(ev) {
 		const scrollTop = $window.scrollTop();
 		const bottomOfWindow = scrollTop + $window.height();
 		const footerBottom = footer.offset().top + footer.outerHeight();
