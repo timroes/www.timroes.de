@@ -43,7 +43,7 @@
 		<div class="serieslinks-linklist">
 			{{#each-reverse post.series}}
 				{{#notequals this.id ../post.id}}
-				<a href="{{related.url}}" class="serieslink">
+				<a href="{{this.url}}" class="serieslink">
 					{{this.meta.title}}
 					<div class="serieslink-date"><i class="icon-calendar"></i> {{date this.meta.created}}</div>
 				</a>
