@@ -264,5 +264,5 @@ Why is this called the *Elvis Operator*? Turn your head around and look at the s
 What’s next?
 ------------
 
-This tutorial has described the basics in Groovy. The [next part](TODO:next post) goes into detail
-on the usage of closures in Groovy.
+This tutorial has described the basics in Groovy. The [next part](post:groovy-closures)
+goes into detail on the usage of closures in Groovy.

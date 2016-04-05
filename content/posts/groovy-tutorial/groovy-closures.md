@@ -168,6 +168,5 @@ Besides the basics we covered here, Groovy offers support for currying and
 memoization. To read more about Groovys closure head over to the [official
 docs](http://www.groovy-lang.org/closures.html).
 
-The [next
-part](TODO:post) of
+The [next part](post:groovy-collections) of
 this tutorial covers usage of collection types like lists and maps in Groovy.
