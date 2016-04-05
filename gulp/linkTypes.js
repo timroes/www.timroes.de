@@ -51,3 +51,9 @@ export function file(href, title, text) {
 		classes: ['medialink-file', `icon-${extension}`]
 	};
 };
+
+export function biglink(href, title, text) {
+	return {
+		classes: ['medialink-web', 'icon-web']
+	};
+};
