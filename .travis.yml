@@ -4,3 +4,7 @@ node_js:
 before_script:
   - npm install -g gulp
 script: gulp build --production
+
+after_success:
+  - openssl aes-256-cbc -K $encrypted_a4b8f6cb10ef_key -iv $encrypted_a4b8f6cb10ef_iv -in deploy.key.enc -out deploy.key -d
+  - rsync -av --delete -e 'ssh -i deploy.key' build/ travisci@new.timroes.de:/srv/htdocs
