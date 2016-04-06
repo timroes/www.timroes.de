@@ -122,7 +122,7 @@ to a special dashboard anymore, and that a dashboard is not restricted to one in
 but can contain visualizations of any indexes you wish. This is mostly what
 "consumers" of Kibana will use, to look at all the beautiful visualizations you created.
 
-Read more in the [Dashboard](TODO: LINK) tutorial.
+Read more in the [Dashboard](post:part4-dashboard) tutorial.
 
 ### Settings
 
