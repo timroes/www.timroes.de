@@ -11,3 +11,6 @@ author: timroes
 locale: en_US
 # Generel blog category. Will be used as category if no post category is available.
 category: Technology
+
+postlist:
+  fallbackImage: /banners/default.png

@@ -1,7 +1,7 @@
 <div class="postlist">
 	{{#each posts}}
 		<a href="{{this.url}}" class="postlink">
-			<img src="/images{{this.meta.image}}" class="postlink-image">
+			<img src="/images{{use-first this.meta.image @root.config.blog.postlist.fallbackImage}}" class="postlink-image">
 			<div class="postlink-overlay">
 				<div class="postlink-title">{{this.meta.title}}</div>
 				<div class="postlink-meta"><i class="icon-calendar"></i> {{date this.meta.created}}</div>
