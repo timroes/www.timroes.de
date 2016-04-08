@@ -1,5 +1,7 @@
 # The overall title of the blog
 title: Tim Roes
+# A headline for the blog
+headline: computer scientist // android & web enthusiast
 # The absolute base URL of the blog
 url: https://www.timroes.de
 # The theme color as used for theming meta tags
