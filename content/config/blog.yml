@@ -7,8 +7,9 @@ theme_color: '#222222'
 # The id of the main author of this blog (must be a valid author id, i.e. the name of
 # one file in the content/authors/ directory)
 author: timroes
-# The locale of this page.
+# The locale and the language of this page.
 locale: en_US
+language: en
 # Generel blog category. Will be used as category if no post category is available.
 category: Technology
 
