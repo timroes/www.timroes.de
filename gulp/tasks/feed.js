@@ -13,7 +13,7 @@ export default function(gulp, paths, _, watch) {
 			title: conf.blog.title,
 			description: conf.blog.headline,
 			site_url: conf.blog.url,
-			feed_url: 'TODO',
+			feed_url: `${conf.blog.url}/feed.xml`,
 			language: conf.blog.language,
 			categories: [conf.blog.category],
 			generator: 'Static Blog Generation by Tim Roes',
