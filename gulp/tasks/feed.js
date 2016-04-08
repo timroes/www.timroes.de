@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import RSS from 'rss';
 import config from '../data/config';
 import posts from '../data/posts';
@@ -6,7 +7,7 @@ import {postData} from '../handlebarData';
 
 export default function(gulp, paths, _, watch) {
 
-	gulp.task('feed', (cb) => {
+	gulp.task('feed', ['index'], (cb) => {
 		const conf = config();
 		const feed = new RSS({
 			title: conf.blog.title,
@@ -41,7 +42,10 @@ export default function(gulp, paths, _, watch) {
 			});
 		});
 
-		fs.writeFile(`${paths.build}/feed.xml`, feed.xml(), cb);
+		fs.writeFile(path.join(__dirname, `../../${paths.build}/feed.xml`), feed.xml(), (err) => {
+			if (err) throw err;
+			cb();
+		});
 	});
 
 	watch([
