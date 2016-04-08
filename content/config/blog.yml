@@ -15,5 +15,7 @@ language: en
 # Generel blog category. Will be used as category if no post category is available.
 category: Technology
 
+# Add some config for the postlist on the startpage
 postlist:
+  # The url (inside the image path) to the default image to use, when no post image was set
   fallbackImage: /banners/default.png
