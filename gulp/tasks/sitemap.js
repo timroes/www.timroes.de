@@ -7,7 +7,7 @@ import config from '../data/config';
 
 export default function(gulp, paths) {
 
-	gulp.task('sitemap', (cb) => {
+	gulp.task('sitemap', ['index'], (cb) => {
 		let seriesFound = {};
 
 		let allPosts = posts();
