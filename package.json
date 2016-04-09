@@ -1,7 +1,7 @@
 {
   "name": "staticblog",
   "version": "1.0.0",
-  "description": "",
+  "description": "A static generation build system for my blog.",
   "main": "gulpfile.babel.js",
   "devDependencies": {
     "babel-core": "^6.7.4",
@@ -44,11 +44,13 @@
     "moment": "^2.11.1",
     "rss": "^1.2.1",
     "sanitize.css": "^3.3.0",
+    "sitemap": "^1.6.0",
     "yamljs": "^0.2.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tim Roes <mail@timroes.de>",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "repository": "timroes/www.timroes.de"
 }
