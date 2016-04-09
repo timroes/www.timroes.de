@@ -3,7 +3,7 @@ import gulp from 'gulp';
 import yaml from 'yamljs';
 
 import paths from './gulp/paths';
-import pipelines from './gulp/pipelines';
+import * as pipelines from './gulp/pipelines';
 
 const gulpPlugins = require('gulp-load-plugins')();
 

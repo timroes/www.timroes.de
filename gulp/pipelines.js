@@ -11,7 +11,7 @@ import helpers from './handlebarHelpers';
 const _ = require('gulp-load-plugins')();
 
 // The pipeline used to optimize HTML.
-const html = lazypipe()
+export const html = lazypipe()
 		.pipe(_.hashSrc, {
 			src_path: paths.src,
 			build_dir: paths.build,
@@ -24,7 +24,7 @@ const html = lazypipe()
 		})
 		.pipe(_.minifyInline);
 
-const handlebars = function(data) {
+export function handlebars(data) {
 	return lazypipe()
 		.pipe(_.compileHandlebars, data, {
 			batch: paths.sources.templatePath,
@@ -32,7 +32,5 @@ const handlebars = function(data) {
 		})();
 };
 
-export default {
-	handlebars,
-	html
-};
+export const images = lazypipe()
+	.pipe(_.imagemin);

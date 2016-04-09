@@ -1,8 +1,8 @@
-export default function(gulp, paths, _, watch) {
+export default function(gulp, paths, _, watch, pipelines) {
 
 	gulp.task('images', () => {
 		return gulp.src(paths.content.images)
-			.pipe(_.imagemin())
+			.pipe(pipelines.images())
 			.pipe(gulp.dest(`${paths.build}/images`));
 	});
 
