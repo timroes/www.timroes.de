@@ -15,7 +15,6 @@ export default function(gulp, paths) {
 
 		const sm = sitemap.createSitemap({
 			hostname: config().blog.url,
-			cacheTime: 3600000,
 			urls: [
 				{ url: '/', changefreq: 'weekly', priority: 1.0 },
 				...allPosts.map(post => {
