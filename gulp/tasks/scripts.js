@@ -1,12 +1,13 @@
 import posts from '../data/posts';
 import render from '../render';
+import webpack from 'webpack-stream';
 import merge from 'merge-stream';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
 	gulp.task('scripts', () => {
 		return gulp.src(paths.sources.scripts)
-			.pipe(_.webpack({
+			.pipe(webpack({
 				module: {
 					loaders: [
 						{ test: /\.js$/, loader: 'babel' }
