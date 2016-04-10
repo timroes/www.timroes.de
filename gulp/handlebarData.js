@@ -23,7 +23,7 @@ export function postData (post) {
 		type_post: true,
 		post: post,
 		content: render(post.markdown),
-		canonical: `${config().blog.url}${post.url}/`,
+		canonical: `${config().blog.url}${post.url}`,
 		description: post.meta.summary,
 		title: post.meta.title
 	};
@@ -35,7 +35,7 @@ export function pageData (page) {
 		type_page: true,
 		page: page,
 		content: render(page.markdown),
-		canonical: `${config().blog.url}${page.url}/`,
+		canonical: `${config().blog.url}${page.url}`,
 		description: config().blog.headline,
 		title: page.meta.title
 	};
