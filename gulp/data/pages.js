@@ -10,7 +10,7 @@ export default function () {
 		const {meta, markdown} = utils.readFrontmatterFile(file.toString());
 
 		const id = path.basename(file, '.md');
-		const url = `/${meta.slug || id}`;
+		const url = `/${meta.slug || id}/`;
 
 		return {
 			url: url,
