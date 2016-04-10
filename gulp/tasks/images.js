@@ -9,7 +9,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 	watch(paths.content.images, ['images']);
 
 	return {
-		build: 'images'
+		resources: 'images'
 	};
 
 }

@@ -15,7 +15,7 @@ export default function(gulp, paths, _, watch) {
 	watch('./fontello.json', ['fontello']);
 
 	return {
-		build: 'fontello'
+		resources: 'fontello'
 	};
 
 }

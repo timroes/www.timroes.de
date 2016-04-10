@@ -8,6 +8,6 @@ export default function(gulp, paths, _, watch) {
 	watch(paths.content.files, ['files']);
 
 	return {
-		build: 'files'
+		resources: 'files'
 	};
 }

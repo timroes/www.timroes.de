@@ -19,7 +19,7 @@ export default function(gulp, paths, _, watch) {
 	watch(paths.sources.stylesAll, ['styles']);
 
 	return {
-		build: 'styles'
+		resources: 'styles'
 	};
 
 }

@@ -5,7 +5,7 @@ import merge from 'merge-stream';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
-	gulp.task('posts', () => {
+	gulp.task('posts', ['resources'], () => {
 		const postStreams = posts().map(post => {
 			return gulp.src(paths.sources.index)
 				.pipe(pipelines.handlebars(postData(post)))

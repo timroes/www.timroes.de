@@ -12,7 +12,8 @@ const watch = (...args) => {
 	watchers.push(args);
 };
 
-const depsBuild = [];
+const resourcesTasks = [];
+const depsBuild = ['resources'];
 const depsDev = ['watch', 'build'];
 
 /*
@@ -37,6 +38,9 @@ fs.readdirSync(taskFolder).forEach(function(file) {
 	if (deps.dev) {
 		depsDev.push(deps.dev);
 	}
+	if (deps.resources) {
+		resourcesTasks.push(deps.resources);
+	}
 });
 
 /**
@@ -47,6 +51,8 @@ gulp.task('watch', () => {
 		gulp.watch(...watcher);
 	});
 });
+
+gulp.task('resources', resourcesTasks);
 
 gulp.task('build', depsBuild);
 

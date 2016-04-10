@@ -22,7 +22,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 	});
 
 	return {
-		build: 'gravatar'
+		resources: 'gravatar'
 	};
 
 }

@@ -21,6 +21,6 @@ export default function(gulp, paths, _, watch, pipelines) {
 	watch(paths.sources.scripts, ['scripts']);
 
 	return {
-		build: 'scripts'
+		resources: 'scripts'
 	};
 }

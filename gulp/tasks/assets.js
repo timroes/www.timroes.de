@@ -7,7 +7,7 @@ export default function(gulp, paths, _, watch) {
 	watch(paths.sources.assets, ['assets']);
 
 	return {
-		build: 'assets'
+		resources: 'assets'
 	};
 
 }

@@ -2,7 +2,7 @@ import {indexData} from '../handlebarData';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
-	gulp.task('index', () => {
+	gulp.task('index', ['resources'], () => {
 		return gulp.src(paths.sources.index)
 			.pipe(pipelines.handlebars(indexData()))
 			.pipe(pipelines.html())

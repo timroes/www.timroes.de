@@ -4,7 +4,7 @@ import merge from 'merge-stream';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
-	gulp.task('pages', () => {
+	gulp.task('pages', ['resources'], () => {
 		const pageStreams = pages().map(page => {
 			return gulp.src(paths.sources.index)
 				.pipe(pipelines.handlebars(pageData(page)))
