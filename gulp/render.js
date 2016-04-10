@@ -1,8 +1,10 @@
+import imageSize from 'image-size';
 import marked from 'marked';
 import defaultLink, * as links from './linkTypes';
 import * as contentModules from './contentModules';
 import highlightjs from 'highlight.js';
 import config from './data/config';
+import paths from './paths';
 
 function escape(html, encode) {
 	return html
@@ -88,18 +90,28 @@ renderer.link = function(href, title, text) {
 };
 
 renderer.image = function(href, title, text) {
-	let out = `<img src="/images${href}"`;
-	// Allow right floating images
-	if (/:$/.test(text)) {
-		out += 'class="image-right"';
+	const size = imageSize(`${paths.build}/images${href}`);
+	const ratio = (size.height / size.width) * 100;
+
+	const isFloating = /:$/.test(text);
+	if (isFloating) {
 		text = text.replace(/:$/, '');
+	}
+
+	let out = `<div class="image-wrapper ${isFloating ? 'floating' : ''}"
+			${isFloating ? 'style="width:' + size.width + 'px;height:'+size.height+'px"' : ''}
+		>
+		<div class="image-placeholder" style="padding-bottom: ${ratio}%"></div>
+		<img src="/images${href}"`;
+	// Allow right floating images
+	if (isFloating) {
+		out += 'class="image-right"';
 	}
 	if (title) {
 		out += ' title="' + title + '"';
 	}
-	out += `alt="${text}"`;
-	out += this.options.xhtml ? '/>' : '>';
-return out;
+	out += `alt="${text}"></div>`;
+	return out;
 };
 
 export default function (content) {
