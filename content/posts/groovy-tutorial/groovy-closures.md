@@ -145,6 +145,7 @@ def createGreeter = { name ->
   }
 }
 def greetWorld = createGreeter("World")
+greetWorld()
 ```
 
 We call the *createGreeter* closure and pass the
