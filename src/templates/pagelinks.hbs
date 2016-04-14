@@ -1,0 +1,6 @@
+{{#each pages}}
+	{{#unless this.hidden}}
+		<a href="{{this.url}}">{{this.meta.title}}</a>
+		{{#unless @last}}&#8226;{{/unless}}
+	{{/unless}}
+{{/each}}
