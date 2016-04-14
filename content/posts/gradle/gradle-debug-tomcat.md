@@ -4,7 +4,7 @@ created: 2014-06-22T12:00:00
 authors:
   - timroes
 slug: using-gradle-to-debug-tomcat
-image: /banners/gradle.png
+image: /banners/gradle.svg
 category: Gradle
 ---
 

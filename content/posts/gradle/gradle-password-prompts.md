@@ -4,7 +4,7 @@ created: 2014-01-19T12:00:00
 authors:
   - timroes
 slug: using-password-prompts-with-gradle-build-files
-image: /banners/gradle.png
+image: /banners/gradle.svg
 series: gradle-signing
 category: Gradle
 ---

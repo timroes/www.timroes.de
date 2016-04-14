@@ -4,7 +4,7 @@ created: 2013-09-22T12:00:00
 authors:
   - timroes
 slug: handling-signing-configs-with-gradle
-image: /banners/gradle.png
+image: /banners/gradle.svg
 series: gradle-signing
 category: Gradle
 ---

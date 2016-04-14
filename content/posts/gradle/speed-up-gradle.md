@@ -3,7 +3,7 @@ title: How To… Speed up Gradle build time
 created: 2013-09-12T12:00:00
 authors:
   - timroes
-image: /banners/gradle.png
+image: /banners/gradle.svg
 Category: Gradle
 ---
 
