@@ -19,7 +19,7 @@ export default {
 		config: `${content}/config/*.yml`,
 		authors: `${content}/authors/*.yml`,
 		files: `${content}/files/**`,
-		images: `${content}/images/**/*.+(jpg|png|gif)`,
+		images: `${content}/images/**/*.+(jpg|png|gif|svg)`,
 		pages: `${content}/pages/*.md`,
 		posts: `${content}/posts/**/*.md`
 	}
