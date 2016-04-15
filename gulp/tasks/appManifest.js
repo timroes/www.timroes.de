@@ -12,7 +12,7 @@ export default function(gulp, paths, _, watch) {
 			display: 'browser',
 			icons: iconSizes.map(size => {
 				return {
-					src: `/favicons${size}.png`,
+					src: `/favicon${size}.png`,
 					type: 'image/png',
 					sizes: `${size}x${size}`
 				};
