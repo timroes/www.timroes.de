@@ -37,7 +37,9 @@
 			</header>
 		{{else}}
 			<header role="banner" class="pageheader">
-				<img src="/avatars/{{blogAuthor.id}}.jpg" alt="{{config.blog.title}}">
+				<a href="/" rel="home">
+					<img src="/avatars/{{blogAuthor.id}}.jpg" alt="{{config.blog.title}}">
+				</a>
 				<div class="header-navigation">
 					<a href="/" class="header-home-link" rel="home">{{config.blog.title}}</a>
 					<div class="header-page-navigation">
