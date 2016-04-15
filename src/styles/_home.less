@@ -59,11 +59,26 @@
 			font-size: 1.5em;
 			margin: 0.2em 0.2em;
 			border-radius: 0px;
-			transition: all @fade-time ease;
+			transition: background-color @fade-time ease, border-color @fade-time ease, color @fade-time ease;
 
 			&:focus, &:hover {
 				color: white;
 				background-color: @dark-gray-text;
+
+				&.twitter {
+					background-color: #1DA1F2;
+					border-color: #1DA1F2;
+				}
+
+				&.gplus {
+					background-color: #DC4E41;
+					border-color: #DC4E41;
+				}
+
+				&.github {
+					background-color: #333;
+					border-color: #333;
+				}
 			}
 		}
 
