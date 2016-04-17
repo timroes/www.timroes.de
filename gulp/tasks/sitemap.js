@@ -4,10 +4,11 @@ import sitemap from 'sitemap';
 import posts from '../data/posts';
 import pages from '../data/pages';
 import config from '../data/config';
+import {fromString} from '../utils';
 
 export default function(gulp, paths) {
 
-	gulp.task('sitemap', ['index'], (cb) => {
+	gulp.task('sitemap', () => {
 		let seriesFound = {};
 
 		let allPosts = posts();
@@ -41,10 +42,8 @@ export default function(gulp, paths) {
 			]
 		});
 
-		fs.writeFile(path.join(__dirname, `../../${paths.build}/sitemap.xml`), sm.toString(), (err) => {
-			if (err) throw err;
-			cb();
-		});
+		return fromString('sitemap.xml', sm.toString())
+			.pipe(gulp.dest(paths.build))
 	});
 
 	return {

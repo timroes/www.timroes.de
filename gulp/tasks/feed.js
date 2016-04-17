@@ -4,10 +4,11 @@ import RSS from 'rss';
 import config from '../data/config';
 import posts from '../data/posts';
 import {postData} from '../handlebarData';
+import {fromString} from '../utils';
 
 export default function(gulp, paths, _, watch) {
 
-	gulp.task('feed', ['index'], (cb) => {
+	gulp.task('feed', () => {
 		const conf = config();
 		const feed = new RSS({
 			title: conf.blog.title,
@@ -42,10 +43,8 @@ export default function(gulp, paths, _, watch) {
 			});
 		});
 
-		fs.writeFile(path.join(__dirname, `../../${paths.build}/feed.xml`), feed.xml(), (err) => {
-			if (err) throw err;
-			cb();
-		});
+		return fromString('feed.xml', feed.xml())
+			.pipe(gulp.dest(paths.build));
 	});
 
 	watch([
