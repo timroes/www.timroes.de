@@ -90,7 +90,7 @@ renderer.link = function(href, title, text) {
 };
 
 renderer.image = function(href, title, text) {
-	const size = imageSize(`${paths.build}/images${href}`);
+	const size = imageSize(`${paths.content.base}/images${href}`);
 	const ratio = (size.height / size.width) * 100;
 
 	const isFloating = /:$/.test(text);
