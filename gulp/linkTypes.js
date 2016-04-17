@@ -41,7 +41,7 @@ export function post(href, title, text) {
 	return {
 		href: post.url,
 		blank: false
-	}
+	};
 };
 
 export function file(href, title, text) {
