@@ -27,7 +27,6 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 	}
 
 	code(code, lang, escaped) {
-
 		if (this.options.highlight) {
 			var out = this.options.highlight(code, lang);
 			if (out != null && out !== code) {
@@ -58,7 +57,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		return `<p>${text}</p>`;
 	}
 
-	link = function(href, title, text) {
+	link(href, title, text) {
 		if (this.options.sanitize) {
 			try {
 				var prot = decodeURIComponent(unescape(href))
@@ -73,12 +72,10 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		}
 
 		const linkParts = /([^:]+):(.*)/.exec(href);
-
 		const linkParser = (linkParts[1] in links) ? links[linkParts[1]] : defaultLink.bind(defaultLink, linkParts[1]);
-
 		const linkdata = linkParser(linkParts[2], title, text);
 
-		href = linkdata.href || href;
+		href = linkdata.href || linkParts[2];
 		title = linkdata.title || title;
 		text = linkdata.text || text;
 		const blank = linkdata.blank === false ? false : true;
