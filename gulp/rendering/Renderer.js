@@ -44,8 +44,13 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		return `<pre><code class="hljs ${lang ? this.options.langPrefix + escape(lang, true) : ''}">${escaped ? code : escape(code, true)}</code></pre>`;
 	}
 
+	/**
+	 * Render a heading in the markdown.
+	 * This will also add a link to every heading, that links to the id of that
+	 * heading itself. Users can click and copy the heading to link to that section.
+	 */
 	heading(text, level, raw) {
-		const id = this.options.headerPrefix + raw.toLowerCase().replace(/[^\w]+/g, '-');
+		const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
 		return `<h${level} id="${id}">
 				<a class="anchorlink" href="#${id}">
 				${text}
