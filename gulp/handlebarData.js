@@ -1,8 +1,10 @@
-import render from './render';
+import Renderer from './rendering/Renderer';
 import posts from './data/posts';
 import config from './data/config';
 import authors from './data/authors';
 import pages from './data/pages';
+
+const renderer = new Renderer();
 
 function baseData() {
 	const data = {
@@ -18,11 +20,13 @@ function baseData() {
 }
 
 export function postData (post) {
+	const renderResult = renderer.render(post.markdown);
 	return {
 		...baseData(),
 		type_post: true,
 		post: post,
-		content: render(post.markdown),
+		content: renderResult.html,
+		readingTime: renderResult.readingTime,
 		canonical: `${config().blog.url}${post.url}`,
 		description: post.meta.summary,
 		title: post.meta.title
@@ -34,7 +38,7 @@ export function pageData (page) {
 		...baseData(),
 		type_page: true,
 		page: page,
-		content: render(page.markdown),
+		content: renderer.render(page.markdown).html,
 		canonical: `${config().blog.url}${page.url}`,
 		description: config().blog.headline,
 		title: page.meta.title

@@ -1,6 +1,5 @@
 import {postData} from '../handlebarData';
 import posts from '../data/posts';
-import render from '../render';
 import merge from 'merge-stream';
 
 export default function(gulp, paths, _, watch, pipelines) {

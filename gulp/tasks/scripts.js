@@ -1,5 +1,4 @@
 import posts from '../data/posts';
-import render from '../render';
 import webpack from 'webpack-stream';
 import merge from 'merge-stream';
 

@@ -1,4 +1,4 @@
-import config from './data/config';
+import config from '../data/config';
 
 function talk(talk) {
 	return `<a class="talk-box" ${talk.url ? 'href="' + talk.url + '"' : ''} target="_blank">
