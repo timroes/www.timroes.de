@@ -15,6 +15,12 @@ function escape(html, encode) {
 		.replace(/'/g, '&#39;');
 }
 
+/**
+ * The actual "marked" renderer, that will be used for rendering the slightly
+ * modified markdown that is used in this blog. This markdown has e.g. custom
+ * links and special image rendering and more.
+ * It also calculates the estimate reading time for the HTML it rendered.
+ */
 class ReadingTimeCalculatingRenderer extends marked.Renderer {
 
 	constructor() {
@@ -121,14 +127,24 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 	}
 }
 
+/**
+ * This is the renderer used for rendering markdown strings to HTML and provide
+ * additional information about the rendered output or the rendering process.
+ */
 export default class Renderer {
 
+	/**
+	 * Render the markdown passed to this method and return a result that returns
+	 * the following keys:
+	 * - html: the rendered HTML
+	 * - readingTime: the estimated reading time for that post in minutes
+	 */
 	render(markdown) {
 		const renderer = new ReadingTimeCalculatingRenderer();
 
 		const html = marked(markdown, {
 			renderer: renderer,
-			highlight: this.highlight
+			highlight: this._highlight
 		});
 
 		return {
@@ -137,7 +153,7 @@ export default class Renderer {
 		};
 	}
 
-	highlight(code, lang) {
+	_highlight(code, lang) {
 		if (!lang) {
 			return highlightjs.highlightAuto(code).value;
 		} else if (lang === '-') {
