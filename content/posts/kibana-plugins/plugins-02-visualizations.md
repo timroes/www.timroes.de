@@ -58,7 +58,7 @@ The `uiExports` object describe several extensions your plugin wants to add to
 the user interface. In this case we just use the `visTypes` array to register
 one (you could also register multiple) visualization types. The string you
 define in the visTypes array will be passed to RequireJS for dependency
-resolution. RequireJS will resolve `plugins/&lt;plugin-name&gt;/` to the public
+resolution. RequireJS will resolve `plugins/<plugin-name>/` to the public
 folder of your plugin, where you can reference any file you want (in this case
 we reference _clock_ which will resolve to the _clock.js_ file).
 
