@@ -16,7 +16,7 @@ knowledge.]]
 Groovy is an object-oriented programming language which
 could be described as Java paired with a dynamic scripting language like
 JavaScript or Python. You can use Groovy in two different "modes": You can
-**compile Groovy** to JVM Bytecode like Java. That way you jsut need to package
+**compile Groovy** to JVM Bytecode like Java. That way you just need to package
 it with the groovy library and it can run in the JVM like Java can. You can use
 your build system (e.g. the [Groovy Gradle plugin](https://docs.gradle.org/current/userguide/groovy_plugin.html)) to use
 and build Groovy in your regular projects. Besides using it in a compiled way,
