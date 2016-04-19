@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import RSS from 'rss';
 import config from '../data/config';
-import posts from '../data/posts';
+import posts from '../data/rawPosts';
 import {postData} from '../handlebarData';
 import {fromString} from '../utils';
 

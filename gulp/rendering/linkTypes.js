@@ -4,7 +4,7 @@
 	a function with the schema name in this file (in that example the function must
 	be named foobar).
 */
-import posts from '../data/posts';
+import posts from '../data/rawPosts';
 import path from 'path';
 
 const allPosts = posts();

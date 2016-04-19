@@ -4,7 +4,10 @@
 			<img src="/images{{use-first this.meta.image @root.config.blog.postlist.fallbackImage}}" class="postlink-image">
 			<div class="postlink-overlay">
 				<div class="postlink-title">{{this.meta.title}}</div>
-				<div class="postlink-meta"><i class="icon-calendar"></i> {{date this.meta.created}}</div>
+				<div class="postlink-meta">
+					<span><i class="icon-calendar"></i> {{date this.meta.created}}</span>
+					<span><i class="icon-clock"></i> {{this.readingTime}} min read</span>
+				</div>
 			</div>
 		</a>
 	{{/each}}

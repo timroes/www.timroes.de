@@ -4,13 +4,14 @@
 	<h1>{{title}}</h1>
 	<div class="postmeta">
 		<time datetime="{{post.meta.created}}"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
+		<i class="icon-clock"></i> {{post.readingTime}} min read
 	</div>
 
 	<ins class="adsbygoogle"
 			data-ad-client="{{config.adsense.adclient}}"
 			data-ad-slot="{{config.adsense.adslot}}"></ins>
 
-	{{{content}}}
+	{{{post.content}}}
 
 </article>
 
@@ -45,7 +46,10 @@
 				{{#notequals this.id ../post.id}}
 				<a href="{{this.url}}" class="serieslink">
 					{{this.meta.title}}
-					<div class="serieslink-date"><i class="icon-calendar"></i> {{date this.meta.created}}</div>
+					<div class="serieslink-meta">
+						<i class="icon-calendar"></i> {{date this.meta.created}}
+						<i class="icon-clock"></i> {{this.readingTime}} min read
+					</div>
 				</a>
 				{{/notequals}}
 			{{/each-reverse}}

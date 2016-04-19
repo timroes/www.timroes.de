@@ -20,13 +20,10 @@ function baseData() {
 }
 
 export function postData (post) {
-	const renderResult = renderer.render(post.markdown);
 	return {
 		...baseData(),
 		type_post: true,
 		post: post,
-		content: renderResult.html,
-		readingTime: renderResult.readingTime,
 		canonical: `${config().blog.url}${post.url}`,
 		description: post.meta.summary,
 		title: post.meta.title
