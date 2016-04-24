@@ -33,4 +33,6 @@ export function handlebars(data) {
 };
 
 export const images = lazypipe()
-	.pipe(_.imagemin);
+	.pipe(_.imagemin, {
+		progressive: true
+	});
