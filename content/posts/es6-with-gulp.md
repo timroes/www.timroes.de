@@ -3,7 +3,7 @@ title: Using ECMAScript 6 (ES6/ES2015) with Gulp
 created: 2015-10-25T12:00:00
 authors:
   - timroes
-slug: using-ecmascript6-es2015-with-gulp
+slug: using-ecmascript6-es6-es2015-with-gulp
 image: /banners/gulp-es6.png
 category: Gulp
 ---
