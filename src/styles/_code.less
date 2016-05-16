@@ -11,6 +11,41 @@ code {
 	padding: 1em;
 }
 
+.copycode {
+	position: relative;
+}
+
+.copycode:hover .cc-btn {
+	opacity: 1;
+}
+
+.cc-btn {
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: 0;
+	background-color: #EEE;
+	padding: 0.7em;
+	border: none;
+	border-bottom-left-radius: 4px;
+	font-size: 1em;
+	color: #333;
+	transition: background-color @fade-time ease, color @fade-time ease, opacity @fade-time ease;
+
+	&::after {
+		content: ' Copy Code';
+	}
+
+	&.copied::after {
+		content: ' Copied';
+	}
+
+	&:hover, &:focus {
+		background-color: @accent-color;
+		color: white;
+	}
+}
+
 @media @large {
 	.hljs {
 		padding: 0.5em;

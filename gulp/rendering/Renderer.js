@@ -66,7 +66,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 			}
 		}
 
-		return `<pre><code class="hljs ${lang ? this.options.langPrefix + escape(lang, true) : ''}">${escaped ? code : escape(code, true)}</code></pre>`;
+		return `<pre class="copycode"><code class="hljs ${lang ? this.options.langPrefix + escape(lang, true) : ''}">${escaped ? code : escape(code, true)}</code></pre>`;
 	}
 
 	/**

@@ -75,6 +75,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "b429436ec5a518c78479d44ef18dbd60",
+      "css": "clipboard",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "12f4ece88e46abd864e40b35e05b11cd",
+      "css": "ok",
+      "code": 59403,
+      "src": "fontawesome"
+    },
+    {
       "uid": "66ceae90a0917dbdc0f9562b7d390ae7",
       "css": "inovex",
       "code": 59405,

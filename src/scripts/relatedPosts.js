@@ -1,4 +1,4 @@
-var $ = require('jquery/dist/jquery.min');
+var $ = require('jquery');
 
 $(() => {
 	const linklist = $('.serieslinks-linklist');

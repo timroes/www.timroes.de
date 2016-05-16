@@ -1,4 +1,4 @@
-const $ = require('jquery/dist/jquery.min');
+const $ = require('jquery');
 
 $(() => {
 	const footer = $('.postbottom');
