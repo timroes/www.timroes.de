@@ -47,6 +47,7 @@
     "rss": "^1.2.1",
     "sanitize.css": "^3.3.0",
     "sitemap": "^1.6.0",
+    "webpack": "^1.13.0",
     "webpack-stream": "^3.1.0",
     "yamljs": "^0.2.4"
   },
