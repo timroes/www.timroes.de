@@ -17,7 +17,14 @@
 </article>
 
 <div class="postbottom">
-	<a href="#comments" title="Show comments"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{canonical}}">0</span></a>
+	<noscript>
+		<style>
+			.comments-link {
+				display: none;
+			}
+		</style>
+	</noscript>
+	<a href="#comments" title="Show comments" class="comments-link"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{canonical}}"></span></a>
 
 	<div class="postsocials">
 		<span class="postsocials-label">Share on</span>
