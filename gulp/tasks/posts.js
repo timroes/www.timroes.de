@@ -1,10 +1,15 @@
 import {postData} from '../handlebarData';
 import posts from '../data/posts';
 import merge from 'merge-stream';
+import runSequence from 'run-sequence';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
-	gulp.task('posts', ['resources'], () => {
+	gulp.task('posts', ['resources'], (done) => {
+		runSequence('posts-no-deps', done);
+	});
+
+	gulp.task('posts-no-deps', () => {
 		const postStreams = posts().map(post => {
 			return gulp.src(paths.sources.index)
 				.pipe(pipelines.handlebars(postData(post)))
@@ -22,7 +27,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 		paths.sources.templates,
 		paths.content.posts,
 		paths.content.authors
-	], ['posts']);
+	], ['posts-no-deps']);
 
 	return {
 		build: 'posts'

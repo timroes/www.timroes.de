@@ -46,6 +46,7 @@
     "merge-stream": "^1.0.0",
     "moment": "^2.11.1",
     "rss": "^1.2.1",
+    "run-sequence": "^1.2.0",
     "sanitize.css": "^3.3.0",
     "sitemap": "^1.6.0",
     "webpack": "^1.13.0",
