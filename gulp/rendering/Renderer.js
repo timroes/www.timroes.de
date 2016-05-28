@@ -46,7 +46,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		// Time per word in a code block. These usually take longer to read than regular text
 		this.timePerCodeWord = options.timePerCodeWord || (this.timePerTextWord * 5);
 		// Time per word in a table cell. Usually takes also longer than regular text
-		this.timePerTableWord = options.timePerTableWord || (this.timePerTextWord * 2)
+		this.timePerTableWord = options.timePerTableWord || (this.timePerTextWord * 3)
 		this._readingTime = 0;
 	}
 
