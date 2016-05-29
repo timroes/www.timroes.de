@@ -1,9 +1,9 @@
 ---
 title: Elasticsearch/Kibana Queries - In Depth Tutorial
-created: 2016-05-20T12:00:00
+created: 2016-05-29T13:42:00
+slug: elasticsearch-kibana-queries-in-depth-tutorial
 authors:
   - timroes
-status: draft
 ---
 
 This tutorial is an in depth explanation on how to write queries in Kibana - at the search bar at the top -
@@ -123,11 +123,11 @@ sections. When we talk about the "analyzed data" this means, you have the data i
 string fields. When we talk about "non-analyzed data" this means, that you have a mapping
 that has both fields as non analyzed.
 
-[[hintbox **Hint:** From Elasticsearch 5 on there won't be a *string* field type anymore.
+[[hintbox]] **Hint:** From Elasticsearch 5 on there won't be a *string* field type anymore.
 Analyzed strings  will now be of type *text* and not analyzed strings are from type
 *keyword* in version 5 onwards. The basic logic behind this hasn't changed. Therefor this
 tutorial will continue to talk about analyzed and non-analyzed strings.
-[*See changelogs*](https://www.elastic.co/de/blog/elasticsearch-5-0-0-alpha1-released#_text_keyword_to_replace_strings)]]
+[*See changelogs*](https://www.elastic.co/de/blog/elasticsearch-5-0-0-alpha1-released#_text_keyword_to_replace_strings)
 
 
 Simple queries on fields
@@ -324,10 +324,18 @@ Besides using the keywords *AND* and *OR* you can also use *&amp;&amp;* or *||* 
 The [official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#_boolean_operators)
 about these operators is pretty detailed.
 
-Minus and Plus Operator
-------------------------
+### Plus Operator
 
-TODO: Prefere minus and plus
+Besides using *AND* and *OR* there is also a plus operator (+). If you put it in front of
+a query part this query part *MUST* match. All the other query parts (without an plus in front)
+are optional. E.g. `+author:adams title:guide` would match all documents that contains
+adams in the author field and optionally contain guide in the title field.
+
+Most often using the plus operator over using *AND* and *OR* makes the query a bit easier
+to understand. Elastic also recommends using the plus (and minus operator shown in the next
+section) over using *AND* and *OR* where possible.
+
+Take care, that there is no space allowed between the plus sign and the actual query part.
 
 Exclusion (NOT operator)
 ------------------------
@@ -338,34 +346,239 @@ search for documents, containing "douglas", but not "adams", the query would be 
 
 Take care: there musn't be a space between the minus or exclamation mark and the actual query.
 
-Regex
------
+Regular expressions
+-------------------
 
-TODO
+Elasticsearch also supports searching for regular expressions by wrapping the search string
+in forward slashes, e.g. `author:/[Dd]ouglas.*/`. Like the other queries this regex will be
+searched for in the inverted index, i.e. the regex must match to an entry in the inverted
+index and not the actual field value.
+
+For example if we search for `author:/[Dd]ouglas.*[Aa]dams/` in the **unanalyzed data**,
+it will yield the two documents, since there was an entry for "Douglas Adams" in the
+inverted index.
+
+If you use the same query on **analyzed data** you won't get any results, since it
+doesn't match any inverted index entry. There are only entries for "douglas" and "adams",
+but none of these matches the above regex.
+
+The supported regex sytnax is special to Lucene and you can look up
+[the documentat](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax)
+to see what regex operators are supported.
+
+[[warning]] Executing regex searches can be quite expensive, since Elasticsearch possibly has to
+compare every inverted index entry to the regex, which can take some while. If you can go without
+regex and use one of the other query types, you should do so.
 
 Range Queries
 -------------
 
-- on numeric fields
-- on string fields (caution with lower/uppercase again)
+If you want to search on numeric fields you can of course use a simple query like `number:42`
+(assuming you have a numeric field named *number* in your documents) to find all
+documents where this field is *42*. When working with numbers you will often need
+to search in specific ranges and not just for a fixed value. Therefor Elasticsearch
+offers you range queries:
+
+* `number:[32 TO 42]` - will find all documents where number is between 32 and 42 (with 32 and 42 still included in the result)
+* `number:[32 TO 42}` - will find all documents where number is between 32 and 42 (with 32 included and 42 excluded from the results)
+* `number:[23 TO *]` - will find all documents where number is greater or equal to 23
+
+As you see square brackets always include the actual number, whereas curly braces will exclude the specified
+number from the search. An asterisk can be used to define on end of the range as open. You can of course also
+use open ends at the of a range and excluding/including braces in whatever combination you like.
+
+If your ranges have one open end (asterisk) there is a shorthand syntax to write *greater/lesser than* queries:
+
+* `number:>42`
+* `number:<42`
+* `number:>=42`
+* `number:<=42`
+
+### Ranged queries on string fields
+
+You can also use ranged queries on *string* fields. Strings are ordered lexically with
+uppercase letters coming before lowercase letters, i.e. their ASCII order. So one correct
+order of strings would be:
+
+```
+A < D < Douglas < Douglas Adams < a < d < douglas
+```
+
+Searching for `author:>=n` on **analyzed data** would return all documents where either the
+first name of the last name begins with *n*. Again this comparison is made against the
+inverted index of the field, that's why one part of the name is enough to match this query
+when your data is analyzed.
+
+We used the greater or equals operator above. When searching for `author:>n` (only greater than)
+you might think, that this will only reveal names beginning with *o* or later, but that's
+not the case. It will reveal all names that are *greater than* "n", which is every name
+beginning with "n" except the sole string "n" itself.
+
+[[warning]] There is a pitfall when using ranged queries on *string* fields. If you don't
+change the `lowercase_expanded_terms` option to `false` that has been explained in the
+*Wildcard Queries* section, Elasticsearch will by default transform the query when it is a
+ranged query to lowercase, meaning searching for `author:>D` is equivalent to Searching
+`author:>d`. If your data is **unanalyzed** and in there is actually an entry for "Douglas Adams"
+in your inverted index, you wouldn't expect `author:<C` to find it, since you only want
+to search all authors *lesser than* "C". Since this will be transformed to `author:<c`
+it WILL find your documents, since all uppercase letters are always *lesser than* any lowercase
+letter, meaning "D" < "c" and so is "Douglas" < "c". If you don't want that behaviour you would
+need to set `lowercase_expanded_terms` to `false` in your `query_string` object when
+using JSON to communicate with Elasticsearch.
+
+More Query Types
+----------------
+
+There are a few more query types, which detailed explanation can be found in the
+[official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).
+You should now have all the knowledge about how inverted indexes work to understand
+these operators fine from the official documentation. I will just give a short overview
+on the missing operators:
+
+### Fuzziness
+
+If you want to search for terms, that are similiar to a specific value, but doesn't necessary
+need to be the same, you can use the *fuzzy* (~) operator:
+
+`doglas~` will search for all occurrences of something similiar to "doglas". By default
+it must be in an [Damerau-Levenshtein distance](http://en.wikipedia.org/wiki/Damerau-Levenshtein_distance)
+of 2 (the amount of characters you would need to edit/insert/delete to change the query
+into the actual indexed term).
+
+You can specify the allowed distance with a number behind the operator: `doglas~1`
+
+### Proximity
+
+Quite similiar as the fuzziness operator is the proximity operator. If you search for a phrase
+`author:"adams douglas"` Elasticsearch expects the single terms to appear in exactly
+that order in the original document and it wouldn't find any of our documents.
+
+Specifying a proximity like `author:"adams douglas"~2` allows the words to be in
+another order or up to (in this case) 2 words apart in the actual document.
+
+### Search for (non)existing fields
+
+There are two special "fields" to check for whether a document contains a field at all or doesn't.
+
+If you want to search for all documents, that doesn't have the "author" field or doesn't have
+a value in it (i.e. `null`) you can use the query `_missing_:author`.
+
+If you want to check that a specific field exists in the searched document and has a non-null value
+you can use `_exists_:author`.
+
+Due to the way Elasticsearch indexes the data, you cannot see any differences in whether
+the document didn't has the field when it was inserted into Elasticsearch or whether
+the value was just `null`. So there is no possibility to separate these two cases
+in a query.
+
+### Boosting
+
+Elasticsearch orders the results it find, to return the best matched documents first.
+You can change the importance of single query parts with the *boost* operator (^).
+
+E.g. when searching `author:douglas OR title:guide^5` the second part is five times
+(the default boost value is 1) as important for the ranking as the first part of the
+query in term of sorting.
+
+This operator doesn't influence WHICH documents Elasticsearch finds, only in which
+order it ranks these results. (If you have limited the amount of search results of course the
+order can determine which of the documents are actually returned to the user.)
 
 
 Using JSON in the Kibana search
 -------------------------------
 
-TODO: Explaining how to use query DSL in the search bar in Kibana
+When searching from Kibana you usually type the actual query string into the top bar
+as we've seen it throughout the tutorial. If the query string isn't enough for what you
+need, you also have the possibility to write JSON in that bar.
+
+You can write the JSON object, that you would attach to the "query" key when communicating
+with Elasticsearch into that box, e.g.:
+
+```json
+{ "range": { "numeric": { "gte": 10 } } }
+```
+
+This would be equivalent to writing `numeric:>=10` into that box. That most often only
+makes sense if you need access to options, that are only available in the JSON query,
+but not in the query string.
+
+[[warning]] And again a warning: if you write the JSON of a *query_string* into that
+field (e.g. because you want to have access to `lowercase_expanded_terms`) Kibana
+will store the correct JSON for the query, but will show you (after pressing enter)
+again only the "query" part of your JSON. This can be super confusing and of course
+if you now enter the text and hit enter again, it also loses the options you set via
+JSON, so this should really be used with care.
 
 
-Still not finding the data
---------------------------
+More Special cases
+------------------
 
-- ignore_above
-- modified/disabled _all field
+This section should cover some more special cases where you might think: *"I read through
+the whole tutorial, I understood everything, but still my query doesn't find the data
+I expect it to find."*
 
-more
-----
+#### Elasticseach doesn't find terms in long fields
 
-- fuzziness
-- proximity searches
-- boosting
-- _missing_ and _exists_
+This one is - from my experience - a pretty common problem, and isn't easy to find
+if you don't know for what you are looking.
+
+Elasticsearch has a setting `ignore_above` that you can set in the mapping for every field.
+This is a numeric value, that will cause Elasticsearch to NOT index values longer than the specified
+`ignore_above` value when a document gets inserted. The value will still be stored so
+when looking at the document you will see the value, but you cannot search for it.
+
+How can you check if that value is set on a field? You need to retrieve the mapping
+from Elasticsearch, by calling `<your-elasticsearch-domain>/<your-index-name>/_mapping`.
+In the returning JSON there will somewhere be the mapping for the field you are looking,
+which might look as follows:
+
+```json
+"fieldName": {
+  "type": "string",
+  "ignore_above": 15
+}
+```
+
+In that case values above 100 characters are not indexed and you cannot search for them.
+
+*Example:* Assuming the above mapping, let's insert two documents into that Elasticsearch:
+
+```json
+{ "fieldName": "short string" }
+{ "fieldName": "a string longer as ignore_above" }
+```
+
+If you now list all the documents (in Kibana or Elasticsearch itself) you will see,
+that both documents are there and the value of both fields is what the string you inserted.
+But if you now search for `fieldName:longer` you won't get any results (whereas `fieldName:short`
+would return the first document). Elasticsearch has discovered that the value "a strnig longer as ignore_above"
+is longer than 15 characters and so it only stores it in the document, but doesn't
+index it, so you cannot search for anything in it, since there won't be any content
+of this value in the inverted index for that field.
+
+#### Searching needs a specific field it doesn't work without
+
+If you can search for e.g. `author:foo`, but not for `foo` that most likely is a
+"problem" with your default_field. Elasticsearch prepends the default field
+in front of the `foo`. This field can be configured to be something different than `_all`.
+
+It might be, that the `index.query.default_field` setting was set to something different
+and Elasticsearch isn't using the `_all` field which might cause the problem.
+
+Another possibility is, that the `_all` field doesn't behave like you would expect it
+to behave, because it was configured in some other way. You can exclude specific
+fields from the `_all` field (e.g. in the above example *fieldName* could have been
+excluded from indxing in the *_all* field) or the analyzing/indexing options have been
+changed in the mapping of the *_all* field.
+
+
+What's next?
+------------
+
+I hope this in depth overview of the query language in Kibana/Elasticsearch could
+help you understand queries a bit better, and hopefully you will understand now
+why a query does (or doesn't) match a document in your data.
+
+If you feel that there is any important part or edge case that I have forgotten
+or you have any other questions, please feel free to leave a comment below.
