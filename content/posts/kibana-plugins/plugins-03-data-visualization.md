@@ -12,8 +12,8 @@ summary: |
   how to create a simple tagcloud visualization.
 ---
 
-[[hintbox You need to read [Part 2 - Simple Visualization](post:plugins-02-visualizations)
-before you read this tutorial.]]
+[[hintbox]] You need to read [Part 2 - Simple Visualization](post:plugins-02-visualizations)
+before you read this tutorial.
 
 In the [previous part](post:plugins-02-visualizations) of this tutorial series
 (which is a required must-read for this part) you've learned to create a simple

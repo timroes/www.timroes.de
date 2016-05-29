@@ -14,9 +14,9 @@ application (with code hot swap) by running the tomcatRun task.
 
 But unfortunately there is no task to run Tomcat in Debug mode, being able to debug from your IDE.
 
-[[hintbox **UPDATE**: I recommend using the [**gretty plugin**](https://github.com/akhikhl/gretty)
+[[hintbox]] **UPDATE**: I recommend using the [**gretty plugin**](https://github.com/akhikhl/gretty)
 for Gradle instead of the *gradle-tomcat-plugin*. It offers tasks for debugging and more
-flexibility. You won’t need any of the solutions below anymore.]]
+flexibility. You won’t need any of the solutions below anymore.
 
 Possible Solution #1
 --------------------

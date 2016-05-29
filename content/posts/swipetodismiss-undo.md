@@ -6,7 +6,7 @@ authors:
 category: Android
 ---
 
-[[hintbox **Warning**: This library is deprecated in favor of the new [EnhancedListView](post:enhancedlistview) library.]]
+[[hintbox]] **Warning**: This library is deprecated in favor of the new [EnhancedListView](post:enhancedlistview) library.
 
 SwipeToDismiss is a well known pattern on lists in Android. Just swipe an item left
 or right off the screen, to delete it (whatever that means in the context of a specific app).

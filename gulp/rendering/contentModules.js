@@ -33,6 +33,10 @@ export function talks() {
 	return html;
 }
 
+export function warning(text) {
+	return `<p class="warning">${text}</p>`;
+}
+
 export function hintbox(text) {
 	return `<div class="hintbox">${text}</div>`;
 }

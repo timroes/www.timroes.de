@@ -86,10 +86,10 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 
 	paragraph(text) {
 		this._readingTime += wordCount(text) * this.timePerParagraphWord;
-		const module = /^\[\[([^\s\]]+)(?:\s([^\]]+))?\]\]$/.exec(text);
-		if (module) {
-			if (module[1] in contentModules) {
-				return contentModules[module[1]](module[2]);
+		const matcher = /^\[\[([^\s\]]+)(?:\s([^\]]+))?\]\]([\s\S]*)?$/.exec(text);
+		if (matcher) {
+			if (matcher[1] in contentModules) {
+				return contentModules[matcher[1]](matcher[3], (matcher[2] || '').split(' '));
 			}
 		}
 		return `<p>${text}</p>`;
