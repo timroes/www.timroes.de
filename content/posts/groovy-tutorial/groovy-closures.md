@@ -9,9 +9,9 @@ series: groovy-tutorial
 category: Groovy
 ---
 
-[[hintbox This tutorial aims for developers that are already familiar with Java. It
+[[hintbox]] This tutorial aims for developers that are already familiar with Java. It
 focuses on Groovy specific features and does not explain basic programming
-knowledge.]]
+knowledge.
 
 Groovy has support for **closures**, which work much
 like Java 8 lambdas. A closure is an anonymous block of executable code (let's

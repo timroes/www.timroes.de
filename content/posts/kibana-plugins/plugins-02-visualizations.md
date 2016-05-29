@@ -12,7 +12,7 @@ summary: |
   how to create a simple visualization that doesn't use any data yet.
 ---
 
-[[hintbox You need to read [Part 1 - Basics](post:plugins-01-basics) before you read this tutorial.]]
+[[hintbox]] You need to read [Part 1 - Basics](post:plugins-01-basics) before you read this tutorial.
 
 In this part of the Kibana 4 plugin tutorial series, we'll see how to create
 simple custom visualizations. The simple visualization we will build won't use
@@ -93,13 +93,13 @@ define(function(require) {
 As you can see all JavaScript files in the public folder of your plugin should
 be RequireJS (AMD) modules and must be wrapped in `define(function(require) { ... })`.
 
-[[hintbox **Update**: The writing of this tutorial actually has begun a while
+[[hintbox]] **Update**: The writing of this tutorial actually has begun a while
 ago. Due to bundeling with Webpack you don't need to wrap your files in AMD
 modules anymore. You can just use the require statement without any AMD wrapper.
 Thanks to Joe Fleming for that information! Since the source code in the sample
 have the wrapper I will also leave it in this tutorial (it doesn't demolish your
 plugin), but from the next tutorial part on, you won't see the AMD wrappers
-anymore!]]
+anymore!
 
 First you have to write a provider function for your visualization. This is an
 Angular provider function and it's parameters will be auto-injected by Angular).

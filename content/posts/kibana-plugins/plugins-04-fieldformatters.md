@@ -12,8 +12,8 @@ summary: |
   how to create a field formatter.
 ---
 
-[[hintbox You need to read [Part 1 - Basics](post:plugins-01-basics) before you
-read this tutorial.]]
+[[hintbox]] You need to read [Part 1 - Basics](post:plugins-01-basics) before you
+read this tutorial.
 
 In the previous parts of the tutorial, we mainly focused on how to write custom
 visualization types. Beside custom visualizations Kibana has some more extension
@@ -48,13 +48,13 @@ uiExports: {
 This will register the `trend.js` file in your plugin's public folder to the
 field formats.
 
-[[hintbox **Attention bug ahead**: In all current Kibana releases (as of Kibana
+[[hintbox]] **Attention bug ahead**: In all current Kibana releases (as of Kibana
 4.4.1) the fieldFormats array is not used correctly. As a workaround for this
 Kibana versions just add your field format to the visTypes array instead. It
 will work since the trend.js file anyway needs to register itself to the
 appropriate registry, so it doesn't matter in which array in the index.js it
 appeared. See [#6040](https://github.com/elastic/kibana/issues/6040) on GitHub
-for progress on this issue.]]
+for progress on this issue.
 
 ## Creating your field formatter
 
