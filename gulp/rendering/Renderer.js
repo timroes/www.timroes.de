@@ -85,6 +85,9 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 	}
 
 	paragraph(text) {
+		// Replace hyphens in paragraphs surrounded by spaces with em-dash (typrographical more correct)
+		text = text.replace(/(\s)-(\s)/g, '$1&mdash;$2');
+
 		this._readingTime += wordCount(text) * this.timePerParagraphWord;
 		const matcher = /^\[\[([^\s\]]+)(?:\s([^\]]+))?\]\]([\s\S]*)?$/.exec(text);
 		if (matcher) {
