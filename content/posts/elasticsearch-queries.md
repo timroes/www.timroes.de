@@ -4,6 +4,12 @@ created: 2016-05-29T13:42:00
 slug: elasticsearch-kibana-queries-in-depth-tutorial
 authors:
   - timroes
+series: kibana4-tutorials
+category: Kibana
+summary: |
+  This tutorial explains how to write and understand Kibana and Elasticsearch queries
+  in depth and how the mapping of Elastichsearch influences these queries.
+image: /banners/elastic-query.svg
 ---
 
 This tutorial is an in depth explanation on how to write queries in Kibana - at the search bar at the top -
