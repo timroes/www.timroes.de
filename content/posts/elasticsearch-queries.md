@@ -391,7 +391,7 @@ offers you range queries:
 
 As you see square brackets always include the actual number, whereas curly braces will exclude the specified
 number from the search. An asterisk can be used to define on end of the range as open. You can of course also
-use open ends at the of a range and excluding/including braces in whatever combination you like.
+use open ends for the lower boundary of a range and excluding/including braces in whatever combination you like.
 
 If your ranges have one open end (asterisk) there is a shorthand syntax to write *greater/lesser than* queries:
 
@@ -406,7 +406,7 @@ You can also use ranged queries on *string* fields. Strings are ordered lexicall
 uppercase letters coming before lowercase letters, i.e. their ASCII order. So one correct
 order of strings would be:
 
-```
+```-
 A < D < Douglas < Douglas Adams < a < d < douglas
 ```
 
@@ -484,7 +484,7 @@ You can change the importance of single query parts with the *boost* operator (^
 
 E.g. when searching `author:douglas OR title:guide^5` the second part is five times
 (the default boost value is 1) as important for the ranking as the first part of the
-query in term of sorting.
+query in terms of sorting.
 
 This operator doesn't influence WHICH documents Elasticsearch finds, only in which
 order it ranks these results. (If you have limited the amount of search results of course the
@@ -558,7 +558,7 @@ In that case values above 15 characters are not indexed and you cannot search fo
 If you now list all the documents (in Kibana or Elasticsearch itself) you will see,
 that both documents are there and the value of both fields is what the string you inserted.
 But if you now search for `fieldName:longer` you won't get any results (whereas `fieldName:short`
-would return the first document). Elasticsearch has discovered that the value "a strnig longer as ignore_above"
+would return the first document). Elasticsearch has discovered that the value "a string longer as ignore_above"
 is longer than 15 characters and so it only stores it in the document, but doesn't
 index it, so you cannot search for anything in it, since there won't be any content
 of this value in the inverted index for that field.
