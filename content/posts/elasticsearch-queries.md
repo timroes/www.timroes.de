@@ -546,7 +546,7 @@ which might look as follows:
 }
 ```
 
-In that case values above 100 characters are not indexed and you cannot search for them.
+In that case values above 15 characters are not indexed and you cannot search for them.
 
 *Example:* Assuming the above mapping, let's insert two documents into that Elasticsearch:
 
