@@ -52,7 +52,7 @@ If we didn't change anything in the Elasticsearch mappings for that index, Elast
 will autodetect *string* as the type of both fields when inserting the first document.
 
 **What does an analyzer do?** An analyzer has several tokenizers and/or filters attached to it.
-The tokenizer will get the value of the field that should be index (e.g. "The Hitchhiker's Guide
+The tokenizer will get the value of the field that should be indexed (e.g. "The Hitchhiker's Guide
 to the Galaxy") and can split the value up into multiple chunks for which the user should
 be able to search for (more in a moment). The filters of an analyzer can transform or filter out
 tokens, that the tokenizer produces.
@@ -174,7 +174,7 @@ Let's now search for the whole name, using `author:"douglas adams"`.
 If you skip the quotes (i.e. `author:douglas adams`), you will search for something completely
 different, which we will look at a few sections further.
 
-If you search for `author:"douglas adams"` on the **unanalyzed data** you will get..
+If you search for `author:"douglas adams"` on the **unanalyzed data** you will get - dramatic pause -
 no results (as you might have expected). *Why?* It will look in the inverted index
 for an entry for "douglas adams", but there is only one for "Douglas Adams" - the
 search is case sensitive. You already might have guessed it, but searching for
@@ -225,7 +225,7 @@ return any results.
 *What is happening there?* As soon as you use wildcards in your query, Elasticsearch will
 automatically lowercase your query. No matter if the field you are searching on is analyzed
 or not. Meaning searching for `author:Doug*` will be converted to `author:doug*` and therefore
-won't find "Douglas Adams" in the unanalyzed inverted index. If you use write a JSON query because
+won't find "Douglas Adams" in the unanalyzed inverted index. If you write a JSON query because
 you are communicating with Elasticsearch directly, you can set `lowercase_expanded_terms` to `false`
 in your `query_string` object to disable that behaviour. If you are searching in Kibana and
 want to use wildcards when searching for uppercase values (in unanalyzed fields) you
@@ -317,7 +317,7 @@ By default if you don't specify it (or are searching from Kibana), this will be 
 
 In the beginning of the tutorial I mentioned how important it is to set quotes if you want to search for
 phrases. I said that `author:"Douglas Adams"` searches for something completely different than
-`author:Douglas Adams`. We know now everything to see that the later query searches for.
+`author:Douglas Adams`. We know now everything to understand what the later query searches for.
 Assuming you haven't changed the `default_operator` and `default_field` this query will be equivalent
 to `author:Douglas OR _all:Adams` which will result in different documents than `author:"Douglas Adams"`
 most likely.
@@ -333,7 +333,7 @@ about these operators is pretty detailed.
 ### Plus Operator
 
 Besides using *AND* and *OR* there is also a plus operator (+). If you put it in front of
-a query part this query part *MUST* match. All the other query parts (without an plus in front)
+a query part this query part *MUST* match. All the other query parts (without a plus in front)
 are optional. E.g. `+author:adams title:guide` would match all documents that contains
 adams in the author field and optionally contain guide in the title field.
 
@@ -368,8 +368,8 @@ If you use the same query on **analyzed data** you won't get any results, since 
 doesn't match any inverted index entry. There are only entries for "douglas" and "adams",
 but none of these matches the above regex.
 
-The supported regex sytnax is special to Lucene and you can look up
-[the documentat](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax)
+The supported regex syntax is special to Lucene and you can look up
+[the documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#regexp-syntax)
 to see what regex operators are supported.
 
 [[warning]] Executing regex searches can be quite expensive, since Elasticsearch possibly has to
@@ -411,7 +411,7 @@ A < D < Douglas < Douglas Adams < a < d < douglas
 ```
 
 Searching for `author:>=n` on **analyzed data** would return all documents where either the
-first name of the last name begins with *n*. Again this comparison is made against the
+first name or the last name begins with *n*. Again this comparison is made against the
 inverted index of the field, that's why one part of the name is enough to match this query
 when your data is analyzed.
 
