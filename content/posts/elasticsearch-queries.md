@@ -34,7 +34,7 @@ you expect them to, one of the other tutorials out there might be a better choic
 Indexing of documents
 ---------------------
 
-First it's crucial to understand how Elasticsearch indexes data. Therefor we put the following
+First it's crucial to understand how Elasticsearch indexes data. Therefore we put the following
 two documents into our imaginary Elasticsearch instance:
 
 ```json
@@ -104,7 +104,7 @@ to contain an entry for "http" and the path split up at each slash. You would li
 to just have an entry per real domain. What you want is that Elasticsearch doesn't
 analyze the values in your documents.
 
-Therefor you need to define a mapping for your index manually. This isn't covered
+Therefore you need to define a mapping for your index manually. This isn't covered
 in that tutorial, but have a look at the [official documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html).
 If you specify `index: not_analyzed` in the mapping the inverted index for the
 *title* field would look as follows:
@@ -131,7 +131,7 @@ that has both fields as non analyzed.
 
 [[hintbox]] **Hint:** From Elasticsearch 5 on there won't be a *string* field type anymore.
 Analyzed strings  will now be of type *text* and not analyzed strings are from type
-*keyword* in version 5 onwards. The basic logic behind this hasn't changed. Therefor this
+*keyword* in version 5 onwards. The basic logic behind this hasn't changed. Therefore this
 tutorial will continue to talk about analyzed and non-analyzed strings.
 [*See changelogs*](https://www.elastic.co/de/blog/elasticsearch-5-0-0-alpha1-released#_text_keyword_to_replace_strings)
 
@@ -224,7 +224,7 @@ return any results.
 
 *What is happening there?* As soon as you use wildcards in your query, Elasticsearch will
 automatically lowercase your query. No matter if the field you are searching on is analyzed
-or not. Meaning searching for `author:Doug*` will be converted to `author:doug*` and therefor
+or not. Meaning searching for `author:Doug*` will be converted to `author:doug*` and therefore
 won't find "Douglas Adams" in the unanalyzed inverted index. If you use write a JSON query because
 you are communicating with Elasticsearch directly, you can set `lowercase_expanded_terms` to `false`
 in your `query_string` object to disable that behaviour. If you are searching in Kibana and
@@ -274,7 +274,7 @@ After that, the inverted index will look as follows:
 Where as the inverted index of the *unanalyzed_field* will only contain the one
 entry "Douglas Adams", because that field was set to unanalyzed (in our imaginary Elasticsearch mapping).
 
-Therefor the *_all* field allows you to even search for values in unanalyzed fields by default.
+Therefore the *_all* field allows you to even search for values in unanalyzed fields by default.
 
 Back to our previous data: searching for `Douglas` (or equivalent `_all:Douglas`) will return
 both documents no matter if the data was analyzed or unanalyzed, since it was analyzed
@@ -382,7 +382,7 @@ Range Queries
 If you want to search on numeric fields you can of course use a simple query like `number:42`
 (assuming you have a numeric field named *number* in your documents) to find all
 documents where this field is *42*. When working with numbers you will often need
-to search in specific ranges and not just for a fixed value. Therefor Elasticsearch
+to search in specific ranges and not just for a fixed value. Therefore Elasticsearch
 offers you range queries:
 
 * `number:[32 TO 42]` - will find all documents where number is between 32 and 42 (with 32 and 42 still included in the result)
