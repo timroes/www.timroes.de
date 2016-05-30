@@ -258,33 +258,44 @@ Let's look at one example. Assume we put the following document into Elasticsear
   "unanalyzed_field": "Douglas Adams",
   "numeric_field": 42
 }
+{
+  "another_field": "foo adams"
+}
 ```
 
-After that, the inverted index will look as follows:
+After that, the inverted index of the *_all* field will look as follows:
 
 | Term     | Documents |
 |----------|-----------|
 | douglas  | 1         |
-| foo      | 1         |
+| foo      | 1, 2      |
 | bar      | 1         |
 | 42       | 1         |
-| adams    | 1         |
+| adams    | 1, 2      |
 
+The *_all* field therefore allows you to even search for single words in unanalyzed fields
+by default.
 
-Where as the inverted index of the *unanalyzed_field* will only contain the one
-entry "Douglas Adams", because that field was set to unanalyzed (in our imaginary Elasticsearch mapping).
+Whereas the inverted index of the *unanalyzed_field* (in the sample document above)
+will only contain the entry "Douglas Adams", because that field was set to unanalyzed (in our
+imaginary Elasticsearch mapping).
 
-Therefore the *_all* field allows you to even search for values in unanalyzed fields by default.
+Back to our previous data (our two book documents about Douglas Adams): if we have set the
+*author* field no *not_analyzed* its inverted index will only have one entry: "Douglas Adams".
+The inverted index of the *_all* field will have both: an entry for "douglas" and one for "adams",
+since the values from every field in a document are analyzed and indexed in that "meta field".
 
-Back to our previous data: searching for `Douglas` (or equivalent `_all:Douglas`) will return
-both documents no matter if the data was analyzed or unanalyzed, since it was analyzed
-in the _all field.
+This means - looking at our **unanalyzed data** - searching `Douglas` (or equivalent `_all:Douglas`)
+will return both documents. Searching for `author:Douglas` won't return any results (even
+though the author field originally contained that value). For searching on the unanalyzed
+author field you would need to specify the exact match in its inverted index (which is "Douglas Adams"),
+for searching in the *_all* field the analyzed values (like "douglas") are enough.
 
-This means - looking at our **unanalyzed data** - that searching `Douglas` will return both documents,
-but searching for `author:Douglas` won't return any results (even though that is the field that contains
-that value). But for searching on the unanalyzed author field you would need to specify the exact
-match in that inverted index ("Douglas Adams") and not the analyzed value in the inverted index of the
-*_all* field.
+If you wondered, why searching for `_all:Douglas` (uppercase) still found the document, even though
+the *_all* inverted index has the term "douglas" (lowercase) indexed: Elasticsearch will use the
+same autodetection as mentioned earlier. It detects that the *_all* field is an analyzed field,
+and so it will use the same analyzer on the search value ("Douglas"), which among others converts
+the value to lowercase.
 
 
 AND &amp; OR Operators
