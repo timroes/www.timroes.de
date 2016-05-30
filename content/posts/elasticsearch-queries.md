@@ -390,8 +390,8 @@ offers you range queries:
 * `number:[23 TO *]` - will find all documents where number is greater or equal to 23
 
 As you see square brackets always include the actual number, whereas curly braces will exclude the specified
-number from the search. An asterisk can be used to define on end of the range as open. You can of course also
-use open ends for the lower boundary of a range and excluding/including braces in whatever combination you like.
+number from the search. You can use asertisk and excluding curly braces of course also for the lower boundary of
+the range.
 
 If your ranges have one open end (asterisk) there is a shorthand syntax to write *greater/lesser than* queries:
 
