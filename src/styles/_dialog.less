@@ -1,0 +1,88 @@
+.show-post-history {
+	cursor: pointer;
+}
+
+.dialog-wrapper {
+	display: none;
+}
+
+.dialog-wrapper.open {
+	display: block;
+}
+
+.dialog-backdrop {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+}
+
+.dialog-content {
+	position: fixed;
+	top: 20%;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+	z-index: 110;
+	width: 85%;
+	max-width: 550px;
+	height: 300px;
+	background: white;
+	padding: 1em;
+	box-shadow: 0 0 8px #555;
+	overflow: auto;
+}
+
+html.dialog-open {
+	overflow: hidden;
+}
+
+.history-title {
+	font-size: 1.4rem;
+	color: @dark-gray-text;
+	font-weight: 300;
+	margin: 0 0 0.8em;
+}
+
+.history-desc {View
+	color: @gray-text;
+}
+
+.history-list {
+	padding: 0;
+	list-style: none;
+	margin: 0.8em 0 0;
+
+	li {
+		line-height: 2.4;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+
+	time {
+		color: #666;
+		font-size: 0.9em;
+		display: inline-block;
+		width: 90px;
+	}
+
+	.hash {
+		font-family: 'Source Code Pro', monospace;
+		background-color: #DDD;
+		color: #555;
+		padding: 0.2em;
+		text-decoration: none;
+		transition: color @fade-time ease, background-color @fade-time ease;
+		border-radius: 2px;
+		font-size: 0.8em;
+
+		&:hover, &:focus {
+			background: @accent-color;
+			color: white;
+		}
+	}
+}

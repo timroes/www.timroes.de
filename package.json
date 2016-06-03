@@ -46,6 +46,7 @@
     "marked": "^0.3.5",
     "merge-stream": "^1.0.0",
     "moment": "^2.11.1",
+    "nodegit": "^0.13.0",
     "rss": "^1.2.1",
     "run-sequence": "^1.2.0",
     "sanitize.css": "^3.3.0",

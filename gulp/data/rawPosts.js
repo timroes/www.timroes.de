@@ -42,7 +42,8 @@ export default function() {
 			created: date,
 			meta: meta,
 			markdown: markdown.trim(),
-			mtime: mtime
+			mtime: mtime,
+			file: file.toString()
 		};
 
 	}).filter(post => {

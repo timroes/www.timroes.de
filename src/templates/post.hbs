@@ -1,7 +1,7 @@
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
-		<time datetime="{{post.meta.created}}"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
+		<time datetime="{{post.meta.created}}" class="show-post-history" title="View last modifications"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
 		<i class="icon-clock"></i> {{post.readingTime}} min read
 	</div>
 
@@ -91,3 +91,22 @@
 <script>
 	(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+{{#if post.history.length}}
+<div id="post-history" class="dialog-wrapper">
+	<div class="dialog-backdrop"></div>
+	<div class="dialog-content" role="modal">
+		<h1 class="history-title">Last Modifications</h1>
+		<p class="history-desc">Click on the hash of a commit to view the diff on GitHub.</p>
+		<ul class="history-list">
+		{{#each post.history as |commit|}}
+			<li>
+				<time datetime="{{commit.date}}">{{date commit.date}}</time>
+				<a href="https://github.com/{{@root.config.blog.github_repo}}/commit/{{commit.sha_full}}" class="hash" title="View Changes on GitHub">{{commit.sha}}</a>
+				{{commit.message}}
+			</li>
+		{{/each}}
+		</ul>
+	</div>
+</div>
+{{/if}}
