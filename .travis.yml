@@ -19,3 +19,8 @@ branches:
 # Add www.timroes.de to known hosts
 addons:
   ssh_known_hosts: www.timroes.de
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-4.9-dev
