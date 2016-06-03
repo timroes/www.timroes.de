@@ -24,32 +24,31 @@
 </head>
 <body {{#if type_index}}class="home"{{/if}}>
 
-	<header role="banner">
-		{{#if type_index}}
-			<header role="banner" class="homeheader">
-				<img src="/images/profile.jpg" alt="{{config.blog.title}}">
-				<div class="author-box">
-					<h1 class="blog-title">{{config.blog.title}}</h1>
-					<h2 class="blog-slogan">{{config.blog.headline}}</h2>
-					<div class="header-page-navigation">{{~> pagelinks}}</div>
-					<div class="header-socials">
-						{{> socialLinks blogAuthor}}
-					</div>
+	{{#if type_index}}
+		<header role="banner" class="homeheader">
+			<img src="/images/profile.jpg" alt="{{config.blog.title}}">
+			<div class="author-box">
+				<h1 class="blog-title">{{config.blog.title}}</h1>
+				<h2 class="blog-slogan">{{config.blog.headline}}</h2>
+				<div class="header-page-navigation">{{~> pagelinks}}</div>
+				<div class="header-socials">
+					{{> socialLinks blogAuthor}}
 				</div>
-			</header>
-		{{else}}
-			<header role="banner" class="pageheader">
-				<a href="/" rel="home">
-					<img src="/avatars/{{blogAuthor.id}}.jpg" alt="{{config.blog.title}}">
-				</a>
-				<div class="header-navigation">
-					<a href="/" class="header-home-link" rel="home">{{config.blog.title}}</a>
-					<div class="header-page-navigation">
-						{{~> pagelinks}}
-					</div>
+			</div>
+		</header>
+	{{else}}
+		<header role="banner" class="pageheader">
+			<a href="/" rel="home">
+				<img src="/avatars/{{blogAuthor.id}}.jpg" alt="{{config.blog.title}}">
+			</a>
+			<div class="header-navigation">
+				<a href="/" class="header-home-link" rel="home">{{config.blog.title}}</a>
+				<div class="header-page-navigation">
+					{{~> pagelinks}}
 				</div>
-			</header>
-		{{/if}}
+			</div>
+		</header>
+	{{/if}}
 
 	<main>
 
