@@ -26,4 +26,11 @@ $(() => {
 					.addClass('icon-clipboard');
 		}, 3000);
 	});
+
+	clipboard.on('error', (e) => {
+		$(e.trigger).addClass('copy-failed');
+		setTimeout(() => {
+			$(e.trigger).removeClass('copy-failed');
+		}, 5000);
+	});
 });
