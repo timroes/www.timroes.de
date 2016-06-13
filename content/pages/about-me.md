@@ -8,9 +8,9 @@ In 2013, I graduated from Karlsruhe University of Applied Science with a Masterâ
 
 I am passionate about technology, programming and good games (board, card or digital).
 
-I like customizing systems to my need, which is why I use awesome wm as my window
+I like customizing systems to my need, which is e.g. why I use awesome wm as my window
 manager (with a [custom config](https://github.com/timroes/awesome-config) written completely
-from scratch), use Gentoo on most of my systems and built this blog with its own
+from scratch) or built this blog with its own
 [custom software](https://github.com/timroes/www.timroes.de).
 
 I am working in the application development department of [inovex](http://www.inovex.de/?utm_source=Tim%20Roes&utm_medium=referral&utm_campaign=Tim%20Roes_About%20Me)
