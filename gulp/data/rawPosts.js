@@ -1,6 +1,7 @@
 import glob from 'glob';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import moment from 'moment';
 import paths from '../paths';
 import gutil from 'gulp-util';
@@ -36,6 +37,8 @@ export default function() {
 		const id = path.basename(file, '.md');
 		const url = `/${path.join(date.format("YYYY/MM/DD"), meta.slug || id)}/`;
 
+		const md5Hash = crypto.createHash('md5').update(file.toString()).digest('hex');
+
 		return {
 			url: url,
 			id: id,
@@ -43,7 +46,8 @@ export default function() {
 			meta: meta,
 			markdown: markdown.trim(),
 			mtime: mtime,
-			file: file.toString()
+			file: file.toString(),
+			filePathHash: md5Hash
 		};
 
 	}).filter(post => {

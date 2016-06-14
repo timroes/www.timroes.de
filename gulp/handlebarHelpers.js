@@ -48,10 +48,15 @@ const eachReverse = function (context) {
 	return ret;
 };
 
+const substring = function (str, start, end) {
+	return str.substring(start, end);
+};
+
 export default {
 	date,
 	encode,
 	notequals,
+	substring,
 	'use-first': useFirst,
 	'date-iso': dateIso,
 	'each-reverse': eachReverse

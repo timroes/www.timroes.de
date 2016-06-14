@@ -102,7 +102,7 @@
 		{{#each post.history as |commit|}}
 			<li>
 				<time datetime="{{commit.date}}">{{date commit.date}}</time>
-				<a href="https://github.com/{{@root.config.blog.github_repo}}/commit/{{commit.sha_full}}" class="hash" title="View Changes on GitHub">{{commit.sha}}</a>
+				<a href="https://github.com/{{@root.config.blog.github_repo}}/commit/{{commit.sha_full}}?short_path={{substring ../post.filePathHash 0 7}}#diff-{{../post.filePathHash}}" class="hash" title="View Changes on GitHub">{{commit.sha}}</a>
 				{{commit.message}}
 			</li>
 		{{/each}}

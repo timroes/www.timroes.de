@@ -44,6 +44,7 @@
     "less-plugin-npm-import": "^2.1.0",
     "lodash": "^4.6.1",
     "marked": "^0.3.5",
+    "md5": "^2.1.0",
     "merge-stream": "^1.0.0",
     "moment": "^2.11.1",
     "nodegit": "^0.13.0",
