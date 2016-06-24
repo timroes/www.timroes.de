@@ -1,3 +1,89 @@
+@max-width-postbox: 350px;
+
+.postlist-header {
+	display: none;
+	max-width: @max-width-postbox;
+	padding: 0.5em;
+	box-sizing: border-box;
+	margin: 0.4em auto;
+	transition: box-shadow 0.5s ease;
+
+	&.expanded {
+		box-shadow: 0 3px 3px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 -1px 5px 0 rgba(0,0,0,.12);
+	}
+}
+
+.postlist-title {
+	text-transform: uppercase;
+	color: @dark-gray-text;
+}
+
+.postlist-filter-toggle {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em 0;
+	text-decoration: none;
+
+	img {
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.postlist-filter-list {
+	display: none;
+	flex: 0 0 100%;
+
+	[type="radio"] {
+		position: absolute;
+		left: -9999px;
+		opacity: 0;
+	}
+
+	[type="radio"]:checked + label {
+		&::before {
+			border-color: @accent-color;
+		}
+
+		&::after {
+			background-color: @accent-color;
+		}
+	}
+
+	label {
+		position: relative;
+		display: block;
+		line-height: 2.8;
+		padding-left: 1.8em;
+
+		&::before, &::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -0.6em;
+			width: 1em;
+			height: 1em;
+			z-index: 0;
+			transition: border-color @fade-time ease, background-color @fade-time ease;
+			border-radius: 50%;
+		}
+
+		&::after {
+			transform: scale(0.5);
+			border: 2px solid transparent;
+		}
+
+		&::before {
+			border: 2px solid @dark-gray-text;
+		}
+	}
+
+	label:first-of-type {
+		font-style: italic;
+	}
+}
+
 .postlist {
 	display: flex;
 	flex-wrap: wrap;
@@ -6,7 +92,7 @@
 	.postlink {
 		position: relative;
 		line-height: 0;
-		flex: 0 1 350px;
+		flex: 0 1 @max-width-postbox;
 		max-width: 100%;
 		margin: 1em;
 		transition: box-shadow @fade-time ease;

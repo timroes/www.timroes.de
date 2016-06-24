@@ -1,6 +1,13 @@
+<div class="postlist-header">
+	<a href="#" class="postlist-filter-toggle">
+		<span class="postlist-title">Filter posts &amp; tutorials</span>
+		<img src="/assets/filter.svg" alt="Filter posts">
+	</a>
+	<div class="postlist-filter-list"></div>
+</div>
 <div class="postlist">
 	{{#each posts}}
-		<a href="{{this.url}}" class="postlink">
+		<a href="{{this.url}}" class="postlink" data-tags="{{flat-join this.meta.category this.meta.tags}}">
 			{{#if this.meta.image}}
 				<img src="/images{{this.meta.image}}" class="postlink-image">
 			{{else}}

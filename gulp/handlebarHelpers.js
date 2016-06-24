@@ -60,11 +60,18 @@ const svgAsPng = function (str) {
 	return str.replace(/\.svg$/, '.png');
 };
 
+const flatJoin = function (context) {
+	const params = Array.prototype.slice.call(arguments, 0, -1).filter(arg => arg);
+	const arr = [].concat.apply([], params);
+	return arr.join(',');
+};
+
 export default {
 	date,
 	encode,
 	notequals,
 	substring,
+	'flat-join': flatJoin,
 	'use-first': useFirst,
 	'date-iso': dateIso,
 	'each-reverse': eachReverse,

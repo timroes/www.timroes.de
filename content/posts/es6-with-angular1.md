@@ -6,6 +6,9 @@ authors:
 slug: using-ecmascript-6-es6-with-angularjs-1-x
 image: /banners/angular-es6.png
 category: AngularJS
+tags:
+  - Web
+  - Gulp
 ---
 
 This tutorial leads through an example on how to build and use AngularJS 1 with

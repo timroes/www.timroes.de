@@ -4,7 +4,9 @@ created: 2015-01-06T12:00:00
 authors:
   - timroes
 slug: proper-error-handling-in-gulp-js
-category: JavaScript
+category: Gulp
+tags:
+  - Web
 image: /banners/gulp-bower.png
 ---
 

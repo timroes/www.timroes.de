@@ -6,6 +6,8 @@ authors:
 slug: using-ecmascript6-es6-es2015-with-gulp
 image: /banners/gulp-es6.png
 category: Gulp
+tags:
+  - Web
 ---
 
 Did you know that you can easily write your gulpfile in ECMAScript 6 (or ES2015,
