@@ -22,8 +22,8 @@
 	{{/each}}
 
 	{{#if post.meta.image}}
-		<meta itemprop="image" content="{{config.blog.url}}/images{{post.meta.image}}">
-		<meta property="og:image" content="{{config.blog.url}}/images{{post.meta.image}}">
+		<meta itemprop="image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
+		<meta property="og:image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
 	{{/if}}
 
 	{{#if post.history.length}}

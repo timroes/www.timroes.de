@@ -52,6 +52,14 @@ const substring = function (str, start, end) {
 	return str.substring(start, end);
 };
 
+/**
+ * Replace the .svg in the end of a filename with .png.
+ * Is used for social media images, that cannot be svg for most platforms.
+ */
+const svgAsPng = function (str) {
+	return str.replace(/\.svg$/, '.png');
+};
+
 export default {
 	date,
 	encode,
@@ -59,5 +67,6 @@ export default {
 	substring,
 	'use-first': useFirst,
 	'date-iso': dateIso,
-	'each-reverse': eachReverse
+	'each-reverse': eachReverse,
+	'svg-as-png': svgAsPng
 };
