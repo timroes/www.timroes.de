@@ -22,7 +22,14 @@ function loadGitHistory(post) {
 			historyCommits.push(entry);
 		});
 
-		previousCommitSha = historyCommits[historyCommits.length - 1].commit.sha();
+		const prevCommit = historyCommits[historyCommits.length - 1];
+		if (!prevCommit) {
+			// If the previous commit cannot be found abort here. This can happen if
+			// a) the post has never been commited (currently working before the first commit)
+			// b) not the full history has been cloned and the previous commit is outside clone depth
+			return historyCommits;
+		}
+		previousCommitSha = prevCommit.commit.sha();
 
 		walker = repo.createRevWalk();
 		walker.push(previousCommitSha);
