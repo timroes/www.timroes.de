@@ -2,7 +2,7 @@ import config from '../data/config';
 import mergeStream from 'merge-stream';
 
 export const sizes = [
-	192, 168, 144, 96, 72, 48
+	192, 168, 144, 128, 96, 72, 48
 ];
 
 export default function(gulp, paths, _, watch) {
