@@ -586,7 +586,7 @@ and Elasticsearch isn't using the `_all` field which might cause the problem.
 Another possibility is, that the `_all` field doesn't behave like you would expect it
 to behave, because it was configured in some other way. You can exclude specific
 fields from the `_all` field (e.g. in the above example *fieldName* could have been
-excluded from indxing in the *_all* field) or the analyzing/indexing options have been
+excluded from indexing in the *_all* field) or the analyzing/indexing options have been
 changed in the mapping of the *_all* field.
 
 
