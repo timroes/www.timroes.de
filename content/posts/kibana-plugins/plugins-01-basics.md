@@ -20,7 +20,7 @@ possibilities plugins offer, e.g. adding custom visualizations, writing new
 inside the framework), or adding new tabs to the inspection pane of a
 visualization.
 
-[[hintbox **Huge warning: **Kibana offers an interface on how to install plugins
+[[hintbox]] **Huge warning: **Kibana offers an interface on how to install plugins
 from 4.2.0. It does not offer public API to develop against. Nevertheless they
 kind of advertise writing plugins, so I decided to publish this tutorial. Since
 there is no separation between private and public API, your plugin might break
@@ -32,7 +32,7 @@ found in this [GitHub issue](https://github.com/elastic/kibana/issues/4704).
 This tutorial has also been written for (and tested against) Kibana 4.3.0 and I
 most likely won't change and retest the tutorial for every new Kibana version.
 But please feel free to comment any changes you have found in the comment
-section!]]
+section!
 
 This tutorial (and writing Kibana plugins in general) requires, that you are
 experienced in web development. The following skills are prerequisites and won't
@@ -208,10 +208,10 @@ want to install it to some real Kibana instances.
 
 To publish your plugin, you basically need to zip the content of your directory.
 
-[[hintbox **Hint about node_modules**: If you require runtime dependencies from your
+[[hintbox]] **Hint about node_modules**: If you require runtime dependencies from your
 `package.json` you will need to bundle these dependencies (i.e. the appropriate
 node_modules subfolders) into the zip. If you use the generator as mentioned
-above, you can just execute `npm run build` to create a bundled zip file.]]
+above, you can just execute `npm run build` to create a bundled zip file.
 
 You have to make this zip available somewhere and install it in your Kibana
 instance as follows:

@@ -18,7 +18,5 @@ category: Technology
 # Name of the favicon relative to the content folder
 favicon: favicon.png
 
-# Add some config for the postlist on the startpage
-postlist:
-  # The url (inside the image path) to the default image to use, when no post image was set
-  fallbackImage: /banners/default.svg
+# The id of the GitHub repository, this blog is stored (will be used to generate links)
+github_repo: timroes/www.timroes.de

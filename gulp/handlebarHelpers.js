@@ -48,11 +48,32 @@ const eachReverse = function (context) {
 	return ret;
 };
 
+const substring = function (str, start, end) {
+	return str.substring(start, end);
+};
+
+/**
+ * Replace the .svg in the end of a filename with .png.
+ * Is used for social media images, that cannot be svg for most platforms.
+ */
+const svgAsPng = function (str) {
+	return str.replace(/\.svg$/, '.png');
+};
+
+const flatJoin = function (context) {
+	const params = Array.prototype.slice.call(arguments, 0, -1).filter(arg => arg);
+	const arr = [].concat.apply([], params);
+	return arr.join(',');
+};
+
 export default {
 	date,
 	encode,
 	notequals,
+	substring,
+	'flat-join': flatJoin,
 	'use-first': useFirst,
 	'date-iso': dateIso,
-	'each-reverse': eachReverse
+	'each-reverse': eachReverse,
+	'svg-as-png': svgAsPng
 };

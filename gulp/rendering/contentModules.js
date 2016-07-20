@@ -33,6 +33,15 @@ export function talks() {
 	return html;
 }
 
+export function warning(text) {
+	return `<p class="warning">${text}</p>`;
+}
+
 export function hintbox(text) {
 	return `<div class="hintbox">${text}</div>`;
 }
+
+export function jsfiddle(text, params) {
+	const [href, opts] = params;
+	return `<a href="https://jsfiddle.net/${href}/" class="medialink-jsfiddle icon-jsfiddle" data-jsfiddle-href="${href}" data-jsfiddle-opts="${opts}" target="_blank">View on JSFiddle</a>`;
+};

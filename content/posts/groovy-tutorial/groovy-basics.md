@@ -9,9 +9,9 @@ series: groovy-tutorial
 category: Groovy
 ---
 
-[[hintbox This tutorial aims for developers that are already familiar with Java. It
+[[hintbox]] This tutorial aims for developers that are already familiar with Java. It
 focuses on Groovy specific features and does not explain basic programming
-knowledge.]]
+knowledge.
 
 Groovy is an object-oriented programming language which
 could be described as Java paired with a dynamic scripting language like

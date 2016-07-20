@@ -4,7 +4,7 @@ import Renderer from '../rendering/Renderer';
 const renderer = new Renderer();
 
 /**
- * 
+ *
  */
 export default function() {
 	return rawPosts().map(post => {

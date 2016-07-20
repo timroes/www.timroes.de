@@ -27,6 +27,7 @@ code {
 	right: 0;
 	background-color: #EEE;
 	padding: 0.7em;
+	margin: 0;
 	border: none;
 	border-bottom-left-radius: 4px;
 	font-size: 1em;
@@ -39,6 +40,14 @@ code {
 
 	&.copied::after {
 		content: ' Copied';
+	}
+
+	&.copy-failed {
+		opacity: 1;
+	}
+
+	&.copy-failed::after {
+		content: ' Press Ctrl+C to copy';
 	}
 
 	&:hover, &:focus {

@@ -1,7 +1,7 @@
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
-		<time datetime="{{post.meta.created}}"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
+		<time datetime="{{post.meta.created}}" class="show-post-history" title="View last modifications"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
 		<i class="icon-clock"></i> {{post.readingTime}} min read
 	</div>
 
@@ -17,7 +17,14 @@
 </article>
 
 <div class="postbottom">
-	<a href="#comments" title="Show comments"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{canonical}}">0</span></a>
+	<noscript>
+		<style>
+			.comments-link {
+				display: none;
+			}
+		</style>
+	</noscript>
+	<a href="#comments" title="Show comments" class="comments-link"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{canonical}}"></span></a>
 
 	<div class="postsocials">
 		<span class="postsocials-label">Share on</span>
@@ -84,3 +91,22 @@
 <script>
 	(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+{{#if post.history.length}}
+<div id="post-history" class="dialog-wrapper">
+	<div class="dialog-backdrop"></div>
+	<div class="dialog-content" role="modal">
+		<h1 class="history-title">Last Modifications</h1>
+		<p class="history-desc">Click on the hash of a commit to view the diff on GitHub.</p>
+		<ul class="history-list">
+		{{#each post.history as |commit|}}
+			<li>
+				<time datetime="{{commit.date}}">{{date commit.date}}</time>
+				<a href="https://github.com/{{@root.config.blog.github_repo}}/commit/{{commit.sha_full}}?short_path={{substring ../post.filePathHash 0 7}}#diff-{{../post.filePathHash}}" class="hash" title="View Changes on GitHub">{{commit.sha}}</a>
+				{{commit.message}}
+			</li>
+		{{/each}}
+		</ul>
+	</div>
+</div>
+{{/if}}

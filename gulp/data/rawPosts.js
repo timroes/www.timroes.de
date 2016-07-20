@@ -1,11 +1,15 @@
 import glob from 'glob';
+import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import moment from 'moment';
 import paths from '../paths';
 import gutil from 'gulp-util';
 import config from './config';
 import * as utils from '../utils';
 import Renderer from '../rendering/Renderer';
+
+const mtimes = {};
 
 /**
  * This function will read all posts from the markdowns in the post content folder.
@@ -20,7 +24,6 @@ import Renderer from '../rendering/Renderer';
  * the posts.js file in the same folder.
  */
 export default function() {
-
 	const posts = glob.sync(paths.content.posts).map(function(file) {
 
 		const {meta, markdown} = utils.readFrontmatterFile(file.toString());
@@ -29,16 +32,22 @@ export default function() {
 			throw new Error("Required meta fields are missing.");
 		}
 
+		const mtime = moment(fs.statSync(file.toString()).mtime);
 		const date = moment(meta.created);
 		const id = path.basename(file, '.md');
 		const url = `/${path.join(date.format("YYYY/MM/DD"), meta.slug || id)}/`;
+
+		const md5Hash = crypto.createHash('md5').update(file.toString()).digest('hex');
 
 		return {
 			url: url,
 			id: id,
 			created: date,
 			meta: meta,
-			markdown: markdown.trim()
+			markdown: markdown.trim(),
+			mtime: mtime,
+			file: file.toString(),
+			filePathHash: md5Hash
 		};
 
 	}).filter(post => {

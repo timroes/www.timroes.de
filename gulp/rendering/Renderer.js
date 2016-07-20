@@ -46,7 +46,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		// Time per word in a code block. These usually take longer to read than regular text
 		this.timePerCodeWord = options.timePerCodeWord || (this.timePerTextWord * 5);
 		// Time per word in a table cell. Usually takes also longer than regular text
-		this.timePerTableWord = options.timePerTableWord || (this.timePerTextWord * 2)
+		this.timePerTableWord = options.timePerTableWord || (this.timePerTextWord * 3)
 		this._readingTime = 0;
 	}
 
@@ -85,11 +85,14 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 	}
 
 	paragraph(text) {
+		// Replace hyphens in paragraphs surrounded by spaces with em-dash (typrographical more correct)
+		text = text.replace(/(\s)-(\s)/g, '$1&mdash;$2');
+
 		this._readingTime += wordCount(text) * this.timePerParagraphWord;
-		const module = /^\[\[([^\s\]]+)(?:\s([^\]]+))?\]\]$/.exec(text);
-		if (module) {
-			if (module[1] in contentModules) {
-				return contentModules[module[1]](module[2]);
+		const matcher = /^\[\[([^\s\]]+)(?:\s([^\]]+))?\]\]([\s\S]*)?$/.exec(text);
+		if (matcher) {
+			if (matcher[1] in contentModules) {
+				return contentModules[matcher[1]](matcher[3], (matcher[2] || '').split(' '));
 			}
 		}
 		return `<p>${text}</p>`;

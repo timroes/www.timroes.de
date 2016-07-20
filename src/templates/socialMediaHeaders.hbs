@@ -22,11 +22,15 @@
 	{{/each}}
 
 	{{#if post.meta.image}}
-		<meta itemprop="image" content="{{config.blog.url}}/images{{post.meta.image}}">
-		<meta property="og:image" content="{{config.blog.url}}/images{{post.meta.image}}">
+		<meta itemprop="image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
+		<meta property="og:image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
 	{{/if}}
 
-	{{!-- TODO: add article:modified_time and og:updated_time from git modification date --}}
+	{{#if post.history.length}}
+		<meta property="article:modified_time" content="{{date-iso post.history.0.date}}">
+		<meta property="og:updated_time" content="{{date-iso post.history.0.date}}">
+	{{/if}}
+
 {{else}}
 	<meta property="og:type" content="website">
 {{/if}}

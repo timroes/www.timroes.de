@@ -87,6 +87,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "47a1f80457068fbeab69fdb83d7d0817",
+      "css": "youtube",
+      "code": 59404,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "486f6d0a05aef9e65eeb07be26793bd3",
+      "css": "jsfiddle",
+      "code": 59405,
+      "src": "fontawesome"
+    },
+    {
       "uid": "66ceae90a0917dbdc0f9562b7d390ae7",
       "css": "inovex",
       "code": 59405,

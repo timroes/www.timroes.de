@@ -7,8 +7,8 @@ slug: enhancedlistview-swipe-to-dismiss-with-undo
 category: Android
 ---
 
-[[hintbox **Warning**: This library is deprecated and no longer maintained, since it builds upon the old ListView.
-If possible use another library, that buildsd on RecyclerView and offers you the same functionality.]]
+[[hintbox]] **Warning**: This library is deprecated and no longer maintained, since it builds upon the old ListView.
+If possible use another library, that buildsd on RecyclerView and offers you the same functionality.
 
 EnhancedListView is a library for Android, that offers several features beyond the regular Android ListView.
 

@@ -9,9 +9,9 @@ series: groovy-tutorial
 category: Groovy
 ---
 
-[[hintbox This tutorial aims for developers that are already familiar with Java. It
+[[hintbox]] This tutorial aims for developers that are already familiar with Java. It
 focuses on Groovy specific features and does not explain basic programming
-knowledge.]]
+knowledge.
 
 This part of the Groovy tutorial series focus on the usage of lists and maps in
 Groovy. It will require an understanding of Groovy

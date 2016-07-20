@@ -12,8 +12,8 @@ summary: |
   how to create a custom application plugin.
 ---
 
-[[hintbox You need to read [Part 1 - Basics](post:plugins-01-basics) before you
-read this tutorial.]]
+[[hintbox]] You need to read [Part 1 - Basics](post:plugins-01-basics) before you
+read this tutorial.
 
 This part of the tutorial series covers the creation of custom applications in
 Kibana. An application is one possible component inside a plugin, which is a
