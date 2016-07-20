@@ -138,7 +138,9 @@ The query language allows also some more fine-grained search queries, like:
 | user.listed_count:[0 TO 10] | range search on numeric fields                                           |
 | lang:/e[ns]/                | regular expression search (very slow, only do this if really necessary!) |
 
-The full documentation of the query language can be found in the
+Searching in your data can feel confusing in the beginning, since it is highly influence
+by the way you index your data. You can find a detailed explanation in my tutorial
+about [Elasticsearch/Kibana queries](post:elasticsearch-queries) or in the official
 [elasticsearch documentation](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax).
 
 Like the selected fields, the entered query will be persisted, if you save your search.
