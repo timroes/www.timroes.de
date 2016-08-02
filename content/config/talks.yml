@@ -1,10 +1,10 @@
 upcoming:
+past:
   - name: Advanced usage of Chrome Dev Tools
     event: KarlsruheJS
     date: July 2016
     image: /talks/karlsruhejs.png
     url: http://www.meetup.com/KarlsruheJS/events/232417753/
-past:
   - name: Überblick über die Plugin Entwicklung für Kibana
     event: Search Meetup Karlsruhe
     date: Februar 2016
