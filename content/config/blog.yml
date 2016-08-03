@@ -18,5 +18,8 @@ category: Technology
 # Name of the favicon relative to the content folder
 favicon: favicon.png
 
+# Set a social share image for the blog itself (when not at a post, or no post image available)
+banner: /banners/blog-timroes.png
+
 # The id of the GitHub repository, this blog is stored (will be used to generate links)
 github_repo: timroes/www.timroes.de

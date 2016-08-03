@@ -24,6 +24,9 @@
 	{{#if post.meta.image}}
 		<meta itemprop="image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
 		<meta property="og:image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
+	{{else if config.blog.banner}}
+		<meta itemprop="image" content="{{config.blog.url}}/images{{svg-as-png config.blog.banner}}">
+		<meta property="og:image" content="{{config.blog.url}}/images{{svg-as-png config.blog.banner}}">
 	{{/if}}
 
 	{{#if post.history.length}}
@@ -33,6 +36,11 @@
 
 {{else}}
 	<meta property="og:type" content="website">
+
+	{{#if config.blog.banner}}
+		<meta itemprop="image" content="{{config.blog.url}}/images{{svg-as-png config.blog.banner}}">
+		<meta property="og:image" content="{{config.blog.url}}/images{{svg-as-png config.blog.banner}}">
+	{{/if}}
 {{/if}}
 
 {{!-- Twitter meta tags (that are not already covered by OpenGraph) --}}
