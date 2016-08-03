@@ -9,7 +9,7 @@ export default function(gulp, paths, _, watch) {
 			short_name: conf.blog.title,
 			name: conf.blog.title,
 			start_url: '/?utm_source=web_app_manifest',
-			display: 'browser',
+			display: 'standalone',
 			icons: iconSizes.map(size => {
 				return {
 					src: `/favicon${size}.png`,
