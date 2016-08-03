@@ -54,6 +54,7 @@
     "run-sequence": "^1.2.0",
     "sanitize.css": "^3.3.0",
     "sitemap": "^1.6.0",
+    "sw-precache": "^4.0.0",
     "webpack": "^1.13.0",
     "webpack-stream": "^3.1.0",
     "yamljs": "^0.2.4"
