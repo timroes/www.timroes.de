@@ -19,6 +19,7 @@ export default function(gulp, paths, _) {
 			// and we don't use request params anywhere to actually serve different files.
 			ignoreUrlParametersMatching: [/./],
 			runtimeCaching: [
+				{ urlPattern: /^chrome-extension/, handler: 'networkOnly' }, // ignore chrome-extensions
 				{ urlPattern: /.*/, handler: 'networkFirst' }
 			],
 			verbose: true
