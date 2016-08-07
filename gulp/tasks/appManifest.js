@@ -10,6 +10,8 @@ export default function(gulp, paths, _, watch) {
 			name: conf.blog.title,
 			start_url: '/?utm_source=web_app_manifest',
 			display: 'standalone',
+			theme_color: conf.blog.theme_color,
+			background_color: conf.blog.background_color,
 			icons: iconSizes.map(size => {
 				return {
 					src: `/favicon${size}.png`,

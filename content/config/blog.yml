@@ -6,6 +6,7 @@ headline: computer scientist // android & web enthusiast
 url: https://www.timroes.de
 # The theme color as used for theming meta tags
 theme_color: '#222222'
+background_color: '#FFFFFF'
 # The id of the main author of this blog (must be a valid author id, i.e. the name of
 # one file in the content/authors/ directory)
 author: timroes
