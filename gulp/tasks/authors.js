@@ -2,7 +2,10 @@ import authors from '../data/authors';
 import gravatar from 'gravatar';
 
 const sizes = [
-	{ size: 80, suffix: ''}
+	{ size: 80, suffix: ''},
+	{ size: 160, suffix: '-2x' },
+	{ size: 240, suffix: '-3x' },
+	{ size: 320, suffix: '-4x' }
 ];
 
 export default function(gulp, paths, _, watch, pipelines) {
