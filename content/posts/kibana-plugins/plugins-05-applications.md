@@ -143,7 +143,7 @@ server.route({
 ```
 
 That way you create a new GET API at the Kibana server. You could now call the
-`/api/elasticsearch_status/index/&lt;some index name here&gt;` interface (that
+`/api/elasticsearch_status/index/<some index name here>` interface (that
 doesn't do anything yet). The handler method will get two parameter: the first
 is the request, that has been made. You can access a lot from the request here
 (e.g. using `req.params.name` you would get the name of the index that has been
