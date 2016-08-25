@@ -7,7 +7,7 @@ slug: proper-error-handling-in-gulp-js
 category: Gulp
 tags:
   - Web
-image: /banners/gulp-bower.png
+image: /banners/gulp-bower.svg
 ---
 
 Some(times) plugins in gulp will hang and silently ignore errors. E.g. I have recognized,
