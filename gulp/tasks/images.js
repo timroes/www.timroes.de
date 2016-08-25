@@ -19,6 +19,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 			.pipe(gulp.dest(`${paths.build}/images`))
 			.pipe(filterSvgBanners)
 			.pipe(_.svg2png())
+			.pipe(pipelines.images())
 			.pipe(gulp.dest(`${paths.build}/images`));
 	});
 
