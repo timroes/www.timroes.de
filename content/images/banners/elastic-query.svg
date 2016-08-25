@@ -79,25 +79,13 @@
      inkscape:current-layer="g9370"
      showgrid="false"
      units="px" />
-  <metadata
-     id="metadata4261">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
   <rect
      style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect9398"
-     width="522.24884"
-     height="302.03561"
-     x="-6.0609155"
-     y="-1.530535" />
+     width="100%"
+     height="100%"
+     x="0"
+     y="0" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
