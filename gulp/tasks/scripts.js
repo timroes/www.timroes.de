@@ -1,12 +1,27 @@
 import posts from '../data/posts';
 import webpackStream from 'webpack-stream';
 import webpack from 'webpack';
+import named from 'vinyl-named';
 import merge from 'merge-stream';
 
 export default function(gulp, paths, _, watch, pipelines) {
 
+	function uglifyJsOptions() {
+		const opts = {
+			compress: {},
+			output: {
+				comments: false
+			}
+		};
+		if (_.util.env.production !== undefined) {
+			opts.compress.drop_console = true;
+		}
+		return opts;
+	}
+
 	gulp.task('scripts', () => {
 		return gulp.src(paths.sources.scripts)
+			.pipe(named())
 			.pipe(webpackStream({
 				module: {
 					loaders: [
@@ -14,14 +29,14 @@ export default function(gulp, paths, _, watch, pipelines) {
 					]
 				},
 				plugins: [
-					new webpack.optimize.UglifyJsPlugin()
+					new webpack.optimize.UglifyJsPlugin(uglifyJsOptions())
 				]
 			}))
-			.pipe(_.rename('app.min.js'))
+			.pipe(_.rename({ extname: '.min.js' }))
 			.pipe(gulp.dest(paths.build));
 	});
 
-	watch(paths.sources.scripts, ['scripts']);
+	watch(paths.sources.scriptsAll, ['scripts']);
 
 	return {
 		resources: 'scripts'
