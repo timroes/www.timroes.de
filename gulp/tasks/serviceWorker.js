@@ -9,7 +9,6 @@ export default function(gulp, paths, _) {
 				`${paths.build}/*.min.css`,
 				`${paths.build}/**/*.html`,
 				`${paths.build}/assets/**/*.svg`,
-				`${paths.build}/icons/**`,
 				`${paths.build}/avatars/*.jpg`,
 				`${paths.build}/favicon*.png`,
 				`${paths.build}/manifest.json`
