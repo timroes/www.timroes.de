@@ -17,7 +17,6 @@ Promise.all(fontPromises).then(() => {
 	// Remove fouf (flash of unstyled font) class (that hides the body) if it is still
 	// there (i.e. if we loaded faster than 400ms)
 	document.body.classList.remove('fouf');
-	const now = window.performance.now();
 	if (!window.performance || window.performance.now() < 2000) {
 		document.body.classList.add('font-loaded');
 		console.log("[FONT] Replace font after %f.", window.performance.now());
