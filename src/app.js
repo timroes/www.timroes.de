@@ -1,4 +1,5 @@
-import './scripts/icons.js';
+import 'svgxuse';
+
 import './scripts/codeCopy.js';
 import './scripts/footer.js';
 import './scripts/historyDialog.js';
