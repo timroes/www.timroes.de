@@ -60,6 +60,10 @@ const svgAsPng = function (str) {
 	return str.replace(/\.svg$/, '.png');
 };
 
+const svgIcon = function (icon) {
+	return `<svg class="icon"><use xlink:href="#icon-${icon}"></use></svg>`
+};
+
 const flatJoin = function (context) {
 	const params = Array.prototype.slice.call(arguments, 0, -1).filter(arg => arg);
 	const arr = [].concat.apply([], params);
@@ -75,5 +79,6 @@ export default {
 	'use-first': useFirst,
 	'date-iso': dateIso,
 	'each-reverse': eachReverse,
-	'svg-as-png': svgAsPng
+	'svg-as-png': svgAsPng,
+	'svg-icon': svgIcon
 };

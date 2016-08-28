@@ -2,6 +2,7 @@ import marked from 'marked';
 import imageSize from 'image-size';
 import defaultLink, * as links from './linkTypes';
 import * as contentModules from './contentModules';
+import helpers from '../handlebarHelpers';
 import highlightjs from 'highlight.js';
 import config from '../data/config';
 import paths from '../paths';
@@ -121,6 +122,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		text = linkdata.text || text;
 		const blank = linkdata.blank === false ? false : true;
 		const classes = linkdata.classes || [];
+		const icon = linkdata.icon;
 
 		let out = `<a href="${href}"`;
 		if (title) {
@@ -132,7 +134,11 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		if (blank) {
 			out += ` target="_blank"`;
 		}
-		out += `>${text}</a>`;
+		out += `>`;
+		if (icon) {
+			out += `${helpers['svg-icon'](icon)} `;
+		}
+		out += `${text}</a>`;
 		return out;
 	}
 

@@ -1,3 +1,4 @@
+import './scripts/icons.js';
 import './scripts/codeCopy.js';
 import './scripts/footer.js';
 import './scripts/historyDialog.js';

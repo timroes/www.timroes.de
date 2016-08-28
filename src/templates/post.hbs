@@ -1,8 +1,8 @@
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
-		<time datetime="{{post.meta.created}}" class="show-post-history" title="View last modifications"><i class="icon-calendar"></i> {{date post.meta.created}}</time>
-		<i class="icon-clock"></i> {{post.readingTime}} min read
+		<time datetime="{{post.meta.created}}" class="show-post-history" title="View last modifications">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
+		{{{svg-icon 'clock'}}} {{post.readingTime}} min read
 	</div>
 
 	<noscript>
@@ -24,13 +24,13 @@
 			}
 		</style>
 	</noscript>
-	<a href="#comments" title="Show comments" class="comments-link"><i class="icon-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{canonical}}"></span></a>
+	<a href="#comments" title="Show comments" class="comments-link">{{{svg-icon 'comment'}}} <span class="disqus-comment-count" data-disqus-url="{{canonical}}"></span></a>
 
 	<div class="postsocials">
 		<span class="postsocials-label">Share on</span>
-		<a href="https://plus.google.com/share?url={{encode canonical}}" target="_blank" title="Share on Google+"><i class="icon-gplus"></i></a>
-		<a href="https://twitter.com/share?via={{blogAuthor.twitter}}&url={{encode canonical}}&text={{encode post.meta.title}}" target="_blank" title="Share on Twitter"><i class="icon-twitter"></i></a>
-		<a href="https://www.facebook.com/sharer/sharer.php?u={{encode canonical}}" target="_blank" title="Share on Facebook"><i class="icon-facebook"></i></a>
+		<a href="https://plus.google.com/share?url={{encode canonical}}" target="_blank" title="Share on Google+">{{{svg-icon 'google-plus'}}}</a>
+		<a href="https://twitter.com/share?via={{blogAuthor.twitter}}&url={{encode canonical}}&text={{encode post.meta.title}}" target="_blank" title="Share on Twitter">{{{svg-icon 'twitter'}}}</a>
+		<a href="https://www.facebook.com/sharer/sharer.php?u={{encode canonical}}" target="_blank" title="Share on Facebook">{{{svg-icon 'facebook'}}}</a>
 	</div>
 </div>
 
@@ -55,8 +55,8 @@
 				<a href="{{this.url}}" class="serieslink">
 					{{this.meta.title}}
 					<div class="serieslink-meta">
-						<i class="icon-calendar"></i> {{date this.meta.created}}
-						<i class="icon-clock"></i> {{this.readingTime}} min read
+						{{{svg-icon 'calendar'}}} {{date this.meta.created}}
+						{{{svg-icon 'clock'}}} {{this.readingTime}} min read
 					</div>
 				</a>
 				{{/notequals}}

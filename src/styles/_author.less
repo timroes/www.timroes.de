@@ -36,11 +36,15 @@
 	font-size: 1.2em;
 
 	a {
-		color: #999;
-		transition: color @fade-time ease;
+		text-decoration: none;
 
-		&:hover, &:focus {
-			color: #555;
+		svg {
+			transition: fill @fade-time ease;
+			fill: #999;
+		}
+
+		&:hover svg, &:focus svg {
+			fill: #555;
 		}
 	}
 }

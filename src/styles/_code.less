@@ -38,6 +38,11 @@ code {
 	color: #333;
 	transition: background-color @fade-time ease, color @fade-time ease, opacity @fade-time ease;
 
+	svg {
+		transition: fill @fade-time ease;
+		fill: #333;
+	}
+
 	&::after {
 		content: ' Copy Code';
 	}
@@ -57,6 +62,10 @@ code {
 	&:hover, &:focus {
 		background-color: @accent-color;
 		color: white;
+
+		svg {
+			fill: white;
+		}
 	}
 }
 

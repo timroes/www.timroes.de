@@ -8,12 +8,20 @@
 	padding: 0.5em 0;
 
 	a {
-		color: inherit;
+		color: @gray-text;
 		text-decoration: none;
 		transition: color @fade-time ease;
 
+		svg {
+			transition: fill @fade-time ease;
+			fill: @gray-text;
+		}
+
 		&:hover, &:focus {
 			color: @dark-gray-text;
+			svg {
+				fill: @dark-gray-text;
+			}
 		}
 	}
 

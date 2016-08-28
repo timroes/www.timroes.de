@@ -2,7 +2,7 @@ const Clipboard = require('clipboard');
 const $ = require('jquery');
 
 $(() => {
-	$('.copycode').append(`<button class="cc-btn"><i class="icon-clipboard"></i></button>`);
+	$('.copycode').append(`<button class="cc-btn"><svg class="icon"><use xlink:href="#icon-clipboard"></use></svg></button>`);
 
 	const clipboard = new Clipboard('.cc-btn', {
 		target: function(trigger) {
@@ -15,15 +15,13 @@ $(() => {
 		e.clearSelection();
 		$(e.trigger)
 				.addClass('copied')
-				.find('i')
-				.removeClass('icon-clipboard')
-				.addClass('icon-ok');
+				.find('use')
+				.attr('xlink:href', '#icon-ok');
 		setTimeout(() => {
 			$(e.trigger)
 					.removeClass('copied')
-					.find('i')
-					.removeClass('icon-ok')
-					.addClass('icon-clipboard');
+					.find('use')
+					.attr('xlink:href', '#icon-clipboard');
 		}, 3000);
 	});
 

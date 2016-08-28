@@ -60,9 +60,19 @@
 			font-size: 1.5em;
 			margin: 0.2em 0.2em;
 			border-radius: 0px;
+			text-decoration: none;
 			transition: background-color @fade-time ease, border-color @fade-time ease, color @fade-time ease;
 
+			svg {
+				transition: fill @fade-time ease;
+				fill: @gray-text;
+			}
+
 			&:focus, &:hover {
+
+				svg {
+					fill: white;
+				}
 				color: white;
 				background-color: @dark-gray-text;
 

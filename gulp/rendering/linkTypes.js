@@ -22,7 +22,8 @@ export default function(schema, href, title, text) {
 export function github(href, title, text) {
 	return {
 		href: `https://github.com/${href}`,
-		classes: ['medialink-github', 'icon-github']
+		classes: ['medialink-github'],
+		icon: 'github'
 	};
 };
 
@@ -48,12 +49,14 @@ export function file(href, title, text) {
 	const extension = path.extname(href).substr(1);
 	return {
 		href: `/files/${href}`,
-		classes: ['medialink-file', `icon-${extension}`]
+		classes: ['medialink-file'],
+		icon: extension
 	};
 };
 
 export function biglink(href, title, text) {
 	return {
-		classes: ['medialink-web', 'icon-web']
+		classes: ['medialink-web'],
+		icon: 'web'
 	};
 };

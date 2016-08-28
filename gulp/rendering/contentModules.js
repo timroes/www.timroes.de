@@ -1,4 +1,5 @@
 import config from '../data/config';
+import helpers from '../handlebarHelpers';
 
 function talk(talk) {
 	return `<a class="talk-box" ${talk.url ? 'href="' + talk.url + '"' : ''} target="_blank">
@@ -43,5 +44,5 @@ export function hintbox(text) {
 
 export function jsfiddle(text, params) {
 	const [href, opts] = params;
-	return `<a href="https://jsfiddle.net/${href}/" class="medialink-jsfiddle icon-jsfiddle" data-jsfiddle-href="${href}" data-jsfiddle-opts="${opts}" target="_blank">View on JSFiddle</a>`;
+	return `<a href="https://jsfiddle.net/${href}/" class="medialink-jsfiddle" data-jsfiddle-href="${href}" data-jsfiddle-opts="${opts}" target="_blank">${helpers['svg-icon']('jsfiddle')} View on JSFiddle</a>`;
 };

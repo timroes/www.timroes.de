@@ -20,6 +20,7 @@
 @import "_contentmodules";
 @import "_selection";
 @import "_dialog";
+@import "_icons";
 
 body {
 	background-color: #FFF;
@@ -31,6 +32,11 @@ body {
 
 	&.font-loaded {
 		font-family: 'Roboto';
+
+		::after {
+			// After elements do not inherit the body style for some reason
+			font-family: 'Roboto';
+		}
 	}
 
 	&.fouf {
