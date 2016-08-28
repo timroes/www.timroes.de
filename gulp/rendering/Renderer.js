@@ -132,7 +132,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 			out += ` class="${classes.join(' ')}"`;
 		}
 		if (blank) {
-			out += ` target="_blank"`;
+			out += ` target="_blank" rel="noopener"`;
 		}
 		out += `>`;
 		if (icon) {
