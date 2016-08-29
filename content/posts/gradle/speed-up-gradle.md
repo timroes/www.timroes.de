@@ -7,6 +7,9 @@ image: /banners/gradle.svg
 Category: Gradle
 ---
 
+[[hintbox]] Gradle wrote a pretty lengthy article on how to [improve the performance of your build](https://gradle.github.io/performance-guide/).
+I highly recommend to read this to further improve your build performance.
+
 If you use the new Gradle build system with Android (or Android Studio) you might
 have realized, that even the simplest Gradle call (e.g. gradle project or grade tasks)
 is pretty slow. On my computer it took around eight seconds for that kind of Gradle
