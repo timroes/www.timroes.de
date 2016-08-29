@@ -15,7 +15,11 @@ have realized, that even the simplest Gradle call (e.g. gradle project or grade 
 is pretty slow. On my computer it took around eight seconds for that kind of Gradle
 calls. You can decrease this startup time of Gradle (on my computer down to two seconds),
 if you tell Gradle to use a [daemon](http://www.gradle.org/docs/current/userguide/gradle_daemon.html)
-to build. Just create a file named `gradle.properties` in the following directory:
+to build.
+
+[[hintbox]] Since Gradle 3.0 the daemon is [turned on by default](https://docs.gradle.org/current/release-notes#improved-gradle-daemon,-now-enabled-by-default).
+
+Just create a file named `gradle.properties` in the following directory:
 
 * /home/&lt;username>/.gradle/ (*Linux*)
 * /Users/&lt;username>/.gradle/ (*Mac*)
