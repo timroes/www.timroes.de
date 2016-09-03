@@ -17,9 +17,16 @@ Promise.all(fontPromises).then(() => {
 	// Remove fouf (flash of unstyled font) class (that hides the body) if it is still
 	// there (i.e. if we loaded faster than 400ms)
 	document.body.classList.remove('fouf');
-	if (!window.performance || window.performance.now() < 2000) {
+	const perf = window.performance;
+	if (!perf || // If there is no performance API available, or ...
+			!perf.timing.domContentLoadedEventStart || // the DOM content hasn't yet been completed loaded, or ...
+			// the DOM loaded event (the time the user most likely has a rendered page the first time)
+			// isn't more than 2 seconds away (-> user haven't started reading much)
+			(perf.now() + perf.timing.navigationStart - perf.timing.domContentLoadedEventStart) < 2000) {
 		document.body.classList.add('font-loaded');
-		console.log("[FONT] Replace font after %f.", window.performance.now());
+		console.log("[FONT] Replace font after %f. (%f since DOMContentLoaded)",
+				window.performance.now(),
+				(perf.now() + perf.timing.navigationStart - perf.timing.domContentLoadedEventStart));
 	} else {
 		console.log("[FONT] Font loaded, but too late at %f.", window.performance.now());
 	}
