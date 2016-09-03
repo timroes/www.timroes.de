@@ -5,7 +5,7 @@ export const sizes = [
 	192, 168, 144, 128, 96, 72, 48
 ];
 
-export default function(gulp, paths, _, watch) {
+export default function(gulp, paths, _, watch, pipelines) {
 
 	gulp.task('favicons', () => {
 		const conf = config();
@@ -13,8 +13,10 @@ export default function(gulp, paths, _, watch) {
 			return gulp.src(`${paths.content.base}/${conf.blog.favicon}`)
 				.pipe(_.imageResize({
 					width: size,
-					imageMagick: true
+					imageMagick: true,
+					filter: 'Point'
 				}))
+				.pipe(pipelines.images())
 				.pipe(_.rename({
 					suffix: size
 				}));
