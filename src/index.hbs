@@ -8,7 +8,16 @@
 
 	<title>{{#unless type_index}}{{title}} &raquo; {{/unless}}{{config.blog.title}}</title>
 
-	<link rel="stylesheet" href="/main.min.css">
+	<link rel="stylesheet" href="/atf.min.css">
+	{{#if type_index}}
+		<link rel="stylesheet" href="/home.min.css">
+	{{/if}}
+	{{#if type_page}}
+		<link rel="stylesheet" href="/page.min.css">
+	{{/if}}
+
+	<link rel="preload" href="/main.min.css" as="style" onload="this.rel='stylesheet';if(window._onloadcss){_onloadcss()}">
+	<noscript><link rel="stylesheet" href="/main.min.css"></noscript>
 
 	<link rel="shortcut icon" href="/assets/favicon.ico">
 	<link rel="icon" href="/favicon128.png" sizes="128x128">

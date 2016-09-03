@@ -2,6 +2,7 @@
 
 .serieslinks {
 	.topborder();
+	display: block;
 	padding-bottom: @line-margin;
 }
 
@@ -88,6 +89,12 @@
 
 	#b {
 		transform: rotate(180deg);
+	}
+}
+
+@media @min-large {
+	.serieslinks-linklist {
+		max-height: none !important;
 	}
 }
 

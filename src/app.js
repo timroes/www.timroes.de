@@ -1,5 +1,6 @@
 import 'svgxuse';
 
+import './scripts/loadcss.js';
 import './scripts/codeCopy.js';
 import './scripts/footer.js';
 import './scripts/historyDialog.js';

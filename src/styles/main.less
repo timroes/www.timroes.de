@@ -1,55 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,700,300italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
-
 @import "_variables";
 @import "_mixins";
 
-@import "_header";
 @import "_code";
-@import "_content";
-@import "_meta";
-@import "_comments";
 @import "_author";
-@import "_postbottom";
-@import "_home";
-@import "_postlist";
-@import "_medialinks";
-@import "_series";
-@import "_talks";
-@import "_ads";
-@import "_contentmodules";
+@import "_comments";
 @import "_selection";
+@import "_content";
+@import "_series";
 @import "_dialog";
-@import "_icons";
-
-body {
-	background-color: #FFF;
-	font-family: sans-serif;
-	font-weight: 300;
-	padding: @body-padding;
-	margin: 0;
-	overflow-x: hidden;
-
-	&.font-loaded {
-		font-family: 'Roboto';
-
-		::after {
-			// After elements do not inherit the body style for some reason
-			font-family: 'Roboto';
-		}
-	}
-
-	&.fouf {
-		display: none;
-	}
-}
-
-.clearfix {
-	clear: both;
-}
-
-main {
-	display: block;
-	max-width: @page-max-width;
-	margin: 0 auto;
-}
+@import "_postbottom";
+@import "_contentmodules";
+@import "_medialinks";
