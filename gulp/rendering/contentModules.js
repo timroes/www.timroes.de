@@ -24,7 +24,7 @@ export function talks() {
 	} else {
 		html += `<p>Currently none.</p>`;
 	}
-	html += `</p><h2>Past Talks/Workshops</h2><p>`;
+	html += `<div class="clearfix"></div></p><h2>Past Talks/Workshops</h2><p>`;
 	if (talks.past) {
 		html += talkboxes(talks.past);
 	} else {
