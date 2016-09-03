@@ -13,6 +13,10 @@ export default function(gulp, paths, _, watch) {
 			.pipe(_.rename({
 				extname: '.min.css'
 			}))
+			.pipe(_.size({
+				gzip: true,
+				showFiles: true
+			}))
 			.pipe(gulp.dest(paths.build))
 			.pipe(_.connect.reload());
 	});
