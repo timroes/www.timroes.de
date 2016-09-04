@@ -8,6 +8,9 @@ $(() => {
 
 	const fixedFooter = footer.clone(true);
 
+	// Hide cloned footer from screenreaders (they should just see the regular footer)
+	// on bottom of the page
+	fixedFooter.attr('aria-hidden', 'true');
 	fixedFooter.appendTo(document.body);
 
 	// Recalculate count of comments so cloned footer will also get the count
