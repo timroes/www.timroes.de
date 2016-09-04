@@ -1,8 +1,10 @@
 const Clipboard = require('clipboard');
 const $ = require('jquery');
 
+const copyLabel = 'Copy Code';
+
 $(() => {
-	$('.copycode').append(`<button class="cc-btn"><svg class="icon"><use xlink:href="/assets/icons.svg#icon-clipboard"></use></svg></button>`);
+	$('.copycode').append(`<button class="cc-btn"><svg class="icon"><use xlink:href="/assets/icons.svg#icon-clipboard"></use></svg> <span class="l">${copyLabel}</span></button>`);
 
 	const clipboard = new Clipboard('.cc-btn', {
 		target: function(trigger) {
@@ -14,21 +16,29 @@ $(() => {
 	clipboard.on('success', (e) => {
 		e.clearSelection();
 		$(e.trigger)
-				.addClass('copied')
 				.find('use')
-				.attr('xlink:href', '/assets/icons.svg#icon-ok');
+				.attr('xlink:href', '/assets/icons.svg#icon-ok')
+		$(e.trigger)
+				.find('.l')
+				.text('Copied');
 		setTimeout(() => {
 			$(e.trigger)
-					.removeClass('copied')
 					.find('use')
 					.attr('xlink:href', '/assets/icons.svg#icon-clipboard');
+			$(e.trigger)
+					.find('.l')
+					.text(copyLabel);
 		}, 3000);
 	});
 
 	clipboard.on('error', (e) => {
-		$(e.trigger).addClass('copy-failed');
+		$(e.trigger).addClass('copy-failed')
+			.find('.l')
+			.text('Press Ctrl+C to copy');
 		setTimeout(() => {
-			$(e.trigger).removeClass('copy-failed');
+			$(e.trigger).removeClass('copy-failed')
+				.find('.l')
+				.text(copyLabel);
 		}, 5000);
 	});
 });

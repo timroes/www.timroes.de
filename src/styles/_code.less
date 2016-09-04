@@ -12,6 +12,10 @@
 	opacity: 1;
 }
 
+.font-loaded .cc-btn {
+	font-family: 'Roboto';
+}
+
 .cc-btn {
 	position: absolute;
 	outline: none;
@@ -31,20 +35,8 @@
 		fill: #333;
 	}
 
-	&::after {
-		content: ' Copy Code';
-	}
-
-	&.copied::after {
-		content: ' Copied';
-	}
-
 	&.copy-failed {
 		opacity: 1;
-	}
-
-	&.copy-failed::after {
-		content: ' Press Ctrl+C to copy';
 	}
 
 	&:hover, &:focus {
