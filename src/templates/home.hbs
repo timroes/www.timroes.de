@@ -9,9 +9,9 @@
 	{{#each posts}}
 		<a href="{{this.url}}" class="postlink" data-tags="{{flat-join this.meta.category this.meta.tags}}">
 			{{#if this.meta.image}}
-				<img data-src="/images{{this.meta.image}}" class="postlink-image ll">
+				<img data-src="/images{{this.meta.image}}" class="postlink-image ll" aria-hidden="true">
 			{{else}}
-				<img class="postlink-image">
+				<img class="postlink-image" aria-hidden="true">
 			{{/if}}
 			<div class="postlink-overlay">
 				<div class="postlink-title">{{this.meta.title}}</div>
