@@ -94,6 +94,11 @@ export default function(gulp, paths, _, watch, pipelines) {
 					if (streams.length > 0) {
 						return new Promise((resolve, reject) => {
 							const mergedStream = merge(...streams)
+							.pipe(_.size({
+								gzip: true,
+								showFiles: true,
+								pretty: false
+							}))
 							.pipe(gulp.dest(paths.build))
 							.pipe(_.connect.reload())
 							.on('end', resolve)

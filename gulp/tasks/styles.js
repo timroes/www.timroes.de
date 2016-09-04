@@ -15,7 +15,8 @@ export default function(gulp, paths, _, watch) {
 			}))
 			.pipe(_.size({
 				gzip: true,
-				showFiles: true
+				showFiles: true,
+				pretty: false
 			}))
 			.pipe(gulp.dest(paths.build))
 			.pipe(_.connect.reload());
