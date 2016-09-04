@@ -41,7 +41,7 @@ function loadGitHistory(post) {
 
 	return git.then(r => {
 			repo = r;
-			return repo.getMasterCommit();
+			return repo.getHeadCommit();
 		}).then(commit => {
 			walker = repo.createRevWalk();
 			walker.push(commit.sha());
