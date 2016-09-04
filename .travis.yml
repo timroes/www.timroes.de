@@ -12,12 +12,13 @@ git:
 after_success:
   - openssl aes-256-cbc -K $encrypted_a4b8f6cb10ef_key -iv $encrypted_a4b8f6cb10ef_iv -in deploy.key.enc -out deploy.key -d
   - chmod 600 deploy.key
-  - rsync -av --delete -e 'ssh -i deploy.key' build/ travisci@www.timroes.de:/srv/htdocs
+  - ./deploy.sh
 
 # Only build master branch
 branches:
   only:
     - master
+    - preview
 
 # Add www.timroes.de to known hosts
 addons:
