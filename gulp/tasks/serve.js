@@ -24,7 +24,10 @@ export default function(gulp, paths, _) {
 	}
 
 	const middlewares = [
-		compression(), // Always add gzip compression
+		// Always add gzip compression
+		compression({
+			threshold: '0b'
+		}),
 		cache({ '/**': 500 })
 	];
 
