@@ -156,11 +156,12 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 				${isFloating ? 'style="width:' + size.width + 'px;height:'+size.height+'px"' : ''}
 			>
 			<div class="image-placeholder" style="padding-bottom: ${ratio}%"></div>
-			<img src="/images${href}"`;
+			<img data-src="/images${href}" class="ll`;
 		// Allow right floating images
 		if (isFloating) {
-			out += 'class="image-right"';
+			out += ' image-right';
 		}
+		out += '"';
 		if (title) {
 			out += ' title="' + title + '"';
 		}

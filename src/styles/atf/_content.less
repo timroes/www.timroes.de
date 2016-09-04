@@ -121,3 +121,14 @@ article {
 		text-align: left;
 	}
 }
+
+.nojs .image-placeholder::after {
+	content: "You require JavaScript to load images.";
+	display: block;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 50%;
+	padding-top: 2em;
+	color: @dark-gray-text;
+}
