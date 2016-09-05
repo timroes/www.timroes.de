@@ -312,7 +312,7 @@ can read the option from it.
 
 Now we’ve just finished our first Kibana 4 plugin:
 
-![clock-options](/kibana-plugins/clock-options.png)
+![A screenshot of the clock plugin](/kibana-plugins/clock-options.png)
 
 You can find the complete sources and a lot of comments in the tag
 [0.4.0](https://github.com/timroes/tr-k4p-clock/tree/0.4.0) on GitHub.

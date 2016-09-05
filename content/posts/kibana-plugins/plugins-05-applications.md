@@ -27,7 +27,7 @@ application. It will just list all indices and clicking on one will bring you to
 a page with stats about that index. You can see the final result in the
 animation below.
 
-![kibana-app](/kibana-plugins/kibana-app.gif)
+![A short animation how the final app would look like](/kibana-plugins/kibana-app.gif)
 
 In this tutorial we will learn:
 
