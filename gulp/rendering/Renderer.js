@@ -49,12 +49,26 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		// Time per word in a table cell. Usually takes also longer than regular text
 		this.timePerTableWord = options.timePerTableWord || (this.timePerTextWord * 3)
 		this._readingTime = 0;
+		this._imgids = [];
 	}
 
 	get readingTime() {
 		const minutes = Math.ceil(this._readingTime / 60);
 		// Everything above 15 minutes round up to 5 minutes
 		return minutes <= 15 ? minutes : (Math.ceil(minutes / 5) * 5);
+	}
+
+	_randomId() {
+		return Math.floor((1 + Math.random()) * 0x1000).toString(16).substring(1);
+	}
+
+	_createRandomId(prefix) {
+		let id;
+		do {
+			id = `${prefix || ''}${this._randomId()}`;
+		} while(this._imgids.indexOf(id) != -1);
+		this._imgids.push(id);
+		return id;
 	}
 
 	code(code, lang, escaped) {
@@ -152,11 +166,14 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 			text = text.replace(/:$/, '');
 		}
 
+		const imgId = this._createRandomId('i_');
+
 		let out = `<div class="image-wrapper ${isFloating ? 'floating' : ''}"
 				${isFloating ? 'style="width:' + size.width + 'px;height:'+size.height+'px"' : ''}
 			>
+			<span class="image-desc" id="${imgId}">${text}</span>
 			<div class="image-placeholder" style="padding-bottom: ${ratio}%"></div>
-			<img data-src="/images${href}" class="ll`;
+			<img data-src="/images${href}" aria-labelledby="${imgId}" class="ll`;
 		// Allow right floating images
 		if (isFloating) {
 			out += ' image-right';
@@ -165,7 +182,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		if (title) {
 			out += ' title="' + title + '"';
 		}
-		out += `alt="${text}"></div>`;
+		out += `></div>`;
 		return out;
 	}
 
