@@ -4,7 +4,7 @@ $(() => {
 	const container = $('#post-history');
 	if (container.length) {
 
-		const historyLink = $('<a href="#" class="show-history" aria-expanded="false" aria-controls="post-history" aria-label="Toggle post changes. Next in tab order when shown." title="Show changes"><svg class="icon" aria-hidden="true"><use xlink:href="/assets/icons.svg#icon-history"></use></svg> <span class="hide-small">Show changes</span></a>');
+		const historyLink = $('<a href="#" class="show-history" aria-expanded="false" aria-controls="post-history" aria-label="Toggle post changes. Next in tab order when shown." title="Show changes"><svg class="icon" aria-hidden="true"><use xlink:href="/assets/icons.svg#history"></use></svg> <span class="hide-small">Show changes</span></a>');
 
 		const setAriaAttrs = function() {
 			const expanded = container.is(':visible');
