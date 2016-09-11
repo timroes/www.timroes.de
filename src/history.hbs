@@ -1,0 +1,9 @@
+<div class="post-history" role="group" aria-describedby="post-history-desc">
+	<span class="sr-only" id="post-history-desc">A list of all changes made to this article with links to the changed content on GitHub.</span>
+	{{#each post.history as |commit|}}
+		<a href="https://github.com/{{@root.config.blog.github_repo}}/commit/{{commit.sha_full}}?short_path={{substring ../post.filePathHash 0 7}}#diff-{{../post.filePathHash}}" class="history-link" title="View Changes on GitHub">
+			<time datetime="{{commit.date}}">{{date commit.date}}</time>
+			{{commit.message}}
+		</a>
+	{{/each}}
+</div>

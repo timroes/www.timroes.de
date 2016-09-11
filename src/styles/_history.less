@@ -1,0 +1,37 @@
+#post-history {
+	display: none;
+}
+
+.show-history {
+	border: none;
+	text-decoration: none;
+	margin-left: 0.6em;
+}
+
+.history-link {
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	transition: color @fade-time ease;
+	border: none;
+	border-left: 15px solid #CCC;
+	padding-left: 0.5em;
+	margin: 0;
+	.font-loaded .hash {
+		font-family: 'Source Code Pro';
+	}
+	line-height: 2.4;
+	text-decoration: none;
+
+	&:hover, &:focus {
+		border-left-color: @accent-color;
+	}
+
+	time {
+		color: @gray-text;
+		display: inline-block;
+		width: 7em;
+		font-size: 0.9em;
+	}
+}

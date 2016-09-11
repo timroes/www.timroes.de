@@ -8,6 +8,7 @@ export default {
 		assets: `${src}/assets/**`,
 		templatePath: `${src}/templates/`,
 		templates: `${src}/templates/*.hbs`,
+		history: `${src}/history.hbs`,
 		index: `${src}/index.hbs`,
 		scripts: `${src}/*.js`,
 		scriptsAll: `${src}/**/*.js`,

@@ -1,9 +1,13 @@
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
-		<time datetime="{{post.meta.created}}" class="show-post-history" title="View last modifications">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
-		{{{svg-icon 'clock'}}} {{post.readingTime}} min read
+		<time datetime="{{post.meta.created}}">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
+		<span aria-label="Estimated reading time">{{{svg-icon 'clock'}}} {{post.readingTime}} min read</span>
 	</div>
+
+	{{#if post.history.length}}
+		<div id="post-history"></div>
+	{{/if}}
 
 	<noscript>
 		<style>.adsbygoogle{display:none}</style>
@@ -79,22 +83,3 @@
 		this.page.url = '{{canonical}}';
 	};
 </script>
-
-{{#if post.history.length}}
-<div id="post-history" class="dialog-wrapper">
-	<div class="dialog-backdrop"></div>
-	<div class="dialog-content" role="modal">
-		<h1 class="history-title">Last Modifications</h1>
-		<p class="history-desc">Click on the hash of a commit to view the diff on GitHub.</p>
-		<ul class="history-list">
-		{{#each post.history as |commit|}}
-			<li>
-				<time datetime="{{commit.date}}">{{date commit.date}}</time>
-				<a href="https://github.com/{{@root.config.blog.github_repo}}/commit/{{commit.sha_full}}?short_path={{substring ../post.filePathHash 0 7}}#diff-{{../post.filePathHash}}" class="hash" title="View Changes on GitHub">{{commit.sha}}</a>
-				{{commit.message}}
-			</li>
-		{{/each}}
-		</ul>
-	</div>
-</div>
-{{/if}}

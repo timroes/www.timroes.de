@@ -4,7 +4,7 @@ import './scripts/loadcss.js';
 import './scripts/lazyload.js';
 import './scripts/codeCopy.js';
 import './scripts/footer.js';
-import './scripts/historyDialog.js';
+import './scripts/history.js';
 import './scripts/img-errors.js';
 import './scripts/jsfiddle.js';
 import './scripts/postFilter.js';

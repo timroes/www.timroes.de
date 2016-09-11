@@ -83,10 +83,19 @@ export default function(gulp, paths, _, watch, pipelines) {
 					const streams = posts.map(post => {
 						mtimes[post.id] = post.mtime;
 						_.util.log(`Building output for post '${_.util.colors.cyan(post.id)}'...`);
-						return gulp.src(paths.sources.index)
+						const postStreams = [gulp.src(paths.sources.index)
 								.pipe(pipelines.handlebars(postData(post)))
 								.pipe(_.rename(post.url + '/index.html'))
-								.pipe(pipelines.html());
+								.pipe(pipelines.html())];
+
+						if (post.history.length > 0) {
+							postStreams.push(gulp.src(paths.sources.history)
+									.pipe(pipelines.handlebars(postData(post)))
+									.pipe(_.rename(post.url + '/history.html'))
+									.pipe(pipelines.html()));
+						}
+
+						return merge(...postStreams);
 					});
 
 					// If there is at least one stream, merge all streams together into one
@@ -122,6 +131,7 @@ export default function(gulp, paths, _, watch, pipelines) {
 	watch([
 		paths.sources.index,
 		paths.sources.templates,
+		paths.sources.history
 	], ['posts-no-deps']);
 
 	watch([
