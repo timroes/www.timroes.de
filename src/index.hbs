@@ -38,11 +38,11 @@
 
 	{{#if type_index}}
 		<header role="banner" class="homeheader">
-			<img class="ll" data-src="/images/profile.jpg" data-srcset="/images/profile-2_5x.jpg 2.5x, /images/profile-2x.jpg 2x, /images/profile.jpg 1x" alt="{{config.blog.title}}">
+			<img class="ll" data-src="/images/profile.jpg" aria-hidden="true" data-srcset="/images/profile-2_5x.jpg 2.5x, /images/profile-2x.jpg 2x, /images/profile.jpg 1x" alt="{{config.blog.title}}">
 			<div class="author-box">
 				<h1 class="blog-title">{{config.blog.title}}</h1>
 				<h2 class="blog-slogan">{{config.blog.headline}}</h2>
-				<div class="header-page-navigation">{{~> pagelinks}}</div>
+				<div class="header-page-navigation" role="navigation">{{~> pagelinks}}</div>
 				<div class="header-socials">
 					{{> socialLinks blogAuthor}}
 				</div>
@@ -50,19 +50,19 @@
 		</header>
 	{{else}}
 		<header role="banner" class="pageheader">
-			<a href="/" rel="home">
+			<a href="/" rel="home" aria-hidden="true">
 				<img src="/favicon60.png" srcset="/favicon120.png 2x, /favicon180.png 3x, /favicon60.png" aria-label="Back to home page">
 			</a>
 			<div class="header-navigation">
 				<a href="/" class="header-home-link" aria-label="Back to home page" rel="home">{{config.blog.title}}</a>
-				<div class="header-page-navigation">
+				<div class="header-page-navigation" role="navigation">
 					{{~> pagelinks}}
 				</div>
 			</div>
 		</header>
 	{{/if}}
 
-	<main>
+	<main role="main">
 
 		{{#if type_page}}
 			{{~> page}}

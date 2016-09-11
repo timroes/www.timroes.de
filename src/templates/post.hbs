@@ -1,7 +1,7 @@
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
-		<time datetime="{{post.meta.created}}">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
+		<time datetime="{{post.meta.created}}" aria-label="Written on">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
 		<span aria-label="Estimated reading time">{{{svg-icon 'clock'}}} {{post.readingTime}} min read</span>
 	</div>
 
@@ -32,7 +32,7 @@
 	<a href="#comments" aria-label="Show comments" class="comments-link">{{{svg-icon 'comment'}}} <span class="disqus-comment-count" data-disqus-url="{{canonical}}"></span></a>
 
 	<div class="postsocials">
-		<span class="postsocials-label">Share on</span>
+		<span class="postsocials-label" aria-hidden="true">Share on</span>
 		<a href="https://plus.google.com/share?url={{encode canonical}}" target="_blank" title="Share on Google+">{{{svg-icon 'google-plus'}}}</a>
 		<a href="https://twitter.com/share?via={{blogAuthor.twitter}}&url={{encode canonical}}&text={{encode post.meta.title}}" target="_blank" title="Share on Twitter">{{{svg-icon 'twitter'}}}</a>
 		<a href="https://www.facebook.com/sharer/sharer.php?u={{encode canonical}}" target="_blank" title="Share on Facebook">{{{svg-icon 'facebook'}}}</a>
@@ -57,7 +57,7 @@
 		<div class="serieslinks-linklist">
 			{{#each-reverse post.series}}
 				{{#notequals this.id ../post.id}}
-				<a href="{{this.url}}" class="serieslink">
+				<a href="{{this.url}}" class="serieslink" aria-label="{{this.meta.title}}, written on {{date this.meta.created}}, a {{this.readingTime}} minutes read">
 					{{this.meta.title}}
 					<div class="serieslink-meta">
 						{{{svg-icon 'calendar'}}} {{date this.meta.created}}
@@ -70,7 +70,7 @@
 	</div>
 {{/if}}
 
-<div class="authors">
+<div class="authors" aria-label="Authors of this article">
 	{{#each post.meta.authors as |author|}}
 		{{>author (lookup ../authors @this) id=author}}
 	{{/each}}

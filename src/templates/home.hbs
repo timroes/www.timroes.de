@@ -1,13 +1,13 @@
-<div class="postlist-header">
+<div class="postlist-header" aria-hidden="true">
 	<a href="#" class="postlist-filter-toggle">
 		<span class="postlist-title">Filter posts &amp; tutorials</span>
 		<img src="/assets/filter.svg" alt="Filter posts">
 	</a>
 	<div class="postlist-filter-list"></div>
 </div>
-<div class="postlist">
+<div class="postlist" role="navigation" aria-label="List of all articles on this blog">
 	{{#each posts}}
-		<a href="{{this.url}}" class="postlink" data-tags="{{flat-join this.meta.category this.meta.tags}}">
+		<a href="{{this.url}}" class="postlink" data-tags="{{flat-join this.meta.category this.meta.tags}}" aria-label="{{this.meta.title}}, written on {{date this.meta.created}}, a {{this.readingTime}} minutes read">
 			{{#if this.meta.image}}
 				<img data-src="/images{{this.meta.image}}" class="postlink-image ll" aria-hidden="true">
 			{{else}}
