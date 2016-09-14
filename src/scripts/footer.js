@@ -22,10 +22,8 @@ $(() => {
 	let lastScrollTop = null;
 	let footerHidden = false;
 
-	$window.on('load', () => {
-		fixedFooter.addClass('fixed');
-		lastScrollTop = $window.scrollTop();
-	});
+	fixedFooter.addClass('fixed');
+	lastScrollTop = $window.scrollTop();
 
 	$window.on('load scroll', function(ev) {
 		const scrollTop = $window.scrollTop();
