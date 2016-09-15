@@ -7,7 +7,7 @@
 </div>
 <div class="postlist" role="navigation" aria-label="List of all articles on this blog">
 	{{#each posts}}
-		<a href="{{this.url}}" class="postlink" data-tags="{{flat-join this.meta.category this.meta.tags}}" aria-label="{{this.meta.title}}, written on {{date this.meta.created}}, a {{this.readingTime}} minutes read">
+		<a href="{{this.url}}" class="postlink" data-tags="{{flat-join this.meta.category this.meta.tags}}" aria-label="{{this.meta.title}}, written on {{sr-date this.meta.created}}, a {{this.readingTime}} minutes read">
 			{{#if this.meta.image}}
 				<img data-src="/images{{this.meta.image}}" class="postlink-image ll" aria-hidden="true">
 			{{else}}

@@ -1,8 +1,8 @@
 <article>
 	<h1>{{title}}</h1>
 	<div class="postmeta">
-		<time datetime="{{post.meta.created}}" aria-label="Written on">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
-		<span aria-label="Estimated reading time">{{{svg-icon 'clock'}}} {{post.readingTime}} min read</span>
+		<time datetime="{{post.meta.created}}" aria-label="Written on {{sr-date post.meta.created}}">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
+		<span aria-label="Estimated reading time is {{post.readingTime}} minutes">{{{svg-icon 'clock'}}} {{post.readingTime}} min read</span>
 	</div>
 
 	{{#if post.history.length}}

@@ -4,6 +4,10 @@ const date = function (date) {
 	return moment(date).format('MMM D, YYYY');
 };
 
+const srDate = function (date) {
+	return moment(date).format('MMMM D, YYYY');
+};
+
 /*
  * Parses the argument as a date (with moment.js) and formats it as an ISO 8601 datetime string.
  */
@@ -61,7 +65,7 @@ const svgAsPng = function (str) {
 };
 
 const svgIcon = function (icon) {
-	return `<svg class="icon"><use xlink:href="/assets/icons.svg#${icon}"></use></svg>`
+	return `<svg class="icon" aria-hidden="true"><use xlink:href="/assets/icons.svg#${icon}"></use></svg>`
 };
 
 const flatJoin = function (context) {
@@ -80,5 +84,6 @@ export default {
 	'date-iso': dateIso,
 	'each-reverse': eachReverse,
 	'svg-as-png': svgAsPng,
-	'svg-icon': svgIcon
+	'svg-icon': svgIcon,
+	'sr-date': srDate
 };
