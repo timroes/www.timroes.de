@@ -1,5 +1,5 @@
 if(PIWIK_ENABLED) {
-	var _paq = _paq || [];
+	var _paq = window._paq || [];
 	_paq.push(["setDomains", [ '@@piwik.domain@@' ]]);
 	_paq.push(['trackPageView']);
 	_paq.push(['enableLinkTracking']);
