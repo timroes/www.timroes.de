@@ -1,3 +1,26 @@
 {{#if config.piwik.url}}
+	<script>
+	var _paq = _paq || [];
+	_paq.push(["setDomains", [ '{{config.piwik.domain}}' ]]);
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="{{config.piwik.url}}/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', {{config.piwik.siteId}} ]);
+		_paq.push([ function() {
+			var loc = window.location;
+			if (loc.search.indexOf('pk_campaign') > -1) {
+				if (window.history.replaceState) {
+					history.replaceState({}, '', loc.pathname);
+				} else {
+					loc.hash = '';
+				}
+			}
+		}]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	})();
+	</script>
 	<noscript><img src="{{config.piwik.url}}/piwik.php?idsite={{config.piwik.siteId}}" style="border:0" aria-hidden="true"></noscript>
 {{/if}}

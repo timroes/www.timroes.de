@@ -12,5 +12,4 @@ import './scripts/relatedPosts.js';
 import './scripts/serviceworker-registration.js';
 import './scripts/cookieconsent.js';
 import './scripts/disqus.js';
-import './scripts/piwik.js';
 import './scripts/ads.js';
