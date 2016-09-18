@@ -17,10 +17,6 @@
 	<meta property="article:section" content="{{use-first post.meta.category config.blog.category 'Misc'}}">
 	<meta property="article:published_time" content="{{date-iso post.meta.created}}">
 
-	{{#each post.meta.authors as |author|}}
-		<meta property="article:author" content="{{lookup (lookup ../authors @this) 'name'}}">
-	{{/each}}
-
 	{{#if post.meta.image}}
 		<meta itemprop="image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
 		<meta property="og:image" content="{{config.blog.url}}/images{{svg-as-png post.meta.image}}">
