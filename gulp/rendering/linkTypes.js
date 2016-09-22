@@ -6,6 +6,7 @@
 */
 import posts from '../data/rawPosts';
 import path from 'path';
+import gutil from 'gulp-util';
 
 const allPosts = posts();
 
@@ -58,5 +59,15 @@ export function biglink(href, title, text) {
 	return {
 		classes: ['medialink-web'],
 		icon: 'web'
+	};
+};
+
+export function TODO() {
+	if (gutil.env.production !== undefined) {
+		throw new Error("TODO links are not allowed with --production!");
+	}
+	return {
+		href: '#',
+		blank: false
 	};
 };

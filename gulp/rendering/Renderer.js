@@ -127,9 +127,9 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 			}
 		}
 
-		const linkParts = /([^:]+):(.*)/.exec(href);
+		const linkParts = /([^:]+)(:(.*))?/.exec(href);
 		const linkParser = (linkParts[1] in links) ? links[linkParts[1]] : defaultLink.bind(defaultLink, linkParts[1]);
-		const linkdata = linkParser(linkParts[2], title, text);
+		const linkdata = linkParser(linkParts[3], title, text);
 
 		href = linkdata.href || linkParts[2];
 		title = linkdata.title || title;
