@@ -65,7 +65,7 @@ const svgAsPng = function (str) {
 };
 
 const svgIcon = function (icon) {
-	return `<svg class="icon" aria-hidden="true"><use xlink:href="/assets/icons.svg#${icon}"></use></svg>`
+	return `<svg class="icon" aria-hidden="true" width="1em" height="1em"><use xlink:href="/assets/icons.svg#${icon}"></use></svg>`
 };
 
 const flatJoin = function (context) {

@@ -4,7 +4,7 @@ const $ = require('jquery');
 const copyLabel = 'Copy Code';
 
 $(() => {
-	$('.copycode').append(`<button class="cc-btn"><svg class="icon"><use xlink:href="/assets/icons.svg#clipboard"></use></svg> <span class="l">${copyLabel}</span></button>`);
+	$('.copycode').append(`<button class="cc-btn" style="display:none"><svg class="icon"><use xlink:href="/assets/icons.svg#clipboard"></use></svg> <span class="l">${copyLabel}</span></button>`);
 
 	const clipboard = new Clipboard('.cc-btn', {
 		target: function(trigger) {
