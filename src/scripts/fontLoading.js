@@ -14,9 +14,9 @@ const fontPromises = fonts.map(font => {
 });
 
 Promise.all(fontPromises).then(() => {
-	// Remove fouf (flash of unstyled font) class (that hides the body) if it is still
+	// Remove fout (flash of unstyled text) class (that hides the body) if it is still
 	// there (i.e. if we loaded faster than 400ms)
-	document.body.classList.remove('fouf');
+	document.body.classList.remove('fout');
 	const perf = window.performance;
 	if (!perf || // If there is no performance API available, or ...
 			!perf.timing.domContentLoadedEventStart || // the DOM content hasn't yet been completed loaded, or ...

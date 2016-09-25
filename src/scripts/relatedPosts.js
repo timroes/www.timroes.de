@@ -18,13 +18,13 @@ function recalculateMaxHeight() {
 
 function triggerRecalculateMaxHeight() {
 	if ($('.serieslinks-linklist').length > 0) {
-		// Check whether the body still has the fouf class. In this case the height
+		// Check whether the body still has the fout class. In this case the height
 		// of the element can't be calculated yet, so postpone the calculation for 400ms
-		// which is the max amount of time the fouf class is set at all. Most likely
+		// which is the max amount of time the fout class is set at all. Most likely
 		// the class will be removed way earlier, but it's not so much of a harm, if we wait
 		// longer. In the end without this calculation the related posts are just not collapsed,
 		// so we don't lose any important functionality.
-		if ($(document.body).hasClass('fouf')) {
+		if ($(document.body).hasClass('fout')) {
 			setTimeout(recalculateMaxHeight, 400);
 		} else {
 			recalculateMaxHeight();
