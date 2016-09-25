@@ -208,10 +208,12 @@ import 'ui/autoload/styles';
 import './less/main.less';
 ```
 
-The first line is important and you should always have it in an application
+The first line is important **if you use Kibana 5** and you should always have it in an application
 plugin. It will cause Kibana to load all the styles it usually has. If you don’t
 import (or require if you prefer ES5 syntax) this module, the Kibana frame
 around your application will look broken when the user enters your application.
+**If you use Kibana 4** this file doesn't exist and you cannot import it (which
+brings us back to the huge warning in the first post, about the lack of a stable public API).
 
 The second line is optional and shows how to insert own LESS styles for your
 application. You just import your LESS file. You could also use SASS instead. I
