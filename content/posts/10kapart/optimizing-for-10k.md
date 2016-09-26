@@ -367,13 +367,24 @@ version on my blog).
 The Result
 ----------
 
-Looking at the new sizes after I finished all optimizations, I am now loading only
-2.88 kB CSS instead of 7.2 kB blocking. I am also loading all JS (getting rid of 39.6 kB),
-images and all fonts async. That way I decreased my initial loading size from
-210kB to 3.46 kB plus the size for the HTML (in case of the start page 3.5kB).
+Looking at the new sizes after I finished all optimizations:
+
+| Type                  | Size   | Async |
+|-----------------------|--------|-------|
+| HTML                  | 3.48kB |       |
+| Critical CSS          | 2.88kB |       |
+| CSS                   | 2.72kB | <span aria-label="Loaded async">X</span> |
+| CSS (start page only) | 1.89kB | <span aria-label="Loaded async">X</span> |
+| Logo on top           | 601B   |       |
+| Images                | 96.8kB | <span aria-label="Loaded async">X</span> |
+| JavaScript            | 35.7kB | <span aria-label="Loaded async">X</span> |
+| Font                  | 62.8kB | <span aria-label="Loaded async">X</span> |
+
+With all the changes I decreased my initial loading size from
+210kB to 3.46 kB plus the size for the HTML - in case of the start page around 3.5kB.
 
 Looking at all different article HTML sizes, I succeeded in having 24 post and pages
-to load in under 10k and a remaning 9 to at least load in under 20k.
+to load in under 10k and the remaining 9 to load in under 20k.
 
 Also looking at how the page loads the loading behavior has improved, especially
 for low connections, and the - in my opinion - greatest benefit is: I finally implemented
