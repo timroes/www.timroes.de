@@ -91,7 +91,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 	 */
 	heading(text, level, raw) {
 		this._readingTime += wordCount(text) * this.timePerHeadingWord;
-		const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
+		const id = raw.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-|-$/, '');
 		return `<h${level} id="${id}">
 				<a class="anchorlink" href="#${id}">
 				${text}
