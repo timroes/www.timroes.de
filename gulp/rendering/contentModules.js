@@ -2,7 +2,7 @@ import config from '../data/config';
 import helpers from '../handlebarHelpers';
 
 function talk(talk) {
-	return `<a class="talk-box" ${talk.url ? 'href="' + talk.url + '"' : ''} target="_blank">
+	return `<a class="talk-box" ${talk.url ? 'href="' + talk.url + '"' : ''} target="_blank" rel="noopener">
 			<img class="ll" data-src="/images${talk.image}">
 			<span class="talk-box__title">${talk.name}</span>
 			<span class="talk-box__conference">${talk.event}</span>
