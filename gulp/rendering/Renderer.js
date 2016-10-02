@@ -161,16 +161,21 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		const size = imageSize(`${paths.content.base}/images${href}`);
 		const ratio = (size.height / size.width) * 100;
 
+		const wrapperClasses = ['image-wrapper'];
+
 		const isFloating = /:$/.test(text);
 		if (isFloating) {
 			text = text.replace(/:$/, '');
+			wrapperClasses.push('floating');
+		}
+
+		if (size.height < 120 || size.width < 120) {
+			wrapperClasses.push('tiny');
 		}
 
 		const imgId = this._createRandomId('i_');
 
-		let out = `<div class="image-wrapper ${isFloating ? 'floating' : ''}"
-				${isFloating ? 'style="width:' + size.width + 'px;height:'+size.height+'px"' : ''}
-			>
+		let out = `<div class="${wrapperClasses.join(' ')}" style="width:${size.width}px">
 			<span class="image-desc" id="${imgId}">${text}</span>
 			<div class="image-placeholder" style="padding-bottom: ${ratio}%"></div>
 			<img data-src="/images${href}" aria-labelledby="${imgId}" class="ll`;
