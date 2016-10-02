@@ -28,7 +28,6 @@ $(() => {
 		if (val) {
 			$(`.postlink:not([data-tags*="${val}"])`).hide();
 		}
-		$('.postlist-header').removeClass('expanded');
 		// Track filter event to analytics if analytics are available
 		if (window._paq) {
 			window._paq.push(['trackEvent', 'Filter Posts', val]);
