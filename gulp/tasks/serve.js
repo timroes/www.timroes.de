@@ -6,7 +6,7 @@ export default function(gulp, paths, _) {
 
 	function failFile(filename) {
 		return (req, res, next) => {
-			if (req.url.startsWith(filename)) {
+			if (new RegExp(`^${filename}`).test(req.url)) {
 				_.util.log(_.util.colors.yellow(`Returned error 500 for ${filename}`));
 				req.statusCode = 500;
 				res.end();
@@ -36,6 +36,12 @@ export default function(gulp, paths, _) {
 	} else if (_.util.env['main-css'] === false) {
 		// Disable delivery of main css (only above the fold css will be delivered)
 		middlewares.push(failFile('/main.min.css'));
+	}
+
+	if (_.util.env['delay-images'] !== undefined) {
+		middlewares.push(delayFile('/images/.*'));
+	} else if (_.util.env['images'] === false) {
+		middlewares.push(failFile('/images/.*'));
 	}
 
 	gulp.task('serve', () => {
