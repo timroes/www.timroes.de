@@ -9,5 +9,6 @@ $(() => {
 	}).on('load', function() {
 		// If image loaded successfully add 'ok' class to it
 		$(this).addClass('ok');
+		$(this).parent('.image-wrapper').addClass('ok');
 	});
 });
