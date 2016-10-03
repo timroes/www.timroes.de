@@ -74,11 +74,17 @@ const flatJoin = function (context) {
 	return arr.join(',');
 };
 
+const ariaReadingTime = function (time) {
+	const prefix = (time === 11 || /^8/.test(time)) ? 'an' : 'a';
+	return `${prefix} ${time} minute${time === 1 ? '' : 's'} read`;
+}
+
 export default {
 	date,
 	encode,
 	notequals,
 	substring,
+	'aria-reading-time': ariaReadingTime,
 	'flat-join': flatJoin,
 	'use-first': useFirst,
 	'date-iso': dateIso,
