@@ -137,7 +137,7 @@ demonstrate with an easy sample:
 def createGreeter = { name ->
   return {
     def day = new Date().getDay()
-    if (day == 0 || day == 1) {
+    if (day == 0 || day == 6) {
       println "Nice Weekend, $name"
     } else {
       println "Hello, $name"
