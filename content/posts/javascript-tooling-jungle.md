@@ -119,7 +119,9 @@ there are some other tools, that are widely used in building web applications.
 
 **[UglifyJS](https://github.com/mishoo/UglifyJS2)** is a commonly used postprocessor
 for JavaScript, that will minify your code in size, remove unused and dead code - kind
-of what *ProGuard* does in the Java world.
+of what *ProGuard* does in the Java world. If you are interested in advanced loading size
+optimizations, you can also have a look at my [Optimizing your webpage for 10k](post:optimizing-for-10k)
+article.
 
 **[ESLint](http://eslint.org/)** and **[JSHint](http://jshint.com/)** are linting tools,
 that will check your code for possible bad (or even buggy) code. They also offer options
