@@ -21,11 +21,11 @@ $(() => {
 		historyLink.click((ev) => {
 			ev.preventDefault();
 			if (!container.children().length) {
-				historyLink.find('svg').addClass('spin');
+				historyLink.find('svg').addClass('spin-delay');
 				container.attr('aria-label', 'History is loading. Please wait.');
 				container.load('./history.html', null, () => {
 					// When history finished loading, remove loading aria-label and spinning icon
-					historyLink.find('svg').removeClass('spin');
+					historyLink.find('svg').removeClass('spin-delay');
 					container.attr('aria-label', null);
 				});
 				container.show();
