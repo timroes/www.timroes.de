@@ -14,7 +14,7 @@ summary: |
 
 When being new into JavaScript development the wide range of tools you need,
 or at least are used in a lot of projects, might be confusing. You just might want
-to start a simple project and hear about Node, gulp, LESS, Webpack, and more.
+to start a simple project and hear about Node, gulp, LESS, Webpack, UglifyJS, Babel and more.
 Especially if you come from a language like Java, where you have build systems like
 Gradle, it might become very confusing that you have to use several different
 tools to do the "same" in JavaScript.
