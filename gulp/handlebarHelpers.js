@@ -76,7 +76,7 @@ const flatJoin = function (context) {
 
 const ariaReadingTime = function (time) {
 	const prefix = (time === 11 || /^8/.test(time)) ? 'an' : 'a';
-	return `${prefix} ${time} minute${time === 1 ? '' : 's'} read`;
+	return `${prefix} ${time} minute read`;
 }
 
 export default {
