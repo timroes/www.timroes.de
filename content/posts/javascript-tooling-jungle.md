@@ -19,7 +19,7 @@ Especially if you come from a language like Java, where you have build systems l
 Gradle, it might become very confusing that you have to use several different
 tools to do the "same" in JavaScript.
 
-In this post I want to explain how these different tools interact woth each other and what each of it does.
+In this post I want to explain how these different tools interact with each other and what each of it does.
 If you are missing a tool, you would like to see explained in this post, please
 feel free to leave a comment below.
 
