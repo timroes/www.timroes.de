@@ -13,6 +13,7 @@ after_success:
   - openssl aes-256-cbc -K $encrypted_a4b8f6cb10ef_key -iv $encrypted_a4b8f6cb10ef_iv -in deploy.key.enc -out deploy.key -d
   - chmod 600 deploy.key
   - ./deploy.sh
+  - "curl -u $keycdn_api_key: https://api.keycdn.com/zones/purge/$keycdn_zone_id.json"
 
 # Only build master branch
 branches:
