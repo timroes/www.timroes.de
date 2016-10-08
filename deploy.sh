@@ -6,4 +6,4 @@ else
 	remote_dir="/srv/htdocs_preview"
 fi
 
-rsync -av --delete -e 'ssh -i deploy.key' build/ travisci@www.timroes.de:$remote_dir
+rsync -av --delete -e 'ssh -i deploy.key' build/ travisci@www-orig.timroes.de:$remote_dir
