@@ -159,7 +159,7 @@ Besides compiling the bundlers also have several plugins for pre- and postproces
 the files, so that you can - and often it makes sense to - do a lot of the other
 optimizations (like using UglifyJS) as part of the bundeling process. The range of plugins
 bundlers support are growing and so you can also use your CSS preprocessor (see below)
-as part of the bundler, and require the CSS files are you would with regulare JavaScript
+as part of the bundler, and require the CSS files are you would with regular JavaScript
 modules. That also means, you will find the configuration of several steps, that
 were earlier separated build steps inside the config for your bundler and the bundler
 is triggered by your build system.
