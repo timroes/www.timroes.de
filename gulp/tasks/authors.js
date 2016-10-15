@@ -1,4 +1,5 @@
 import authors from '../data/authors';
+import options from '../options';
 import gravatar from 'gravatar';
 
 const sizes = [
@@ -11,6 +12,10 @@ const sizes = [
 export default function(gulp, paths, _, watch, pipelines) {
 
 	gulp.task('gravatar', () => {
+		if (options.noNetwork()) {
+			// Don't download avatars when --no-network was specified
+			return;
+		}
 		const auths = authors();
 		Object.keys(auths).forEach((id) => {
 			sizes.forEach((size) => {
