@@ -204,9 +204,9 @@ a new project means just calling one command on the commandline which will then
 setup the project structure and create appropriated build files for you.
 
 Personally I am not a big fan of yeoman. It generates a lot of codes inside your build process
-and have seen too many projects where people couldn't explain me what specific code
+and have seen too many projects where people couldn't explain to me what specific parts of code
 inside their buildfiles does or if it is still needed at all. Also updating those build files
-is basically mergin other git branches into it, which is far away from just updating a
+is basically merging other git branches into it, which is far away from just updating a
 plugin inside a buildsystem and everything continues to work.
 
 Résumé
