@@ -1,15 +1,15 @@
 upcoming:
-  - name: Progressive Web Apps
-    event: DevFest, Hamburg
-    date: October 2016
-    image: /talks/gdg-hamburg.png
-    url: https://hamburg.devfest.de/schedule/
   - name: Let's talk about Website Optimization
     event: inovex Meetup
     date: November 2016
     image: /talks/inovexlogo.png
     url: http://www.meetup.com/inovex-karlsruhe/events/233639667/
 past:
+  - name: Progressive Web Apps
+    event: DevFest, Hamburg
+    date: October 2016
+    image: /talks/gdg-hamburg.png
+    url: https://drive.google.com/open?id=1AVZy61ZtavbOsOL-6lxO23LfnTEk1nDy92fPf3RnlyE
   - name: Advanced usage of Chrome Dev Tools
     event: KarlsruheJS
     date: July 2016
