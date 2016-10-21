@@ -49,15 +49,21 @@ function loadGitHistory(post) {
 
 			return walker.fileHistoryWalk(post.file, 1000);
 		}).then(compileHistory).then(history => {
-			post.history = history.map(entry => {
-				const commit = entry.commit;
-				return {
-					sha: commit.sha().substr(0, 6),
-					sha_full: commit.sha(),
-					message: commit.message(),
-					date: commit.date()
-				};
-			});
+			// Sort by date (there might be some situations where it isn't sorted correctly)
+			history.sort((a, b) => b.commit.date() - a.commit.date());
+			const shas = {};
+			post.history = history
+				.map(entry => {
+					const commit = entry.commit;
+					return {
+						sha: commit.sha().substr(0, 6),
+						sha_full: commit.sha(),
+						message: commit.message(),
+						date: commit.date()
+					};
+				})
+				// Filter out duplicate commits (may happen also)
+				.filter(commit => shas.hasOwnProperty(commit.sha_full) ? false : (shas[commit.sha_full] = true));
 			return post;
 		});
 }
