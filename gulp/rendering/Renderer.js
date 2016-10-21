@@ -164,10 +164,15 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 
 		const wrapperClasses = ['image-wrapper'];
 
-		const isFloating = /:$/.test(text);
+		const isFloating = /^[^:].*:$/.test(text);
 		if (isFloating) {
 			text = text.replace(/:$/, '');
 			wrapperClasses.push('floating');
+		}
+
+		const isCentered = /^:.*:$/.test(text);
+		if (isCentered) {
+			wrapperClasses.push('centered');
 		}
 
 		if (size.height < 120 || size.width < 120) {
