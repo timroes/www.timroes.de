@@ -27,7 +27,7 @@ I decided to not use any framework or prebuild software anymore, but build it co
 from scratch.
 
 The main templates that make up the HTML of this blog are [handlebars](http://handlebarsjs.com/)
-template. I use [gulp.js](http://handlebarsjs.com/) to execute several tasks, that read
+template. I use [gulp.js](http://gulpjs.com/) to execute several tasks, that read
 the content of this blog and transform it into static HTML, CSS and JavaScript.
 
 My posts are actually written in Markdown with some YAML on top of it to describe
