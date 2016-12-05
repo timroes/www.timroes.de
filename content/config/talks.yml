@@ -1,10 +1,10 @@
 upcoming:
+past:
   - name: Let's talk about Website Optimization
     event: inovex Meetup
     date: November 2016
     image: /talks/inovexlogo.png
     url: http://www.meetup.com/inovex-karlsruhe/events/233639667/
-past:
   - name: Progressive Web Apps
     event: DevFest, Hamburg
     date: October 2016
