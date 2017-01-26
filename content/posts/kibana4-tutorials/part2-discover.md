@@ -38,7 +38,7 @@ absolute tabs to specify which time spans you want to look at.
 
 **Attention**: If you use the sample data, you most likely won’t see anything by default.
 This is because the sample data was collected at a specific time in the past
-(February 5th ~12:00). You have to select a time range where this date is included.
+(February 5th ~12:00, 2015 - yeah it's an old tutorial!). You have to select a time range where this date is included.
 
 After you selected a time range which contains data, you will see a histogram at the
 top of the screen, which will show the distribution of events (tweets) over time.
