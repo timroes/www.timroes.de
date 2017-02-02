@@ -13,3 +13,4 @@ import './scripts/serviceworker-registration.js';
 import './scripts/cookieconsent.js';
 import './scripts/disqus.js';
 import './scripts/ads.js';
+import './scripts/share.js';
