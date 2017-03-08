@@ -184,6 +184,9 @@ Elasticsearch. Inside the resolve function we will then just extract the data we
 need from the response (in our case the index stats) and return it (via the
 `reply` method).
 
+[[hintbox]] If you are developing for **Kibana 5.2** onwards there are slight changes
+in the use of `callWithRequest` outlined in [this blogpost](https://www.elastic.co/blog/kibana-plugin-developers-meet-elasticsearch-clusters).
+
 That way we have created our first Kibana server API, that is now ready to be
 called. If you watch into the source code on GitHub you will notice, that I
 extracted the API generation to another module and just called this method from
