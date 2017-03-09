@@ -15,6 +15,9 @@ after_success:
   - ./deploy.sh
   - "curl -u $keycdn_api_key: https://api.keycdn.com/zones/purge/$keycdn_zone_id.json"
 
+# Enable yarn cache
+cache: yarn
+
 # Only build master branch
 branches:
   only:
