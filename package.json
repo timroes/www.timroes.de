@@ -69,6 +69,7 @@
     "yamljs": "^0.2.4"
   },
   "scripts": {
+    "start": "gulp build --production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tim Roes <mail@timroes.de>",
