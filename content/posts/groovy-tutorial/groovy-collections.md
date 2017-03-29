@@ -214,7 +214,7 @@ map.collectEntries { key, value ->
 
 This snippet does the same as the one above. It will just add every entry again to
 the new map. You can even return a map with more then one entry. In this case
-all entries in the map will be put to the new list:
+all entries in the map will be put to the new map:
 
 ```groovy
 map.collectEntries { key, value ->
