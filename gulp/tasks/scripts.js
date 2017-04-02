@@ -27,13 +27,17 @@ export default function(gulp, paths, _, watch, pipelines) {
 			.pipe(webpackStream({
 				module: {
 					loaders: [
-						{ test: /\.js$/, loader: 'babel' }
+						{ test: /\.js$/, loader: 'babel-loader' }
 					]
 				},
 				plugins: [
 					new webpack.optimize.UglifyJsPlugin(uglifyJsOptions()),
+					new webpack.LoaderOptionsPlugin({
+						minimize: true,
+						debug: false
+					})
 				]
-			}))
+			}, webpack))
 			.pipe(_.rename({ extname: '.min.js' }))
 			.pipe(gulp.dest(paths.build));
 	});
