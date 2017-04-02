@@ -182,7 +182,7 @@ class ReadingTimeCalculatingRenderer extends marked.Renderer {
 		const imgId = this._createRandomId('i_');
 
 		let out = `<div class="${wrapperClasses.join(' ')}" style="width:${size.width}px">
-			<span class="image-desc" id="${imgId}">${text}</span>
+			<span class="image-desc" id="${imgId}" aria-hidden="true">${text}</span>
 			<div class="image-placeholder" style="padding-bottom: ${ratio}%"></div>
 			<img data-src="/images${href}" aria-labelledby="${imgId}" class="ll`;
 		// Allow right floating images
