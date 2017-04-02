@@ -1,4 +1,9 @@
 upcoming:
+  - name: '#neuland'
+    event: KarlsruheJS
+    date: April 2017
+    image: /talks/karlsruhejs.png
+    url: https://www.meetup.com/de-DE/KarlsruheJS/events/238433702/
 past:
   - name: Let's talk about Website Optimization
     event: inovex Meetup
