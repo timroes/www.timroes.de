@@ -1,4 +1,14 @@
 upcoming:
+  - name: "Let's talk about Accessibility"
+    event: inovex Meetup, Karlsruhe
+    date: May 2017
+    image: /talks/inovexlogo.png
+    url: https://www.meetup.com/de-DE/inovex-karlsruhe/events/239722393/
+  - name: "#neuland"
+    event: enterJS 2017
+    date: June 2017
+    image: /talks/enterjs.svg
+    url: https://www.enterjs.de/abstracts#neuland
 past:
   - name: "#neuland"
     event: KarlsruheJS
