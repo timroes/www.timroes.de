@@ -1,10 +1,10 @@
 upcoming:
+past:
   - name: "#neuland"
     event: enterJS 2017
     date: June 2017
     image: /talks/enterjs.svg
     url: https://www.enterjs.de/abstracts#neuland
-past:
   - name: "Let's talk about Accessibility"
     event: inovex Meetup, Karlsruhe
     date: May 2017
