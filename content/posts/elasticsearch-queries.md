@@ -236,6 +236,12 @@ Not too confused yet? Then let's jump right on to the next section.
 Writing queries without a field
 -------------------------------
 
+### Old behavior
+
+The following behavior is the old Elasticsearch behavior, but described here for
+completeness. It might effect you if you are using Elasticsearch Version prior
+to 5.1 or if you still have data indexed before 5.1.
+
 If you just write a query like `Douglas`, Elasticsearch doesn't know in which of the
 inverted indexes you want to look that term up. If you use JSON when querying Elasticsearch
 directly you can specify the field it should look in with the `default_field` option
@@ -296,6 +302,21 @@ the *_all* inverted index has the term "douglas" (lowercase) indexed: Elasticsea
 same autodetection as mentioned earlier. It detects that the *_all* field is an analyzed field,
 and so it will use the same analyzer on the search value ("Douglas"), which among others converts
 the value to lowercase.
+
+### New behavior
+
+Starting with Elasticsearch 5.1 the `_all` field was replaced by an `all_fields`
+search mode.
+
+If you search in a more modern Elasticsearch version for a string without a field
+(e.g. `Douglas` in the example above) the search won't be done against the specific
+`_all` inverted index, but against *all* inverted indexes. That way the value
+will be searched in each (searchable) field, but the actual analyzer of that field
+will be used.
+
+You can find more detailed information on when the `_all` field might still be used
+and details on the `all_fields` search in the [pull request](https://github.com/elastic/elasticsearch/pull/20925)
+on GitHub.
 
 
 AND &amp; OR Operators
