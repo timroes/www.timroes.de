@@ -4,8 +4,12 @@ import defaultLink, * as links from './linkTypes';
 import * as contentModules from './contentModules';
 import helpers from '../handlebarHelpers';
 import highlightjs from 'highlight.js';
+import registerLanguages from './languages/init';
 import config from '../data/config';
 import paths from '../paths';
+
+// Register additional languages to the syntax highlighter
+registerLanguages(highlightjs);
 
 function escape(html, encode) {
 	return html
