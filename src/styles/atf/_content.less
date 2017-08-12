@@ -94,7 +94,7 @@ article {
 .image-wrapper {
 	position: relative;
 	background-size: 80px 80px;
-	background-position: center center;
+	background-position: center ~"calc(50% - 50px)";
 	background-repeat: no-repeat;
 	background-color: @placeholder-bg-color;
 	max-width: 100%;
@@ -157,7 +157,7 @@ article {
 }
 
 .image-desc {
-	padding-top: 2em;
+	transform: translateY(-50%);
 }
 
 .tiny .image-desc {
