@@ -1,14 +1,14 @@
 const SELF = 'self';
 
 const FUNCTIONS = {
-	begin: /\.[a-zA-Z]+\(/,
+	begin: /\.[a-zA-Z_]+\(/,
 	end: /\)/,
 	returnBegin: true,
 	contains: [
 		{
 			// Highlight actual keyword of the function
 			className: 'keyword',
-			begin: /\.[A-Za-z]+/
+			begin: /\.[A-Za-z_]+/
 		},
 		{
 			// Close the function directly after we parsed the actual function keyword

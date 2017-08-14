@@ -428,6 +428,37 @@ to different y-axes.
 
 ![The same two series as above, but with two y-axes](/timelion/y-axis.png)
 
+There is one other scaling issue, that you can hardly solve with classical
+Kibana virtualizations. Imagine you are drawing the sum of bytes of you server
+log data. If you watch data from a whole week, each data point on the x-axis
+will now represent one hour of data, hence have the sum of all bytes transfered
+within an hour as a value. When selecting a different time range, e.g. four hours,
+each data point will now only represent a minute, thus having a way lower y-axis
+value. The following graphs show this situation, with the graph on the left
+being a time range of a week and the one on the right a time range of four hours.
+As you can see the y-axis values in the left graph are way higher.
+
+![Two graphs with way higher y-axis values in the left graph](/timelion/sum-bytes-scales.png)
+
+Sometimes that behavior is not what you want, because you might want to compare
+absolute values with each other no matter what time range you are viewing, or
+you want these values to be meaningful to you, e.g. because you want to see
+all values in *bytes per second*, because you might be used to calculate bandwidth
+in that unit.
+
+The `scaled_interval` function does exactly solve that issue. It takes one parameter
+(named `interval`), which accepts a time unit (as seen above). Timelion will calculate
+all values, to be *per this interval* no matter what time range you are looking.
+To see the *bytes per second*, specify a value of `1s`, to see the *bytes per minute*
+a value of `1m`:
+
+```timelion
+.es(metric=sum:bytes).scaled_interval(1s)
+```
+
+This won't change the shape of the graph at all, it will just scale the actual values
+printed on the y-axis and shown to you when hovering the graph.
+
 ### Calculate with series
 
 Another of the great advantages in timelion is the ability to calculate with series.
