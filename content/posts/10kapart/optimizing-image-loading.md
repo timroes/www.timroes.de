@@ -36,7 +36,7 @@ To be honest: that behaviour will also happen with regular `img` tags without la
 loading before the browser has these first bytes. But since the browser immediately
 start loading the image while parsing HTML, you will require a very slow connection
 to witness that behaviour. With async loaded images it is very likely you will see
-the juming content also on fast connections.
+the jumping content also on fast connections.
 
 To get rid of this jumping content (also for regular loaded imgs) you need to know
 the size of the image on the server when building the HTML. You could than set the
