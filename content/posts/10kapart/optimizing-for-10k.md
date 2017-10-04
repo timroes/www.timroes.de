@@ -89,7 +89,7 @@ Let's first look at how I optimized the JavaScript. In fact most of the optimiza
 explained during this section were already made when I created the new blog software
 or some month after. But for the sake of this article, let's assume they are all new :-)
 
-One of the technologies you should definitly have a look into when it comes to performance
+One of the technologies you should definitely have a look into when it comes to performance
 are Service Workers. Serice Workers allow a browser the cache a complete webpage
 for offline usage and serve it completely from cache. There are tons of great articles
 out there in the web on how to use them, so I won't cover it in this article in detail.
@@ -106,7 +106,7 @@ adding the `async` attributes to the script tag, that loads the JavaScript. The
 [browser support](http://caniuse.com/#feat=script-async) is pretty good and the browser
 will now load the script asynchronously and execute it once it's finished loading.
 
-That technique is especially usefull if JavaScript is completely optional, as it
+That technique is especially useful if JavaScript is completely optional, as it
 is for this blog (the so called _progressive enhancement_). The blog just adds some
 nice-to-have features with JavaScript, like:
 you get a sticky footer on bottom of the screen, without JS this footer will just be

@@ -59,7 +59,7 @@ jumping content as one of the main sins in web design.
 I first got rid of the second problem. Once the font face finishes loading, I only
 swap in this font, if the `DOMContentLoaded` has happened in the last 2 seconds.
 If the font needed longer to load, I just ignore it for this page view, though the
-loading stil has caused the font to be cached by the browser now. That way I prevent
+loading still has caused the font to be cached by the browser now. That way I prevent
 jumping content, on slow connections where the font might take some seconds to load
 and don't interrupt the users interaction flow anymore.
 
