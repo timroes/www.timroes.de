@@ -242,7 +242,9 @@ in the URL, e.g. it's `NY.GDP.MKTP.CD` for the GDP of a country or `SP.POP.0014.
 for the population ages 0 to 14 in percentage. If you don't specify an indicator
 the population is loaded.
 
-To visualize the GDP of France and Germany, you could use the following expression:
+To visualize the GDP of France and Germany, you could use the following expression.
+Since World Bank only has one data point per year (and often not for the current year),
+make sure to select a large enough time range (e.g. the last 50 years) to get a proper chart.
 
 ```timelion
 .wbi(country=de, indicator=NY.GDP.MKTP.CD), .wbi(country=fr, indicator=NY.GDP.MKTP.CD)
