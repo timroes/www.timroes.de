@@ -29,8 +29,10 @@ $(() => {
 			$(`.postlink:not([data-tags*="${val}"])`).hide();
 		}
 		// Track filter event to analytics if analytics are available
-		if (window._paq) {
-			window._paq.push(['trackEvent', 'Filter Posts', val]);
+		if (window.gtag) {
+			window.gtag('event', 'filter_posts', {
+				filter: val
+			});
 		}
 	});
 

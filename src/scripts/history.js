@@ -11,8 +11,10 @@ $(() => {
 			historyLink.attr('aria-expanded', expanded);
 			if (expanded) {
 				// Track show history event to analytics if analytics are available
-				if (window._paq) {
-					window._paq.push(['trackEvent', 'Show Post History', location.pathname]);
+				if (window.gtag) {
+					window.gtag('event', 'show_post_history', {
+						post: location.pathname
+					});
 				}
 			}
 		};
