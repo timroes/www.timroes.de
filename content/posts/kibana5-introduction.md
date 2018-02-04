@@ -9,6 +9,7 @@ summary: |
   A short introductio into Kibana 5. This is the visual transcript of
   my video introduction on YouTube.
 image: /banners/kibana5.svg
+youtube: mMhnGjp8oOI
 ---
 
 [[hintbox]] This is a *visual transcript* of my
