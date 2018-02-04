@@ -3,6 +3,12 @@
 	<div class="postmeta">
 		<time datetime="{{post.meta.created}}" aria-label="Written on {{sr-date post.meta.created}}">{{{svg-icon 'calendar'}}} {{date post.meta.created}}</time>
 		<span aria-label="Estimated reading time is {{post.readingTime}} minutes">{{{svg-icon 'clock'}}} {{post.readingTime}} min read</span>
+		{{#if post.meta.youtube}}
+		<a href="https://www.youtube.com/watch?v={{post.meta.youtube}}" class="watch-as-video">
+			{{{svg-icon 'youtube'}}}
+			Watch as video
+		</a>
+		{{/if}}
 	</div>
 
 	{{#if post.history.length}}
