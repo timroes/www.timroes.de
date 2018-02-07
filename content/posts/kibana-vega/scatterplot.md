@@ -46,6 +46,9 @@ explanation can be found in the inline comments:
 
 ```javascript
 {
+  // We use Vega lite syntax here instead of Vega. The Vega visualization
+  // supports both and we can specify which one we want to use by specifying
+  // the corresponding schema here.
   $schema: "https://vega.github.io/schema/vega-lite/v2.json"
   // Use points for drawing to actually create a scatterplot
   mark: point
