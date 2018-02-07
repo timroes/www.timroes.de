@@ -34,7 +34,7 @@ Let's assume we have documents that contain at least the following fields stored
 }
 ```
 
-We would now like to draw to draw a scatterplot, that uses the time of each
+We would now like to draw a scatterplot, that uses the time of each
 document on the x-axis and the amount of transferred bytes on the y-axis.
 Besides that we also want to give each extension a custom color and shape of point.
 The resulting scatterplot could look like as follows:
