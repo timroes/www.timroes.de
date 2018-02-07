@@ -17,7 +17,7 @@ summary: |
 which are available as an experimental visualization since Kibana 6.2. If you want
 to use it prior to 6.2 look into [Yuri's Vega plugin](https://github.com/nyurik/kibana-vega-vis).
 
-Via Vega visualizations you can use the [Vega](https://vega.github.io/vega/) visualization grammar
+Via Vega visualizations you can use the [Vega](https://vega.github.io/vega/) (or in this case [Vega-Lite](https://vega.github.io/vega-lite/)) visualization grammar
 to write and visualize data in Kibana. The syntax itself is meant for more advanced users,
 but offer some possibilities, that have not been able to visualize beforehand.
 
@@ -46,7 +46,7 @@ explanation can be found in the inline comments:
 
 ```javascript
 {
-  // We use Vega lite syntax here instead of Vega. The Vega visualization
+  // We use Vega-Lite syntax here instead of Vega. The Vega visualization
   // supports both and we can specify which one we want to use by specifying
   // the corresponding schema here.
   $schema: "https://vega.github.io/schema/vega-lite/v2.json"
