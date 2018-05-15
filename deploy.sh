@@ -1,9 +1,4 @@
 #! /usr/bin/env bash
 
-if [ "$TRAVIS_BRANCH" == "master" ]; then
-	remote_dir="/srv/htdocs"
-else
-	remote_dir="/srv/htdocs_preview"
-fi
-
-rsync -av --delete -e 'ssh -i deploy.key' build/ travisci@www-orig.timroes.de:$remote_dir
+cd build/
+find . -type f -printf '%p' -exec curl -s --write-out " - Status: %{response_code} Size: %{size_upload} Time: %{time_total}s\n" --user $ftpuser:$ftppassword --ftp-create-dirs -T {} ftp://$ftphost/{} \;
