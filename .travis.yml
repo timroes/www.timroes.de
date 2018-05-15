@@ -9,7 +9,6 @@ git:
 # Deploy to server after successfull run
 after_success:
   - ./deploy.sh
-  - "curl -XPOST -H 'AccessKey: $bunnycdn_api_key' -H 'Content-Type: application/json' https://bunnycdn.com/api/pullzone/$bunnycdn_zone_id/purgeCache -d ''"
 
 # Enable yarn cache
 cache: yarn
